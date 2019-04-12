@@ -4,7 +4,7 @@ import java.util.NoSuchElementException;
 
 /**
  * This provides implementation for some of the LList methods.
- *
+ *sdf
  * @author Mark Wiggans (mmw125)
  * @version 3/29/15
  * @author Eric Williamson
@@ -14,6 +14,9 @@ import java.util.NoSuchElementException;
  * @param <E>
  *            The type of object the class will store
  */
+
+
+ 
 public class DLList<E> 
 {
 
