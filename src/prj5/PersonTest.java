@@ -1,6 +1,7 @@
 package prj5;
+import student.TestCase;
 
-public class PersonTest 
+public class PersonTest extends TestCase
 {
     
 }
