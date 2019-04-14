@@ -17,14 +17,16 @@ import student.TestCase;
  */
 public class PersonTest extends TestCase
 {
-    private Person person;
+    private Person person;   
+    private SongList list;
     
     /**
      * Sets up the test class.
      */
     public void setUp()
     {
-        
+        list = new SongList();
+        person = new Person(list, "sports", "Northeast", "Computer Science", 0);
     }
     
     /**
@@ -32,7 +34,16 @@ public class PersonTest extends TestCase
      */
     public void testGetHobby()
     {
-        
+        assertEquals(Hobby.SPORTS, person.getHobby());
+    }
+    
+ 
+    /**
+     * Tests that a person's state is correctly given.
+     */
+    public void testGetState()
+    {
+        assertEquals(State.NORTHEAST_US, person.getState());
     }
     
     /**
@@ -40,15 +51,7 @@ public class PersonTest extends TestCase
      */
     public void testGetMajor()
     {
-        
-    }
-    
-    /**
-     * Tests that a person's state is correctly given.
-     */
-    public void testGetState()
-    {
-        
+        assertEquals(Major.CS, person.getMajor());
     }
     
     /**
@@ -56,7 +59,7 @@ public class PersonTest extends TestCase
      */
     public void testGetIndex()
     {
-        
+        assertEquals(0, person.getIndex());
     }
     
     /**
@@ -64,6 +67,7 @@ public class PersonTest extends TestCase
      */
     public void testGetSongList()
     {
-        
+        assertEquals(list, person.getSongList());
     }
+
 }
