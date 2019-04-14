@@ -15,10 +15,11 @@ public class SongReader {
      * 
      * @param songListFileName
      * @param surveyFileName
+     * @throws ParseException 
      * @throws FileNotFoundException
      */
-    public SongReader(String songListFileName, String surveyFileName) {
-        songList = this.readSongFile("SongList2018.cvs");
+    public SongReader(String songListFileName, String surveyFileName) throws FileNotFoundException, ParseException {
+        songList = this.readSongFile(songListFileName);
     }
 
     /**
@@ -31,10 +32,11 @@ public class SongReader {
         songList = new DLList<Song>();
         File file = new File(fileName);
         Scanner file2 = new Scanner(file);
+        String line = file2.nextLine();
         while (file2.hasNextLine())
         {
-            String line = file2.nextLine();
-            String[] in = line.split(", ");
+             line = file2.nextLine();
+            String[] in = line.split(",");
 
             if (in[0] == "" || in[1] == ""|| in[2] == "" || in[3] == "")
             {
@@ -47,13 +49,42 @@ public class SongReader {
         
         return songList;
     }
+    
     /**
+     * @throws FileNotFoundException
      * 
      */
-    private Person[] readPersonFile(String fileName)
+    private Person[] readPersonFile(String fileName) throws FileNotFoundException
     {
+        person = new Person[1000];
+
+        File file = new File(fileName);
+        Scanner file2 = new Scanner(file);
+        String line = file2.nextLine();
+        while (file2.hasNextLine())
+        {
+             line = file2.nextLine();
+            String[] in = line.split(",");
+
+            if (in[0] == "" || in[1] == ""|| in[2] == "" || in[3] == "")
+            {
+                throw new ParseException("not enough values", 3);
+            }
+
+            Song song = new Song(in[0], in[1], in[0], Integer.parseInt(in[2]),0, 0);
+            songList.add(song);
+        }
+        
 
     } 
+
+    /**
+     * @return songList of the import data
+     */
+    public DLList<Song> getSongList()
+    {
+        return songList;
+    }
 
 
 

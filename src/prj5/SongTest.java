@@ -1,8 +1,8 @@
 package prj5;
+import student.TestCase;
 
-public class SongTest 
-{
-    * Virginia Tech Honor Code Pledge:
+/*   
+ * Virginia Tech Honor Code Pledge:
  *
  * As a Hokie, I will conduct myself with honor
  * and integrity at all times.
@@ -11,7 +11,6 @@ public class SongTest
  * -- Drew Pompeii (drewp24)
 
  */
-package prj5;
 
 /**
  * Tests the song class
@@ -19,7 +18,7 @@ package prj5;
  * @author Drew Pompeii (drewp24)
  * @version 2019.04.16
  */
-public class SongTest extends student.TestCase
+public class SongTest extends TestCase
 {
     private Song song;
     
