@@ -15,7 +15,6 @@ public class SongReader {
 
     private DLList<Song> songList;
     private Person[] person;
-    private int size;
     private String thisSongListFileName;
 
     /**
