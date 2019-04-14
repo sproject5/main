@@ -1,9 +1,8 @@
 package prj5;
 
 /**
- *  This is the hobby
+ *  These are the hobbies
  */
-
 public enum Hobby 
 {
     READ, ART, SPORTS, MUSIC;

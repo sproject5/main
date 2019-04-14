@@ -18,14 +18,14 @@ import student.TestCase;
 public class PersonTest extends TestCase {
 
     private Person person;
-    private SongList list;
+    private DLList<Song> list;
 
 
     /**
      * Sets up the test class.
      */
     public void setUp() {
-        list = new SongList();
+        list = new DLList<Song>();
         person = new Person(list, "sports", "Northeast", "Computer Science", 0);
     }
 

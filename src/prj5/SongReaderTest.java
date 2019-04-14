@@ -9,7 +9,7 @@ public class SongReaderTest extends TestCase
     private SongReader reader;
 
     /**
-     * setup the inital condition
+     * Sets up the initial condition
      * @throws ParseException 
      * @throws FileNotFoundException 
      */
