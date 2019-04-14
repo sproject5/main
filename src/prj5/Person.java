@@ -17,7 +17,7 @@ public class Person {
     {
 
         songList = thisSongList;
-        // determin the hobby
+        // determines the hobby
         switch (thisHobby) 
         {
             case "reading":
@@ -36,7 +36,7 @@ public class Person {
                 hobby = null;
                 break;
         }
-        // determin the major
+        // determines the major
         switch (thisMajor) 
         {
             case "Computer Science":
@@ -56,7 +56,7 @@ public class Person {
                 break;
         }
 
-        // determin the state
+        // determines the state
         switch (thisState) 
         {
             case "Northeast":
