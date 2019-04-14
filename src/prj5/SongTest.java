@@ -1,5 +1,6 @@
 package prj5;
 
-public class SongTest {
+public class SongTest 
+{
 
 }
