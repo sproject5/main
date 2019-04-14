@@ -40,16 +40,16 @@ public class Person {
         switch (thisMajor) 
         {
             case "Computer Science":
-                major = major.CS;
+                major = Major.CS;
                 break;
             case "Math or CMDA":
-                major = major.MATH_OR_CMDA;
+                major = Major.MATH_OR_CMDA;
                 break;
             case "Other":
-                major = major.OTHER;
+                major = Major.OTHER;
                 break;
             case "Other Engineering":
-                major = major.OTHER_ENGE;
+                major = Major.OTHER_ENGE;
                 break;
             default:
                 major = null;
@@ -60,16 +60,16 @@ public class Person {
         switch (thisState) 
         {
             case "Northeast":
-                state = state.NORTHEAST_US;
+                state = State.NORTHEAST_US;
                 break;
             case "Outside of United States":
-                state = state.OUTSIDE_THE_US;
+                state = State.OUTSIDE_THE_US;
                 break;
             case "Southeast":
-                state = state.SOUTHEAST_US;
+                state = State.SOUTHEAST_US;
                 break;
             case "United States (other than Southeast or Northwest)":
-                state = state.THE_REST_OF_US;
+                state = State.THE_REST_OF_US;
                 break;
             default:
                 state = null;
