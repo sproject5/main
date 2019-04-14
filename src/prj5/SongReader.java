@@ -5,6 +5,12 @@ import java.io.FileNotFoundException;
 import java.text.ParseException;
 import java.util.Scanner;
 
+/**
+ * 
+ *
+ * @author 
+ * @version 2019.04.14
+ */
 public class SongReader {
 
     private DLList<Song> songList;
