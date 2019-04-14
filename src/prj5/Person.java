@@ -57,6 +57,14 @@ public class Person {
         return index;
     }
 
+    /**
+     * gets the song list of the person.
+     * @return the song list data
+     */
+    public SongList getSongList()
+    {
+        return songList;
+    }
 
 
 }
