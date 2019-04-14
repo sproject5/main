@@ -1,7 +1,7 @@
 package prj5;
 
 /**
-* This is the state
+* This is the state enum
 */
 public enum State 
 {
