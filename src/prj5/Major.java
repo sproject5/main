@@ -2,5 +2,5 @@ package prj5;
 
 public enum Major 
 {
-    READ, ART, SPORTS, MUSIC;
+    CS, OTHER_ENGE, MATH_OR_CMDA, OTHER;
 }
