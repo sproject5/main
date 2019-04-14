@@ -48,6 +48,15 @@ public class Person {
         return state;
     }
 
+    /**
+     * get the index of the person
+     * @return the index of the person
+     */
+    public int getIndex()
+    {
+        return index;
+    }
+
 
 
 }
