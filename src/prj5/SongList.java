@@ -1,5 +1,6 @@
 package prj5;
 
-public class SongList {
+public class SongList extends DLList
+{
 
 }

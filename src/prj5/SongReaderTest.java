@@ -15,13 +15,17 @@ public class SongReaderTest extends TestCase
      */
     public void setUp() throws FileNotFoundException, ParseException
     {
-        reader = new SongReader("SongList2018.csv", "MusicSurveyData2018.cvs");
+        reader = new SongReader("SongList2018.csv", "MusicSurveyData2018.csv");
     }
 
     public void testReadSongFile()
     {
         DLList<Song> songList = reader.getSongList();
         System.out.println(songList.get(10).getArtistName());
-        
+        System.out.println(songList.size());
+
+        Person[] persons = reader.getPersonList();
+        System.out.println(persons[1].getHobby());
+
     }
 }
