@@ -15,55 +15,58 @@ import student.TestCase;
  * @author Conner Mangin (cmangin)
  * @version 2019.04.14
  */
-public class PersonTest extends TestCase
-{
+public class PersonTest extends TestCase {
+
     private Person person;
-    
+    private SongList list;
+
+
     /**
      * Sets up the test class.
      */
-    public void setUp()
-    {
-        
+    public void setUp() {
+        list = new SongList();
+        person = new Person(list, "sports", "Northeast", "Computer Science", 0);
     }
-    
+
+
     /**
      * Tests that a person's hobby is correctly given.
      */
-    public void testGetHobby()
-    {
-        
+    public void testGetHobby() {
+        assertEquals(Hobby.SPORTS, person.getHobby());
     }
-    
-    /**
-     * Test that a person's major is correctly given.
-     */
-    public void testGetMajor()
-    {
-        
-    }
-    
+
+
     /**
      * Tests that a person's state is correctly given.
      */
-    public void testGetState()
-    {
-        
+    public void testGetState() {
+        assertEquals(State.NORTHEAST_US, person.getState());
     }
-    
+
+
+    /**
+     * Test that a person's major is correctly given.
+     */
+    public void testGetMajor() {
+        assertEquals(Major.CS, person.getMajor());
+    }
+
+
     /**
      * Tests that the index of a person is correctly given.
      */
-    public void testGetIndex()
-    {
-        
+    public void testGetIndex() {
+        assertEquals(0, person.getIndex());
     }
-    
+
+
     /**
      * Tests that a person's song list is correctly given.
      */
-    public void testGetSongList()
-    {
-        
+    public void testGetSongList() {
+        assertEquals(list, person.getSongList());
     }
+
 }

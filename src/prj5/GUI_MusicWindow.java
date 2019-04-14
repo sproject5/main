@@ -44,7 +44,7 @@ public class GUI_MusicWindow
      * Allows users to interact with song statistics
      * and sort songs based on certain information
      */
-    public MusicWindow()
+    public GUI_MusicWindow()
     {
         window = new Window("Project 5");
         
