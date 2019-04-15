@@ -51,7 +51,7 @@ public class SongReader {
                 throw new ParseException("not enough values", 3);
             }
 
-            Song song = new Song(in[0], in[1], in[0], Integer.parseInt(in[2]),0, 0);
+            Song song = new Song(in[1], in[0], in[3], Integer.parseInt(in[2]),0, 0);
             songList.add(song);
         }
         

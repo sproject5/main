@@ -14,6 +14,8 @@ public class SurveySorterTest extends TestCase
 
     public void testLinkedDataOf()
     {
-        assertEquals(348, survey.HeardDataOf("art"));
+        assertEquals(10, survey.HeardDataOf("All of Me", "art"));
+        assertEquals(1, survey.HeardDataOf("All of Me", "read"));
+
     }
 }

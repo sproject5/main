@@ -21,7 +21,7 @@ public class SurveySorter {
     /**
      * return the lked data of the hobby
      */
-    public int HeardDataOf(String Hobby)
+    public int HeardDataOf(String title, String Hobby )
     {
         int count = 0;
 
@@ -31,17 +31,15 @@ public class SurveySorter {
         while(person[i] != null)
         {
             Hobby thisHobby =  person[i].getHobby();
-            if (thisHobby != null && thisHobby == hobby)
+            if (thisHobby == hobby)
             {
-                
                 DLList<Song> thisSongList = person[i].getSongList();
-                for (int k = 0; k < thisSongList.size(); k++)
+                Song thisSong = this.getSong(title, thisSongList);
+
+                if (thisSong != null && thisSong.getHeard() > 0)
                 {
-                   
-                    if (thisSongList.get(k).getHeard() == 1)
-                    {
-                        count++;
-                    }
+                    System.out.println(thisSong.getSongTitle());
+                    count++;
                 }
             }
             
@@ -51,6 +49,28 @@ public class SurveySorter {
         return count;
     }
 
+
+    public Song getSong(String title, DLList<Song> curSongList)
+    {
+        Song targetSong = null;
+        for (int k = 0; k < curSongList.size(); k++)
+        {
+            //System.out.println(curSongList.get(k).getSongTitle());
+            if (curSongList.get(k).getSongTitle().equals(title))
+            {
+                System.out.println(title);
+                targetSong = curSongList.get(k);
+            }
+        }
+
+
+        return targetSong;
+    }
+    /**
+     * translate the string to Hobby
+     * @param str the string to be translate
+     * @return the aimed hobby
+     */
     public Hobby hobbyTranslate(String str)
     {
         Hobby hobby;

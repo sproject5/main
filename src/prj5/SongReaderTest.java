@@ -39,10 +39,12 @@ public class SongReaderTest extends TestCase {
     {
         DLList<Song> songList = reader.getSongList();
         System.out.println(songList.get(10).getArtistName());
-        System.out.println(songList.size());
+        System.out.println(songList.get(10).getSongTitle());
+        //System.out.println(songList.size());
  
         Person[] persons = reader.getPersonList();
-        System.out.println(persons[1].getHobby());
+        //System.out.println(persons[1].getHobby());
+        
     }
     
     /**
