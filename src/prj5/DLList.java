@@ -191,6 +191,8 @@ public class DLList<E>
         return getNodeAtIndex(index).getData();
     }
 
+
+    
     /**
      * Adds a element to the end of the list
      *

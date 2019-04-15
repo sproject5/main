@@ -18,7 +18,10 @@ public class SurveySorter {
         size = 0;
     }
 
-    public int LikedDataOf(String Hobby)
+    /**
+     * return the lked data of the hobby
+     */
+    public int HeardDataOf(String Hobby)
     {
         int count = 0;
 
@@ -28,14 +31,14 @@ public class SurveySorter {
         while(person[i] != null)
         {
             Hobby thisHobby =  person[i].getHobby();
-            System.out.println(thisHobby == hobby);
             if (thisHobby != null && thisHobby == hobby)
             {
                 
                 DLList<Song> thisSongList = person[i].getSongList();
                 for (int k = 0; k < thisSongList.size(); k++)
                 {
-                    if (thisSongList.get(0).getHeard() == 1)
+                   
+                    if (thisSongList.get(k).getHeard() == 1)
                     {
                         count++;
                     }
@@ -44,10 +47,7 @@ public class SurveySorter {
             
             i++;
         }
-
-
-
-
+        
         return count;
     }
 
