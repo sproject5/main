@@ -115,5 +115,19 @@ public class Song
     {
         heard++;
     }
+
+
+    /**
+     * return the content of this song
+     * @return the string content of this song
+     */
+    public String toString()
+    {
+        return "Title: " + songTitle + "; Artist: " 
+            + artistName + "; Genre: "  + genre
+            + "; Date: " + date + "; Liked: " + liked
+            + "; Heard: " + heard;
+    }
+
 }
 

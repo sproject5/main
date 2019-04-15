@@ -124,5 +124,16 @@ public class Person {
         return songList;
     }
 
+    /**
+     * return the content of this person
+     * @return the string content of this person
+     */
+    public String toString()
+    {
+        return index + "; Hobby: " 
+            + hobby + "; Major: "  + major
+            + "; State: " + state;
+    }
+
 
 }
