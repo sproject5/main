@@ -56,14 +56,29 @@ public class SongReaderTest extends TestCase {
          assertEquals(0, persons[7].getSongList().get(0).getHeard());
          
         //System.out.println(persons[1].getHobby());
+        System.out.println(persons[0].getSongList().get(0).toString());
         
+        //System.out.println(persons[0].getSongList().get(0).toString());
         assertEquals(1, persons[0].getSongList().get(0).getHeard());
-        assertEquals(1, persons[0].getSongList().get(1).getHeard());
-        assertEquals(0, persons[0].getSongList().get(2).getHeard());
-        assertEquals(0, persons[0].getSongList().get(3).getHeard());
-        assertEquals(1, persons[0].getSongList().get(4).getHeard());
+        assertEquals(1, persons[0].getSongList().get(0).getLiked());
+        
+        assertEquals(0, persons[0].getSongList().get(1).getHeard());
+        assertEquals(0, persons[0].getSongList().get(1).getLiked());
+
+        assertEquals(1, persons[0].getSongList().get(2).getHeard());
+        assertEquals(1, persons[0].getSongList().get(2).getLiked());
+
+        assertEquals(1, persons[0].getSongList().get(3).getHeard());
+        assertEquals(1, persons[0].getSongList().get(3).getLiked());
+
+        
+        assertEquals(0, persons[0].getSongList().get(4).getHeard());
+        assertEquals(0, persons[0].getSongList().get(4).getLiked());
+
         //assertEquals(1, persons[0].getSongList().get(5).getHeard());
-        assertEquals(1, persons[0].getSongList().get(6).getHeard());
+        assertEquals(1, persons[0].getSongList().get(5).getHeard());
+        assertEquals(1, persons[0].getSongList().get(5).getLiked());
+
         //assertEquals(1, persons[0].getSongList().get(7).getHeard());
         
     }

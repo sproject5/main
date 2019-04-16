@@ -13,7 +13,7 @@ import java.util.Scanner;
  */
 public class SongReader {
 
-    private DLList<Song> songList;
+    private SongList<Song> songList;
     private Person[] person;
     private String thisSongListFileName;
 
@@ -35,15 +35,18 @@ public class SongReader {
      * @throws ParseException
      * 
      */
-    private DLList<Song> readSongFile(String fileName) throws FileNotFoundException, ParseException
+    private SongList<Song> readSongFile(String fileName) throws FileNotFoundException, ParseException
     {
-        songList = new DLList<Song>();
+        songList = new SongList<Song>();
         File file = new File(fileName);
         Scanner file2 = new Scanner(file);
         String line = file2.nextLine();
+        int i = 0;
         while (file2.hasNextLine())
         {
+            
              line = file2.nextLine();
+             //System.out.println(line);
             String[] in = line.split(",");
 
             if (in[0] == "" || in[1] == ""|| in[2] == "" || in[3] == "")
@@ -53,8 +56,9 @@ public class SongReader {
 
             Song song = new Song(in[1], in[0], in[3], Integer.parseInt(in[2]),0, 0);
             songList.add(song);
+            i++;
         }
-        
+        //System.out.println(i);
         return songList;
     }
     
@@ -80,13 +84,24 @@ public class SongReader {
             
             
             
-            DLList<Song> newSongList = this.readSongFile(thisSongListFileName);
+            SongList<Song> newSongList = this.readSongFile(thisSongListFileName);
+            //System.out.println(newSongList.size());
             //System.out.println(count);
-            for (int i = 5; i < newSongList.size() + 5; i++)
+            //System.out.println(in[5]);
+
+            for (int i = 5; i < newSongList.size() + 4; i++)
             {
-                if (in[i].equals("Yes")) newSongList.get(i - 5).addHeard();
+                
+                if (in[i].equals("Yes")) newSongList.incrementHeard(i - 5);;
+                
+                //System.out.println("index: " + in[0] + " i: " + i + " " + in[i] + newSongList.get(i - 5).getHeard() + " Song: " + newSongList.get(i - 5).toString());
                 i++;
-                if (in[i].equals("Yes")) newSongList.get(i - 5).addHeard();
+                if (in[i].equals("Yes")) newSongList.incrementLike(i - 5);
+                
+                //System.out.println("index: " + in[0] + " i: " + i + " " + in[i] + newSongList.get(i - 5).getLiked() + " Song: " + newSongList.get(i - 5).toString());
+                //System.out.println("index: " + in[0] + " i: " + i + " " + in[i] +" Like: " + newSongList.get(i - 5).getLiked() + " Heard: " + newSongList.get(i - 5).getHeard() + " Song: " + newSongList.get(i - 5).toString());
+
+
             }
 
             Person newPerson = new Person(newSongList, in[4], in[3], in[2], Integer.parseInt(in[0]));

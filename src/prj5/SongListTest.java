@@ -1,3 +1,4 @@
+/*
 * Virginia Tech Honor Code Pledge:
  *
  * As a Hokie, I will conduct myself with honor
@@ -30,7 +31,7 @@ public class SongListTest extends student.TestCase
     public void setUp()
     {
         dList = new DLList<Song>();
-        songList = new SongList<Song>(dList);
+        songList = new SongList<Song>();
         marx = new Song("Marx Wang", "Rockstar Marx", "Rock", 1971, 70, 100);
         conner = new Song("Conner Mangin", "Conner Yay", "Country", 2004, 56, 75);
         ruba = new Song("Ruba Shawkat", "Love song", "R&B", 1995, 100, 200);
@@ -91,5 +92,18 @@ public class SongListTest extends student.TestCase
         assertEquals(songList.get(1), conner);
         assertEquals(songList.get(2), marx);
         assertEquals(songList.get(3), drew);
+    }
+
+    public void testIncrementHeard()
+    {
+        SongList<Song> list = new SongList<Song>();
+        Song song = new Song("jack", "goodBye", "jazz", 1999, 0, 0);
+        list.add(song);
+        assertEquals("Title: goodBye; Artist: jack; Genre: jazz; Date: 1999; Liked: 0; Heard: 0", list.get(0).toString());
+
+        list.incrementHeard(0);
+        assertEquals("Title: goodBye; Artist: jack; Genre: jazz; Date: 1999; Liked: 0; Heard: 1", list.get(0).toString());
+        list.incrementLike(0);
+        assertEquals("Title: goodBye; Artist: jack; Genre: jazz; Date: 1999; Liked: 1; Heard: 1", list.get(0).toString());
     }
 }

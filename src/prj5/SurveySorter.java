@@ -10,9 +10,9 @@ public class SurveySorter {
     private SongReader songReader;
     private int size;
 
-    public SurveySorter() throws FileNotFoundException, ParseException
+    public SurveySorter(String songNameFile, String surveyListFile) throws FileNotFoundException, ParseException
     {
-        songReader = new SongReader("SongList2018.csv", "MusicSurveyData2018.csv");
+        songReader = new SongReader(songNameFile, surveyListFile);
         person = songReader.getPersonList();
         songList = songReader.getSongList();
         size = 0;

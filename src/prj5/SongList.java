@@ -99,4 +99,22 @@ public class SongList<E> extends DLList<E> {
         }
         return alphabeticalOrder(genreList);
     }
+
+    public void incrementHeard(int index)
+    {
+        Song song = (Song) this.get(index);
+        this.remove(index);
+        song.addHeard();
+        this.add(index, (E) song);
+    }
+
+    public void incrementLike(int index)
+    {
+        Song song = (Song) this.get(index);
+        this.remove(index);
+        song.addLiked();
+        this.add(index, (E) song);
+    }
+
+
 }
