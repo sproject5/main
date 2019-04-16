@@ -126,8 +126,8 @@ public class InputReferenceTest extends student.TestCase {
 
         String outputTitleGenreHobby = "";
         fileData = null;
-        try {
-            // Can throw FileNotFoundException
+        try 
+        {
             fileData = new Scanner(new File(fileName));
         } 
         catch (FileNotFoundException e) 

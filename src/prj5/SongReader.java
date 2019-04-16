@@ -61,7 +61,7 @@ public class SongReader {
                 throw new ParseException("not enough values", 3);
             }
 
-            Song song = new Song(in[1], in[0], in[3], Integer.parseInt(in[2]),0, 0);
+            Song song = new Song(in[1], in[0], in[3], Integer.parseInt(in[2]));
             songList.add(song);
             i++;
         }
@@ -105,37 +105,28 @@ public class SongReader {
 
             for (int i = 5; i < in.length - 1; i  = i + 2)
             {
-                //System.out.println("i: "+ i + " Content: [" +in[i] + "]");
-                //System.out.println("i + 1: "+ (i + 1) + " Content: " +in[i + 1]);
-                //System.out.println(newSongList.get((i - 5) /2));
-
-                if (in[i] == null || in[i].equals(""))
+                if (in[i] != null && in[i].equals("Yes"))
                 {
-                    //System.out.println("i: "+ i + " Content: " +in[i] + " decrement");
-                    newSongList.decrementHeard((i - 5) /2);
+                    newSongList.heardToYes((i - 5) /2);
                 }
-                else if (in[i].equals("Yes"))
+                else if (in[i] != null && in[i].equals("No"))
                 {
-                    //System.out.println("i: "+ i + " Content: " +in[i] + " increment");
-                    newSongList.incrementHeard((i - 5) /2);
-                }
-                
-                if (in[i + 1] == null || in[i + 1].equals(""))
-                {
-                    //System.out.println("i+1: "+ (i+1) + " Content: " +in[i + 1] + " decrement");
-                    newSongList.decrementLike((i - 5) /2);
-                }
-                else if (in[i + 1].equals("Yes"))
-                {
-                    //System.out.println("i+1: "+ (i+1) + " Content: " +in[i + 1] + " increment");
-                    newSongList.incrementLike((i - 5) /2);
+                    newSongList.heardToNo((i - 5) /2);
                 }
 
+                if (in[i + 1] != null && in[i + 1].equals("Yes"))
+                {
+                    newSongList.likedToYes((i - 5) /2);
+                }
+                else if (in[i + 1] != null && in[i + 1].equals("No"))
+                {
+                    newSongList.likedToNo((i - 5) /2);
+                }
             }
-            //System.out.println(newSongList.get(0).getHeard());
 
             Person newPerson;
-            if (in.length < 5 || in[4].equals("") || in[2].equals("") || in[3].equals("") )
+            if (in.length < 5 || in[4].equals("") || in[2].equals("") || in[3].equals("") 
+                || in[4] == null || in[2] == null || in[3] == null)
             {
                 newPerson = null;
             }
