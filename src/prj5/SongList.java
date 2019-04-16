@@ -17,18 +17,17 @@ public class SongList<E> extends DLList<E> {
     /**
      * 
      * @param list
-     * @return 
+     * @return
      */
     private DLList<String> alphabeticalOrder(DLList<String> list) {
 
-
         for (int i = 0; i < list.size() - 1; i++) {
-            //System.out.println(list.size());
+            // System.out.println(list.size());
 
-            //System.out.println("erdtf");
+            // System.out.println("erdtf");
 
             for (int j = 0; j < list.size() - 1; j++) {
-                //System.out.println(list.get(j).compareTo(list.get(j + 1)));
+                // System.out.println(list.get(j).compareTo(list.get(j + 1)));
 
                 if (list.get(j).compareTo(list.get(j + 1)) > 0) {
                     String first = list.get(j);
@@ -45,9 +44,9 @@ public class SongList<E> extends DLList<E> {
 
     public DLList<String> sortByArtistName() {
         DLList<String> artistList = new DLList<String>();
-        //System.out.println(this.size());
-        for(int x = 0; x < this.size() ; x++) {
-            //System.out.println("wedfrg");
+        // System.out.println(this.size());
+        for (int x = 0; x < this.size(); x++) {
+            // System.out.println("wedfrg");
             artistList.add(((Song)this.get(x)).getArtistName());
         }
         return alphabeticalOrder(artistList);
@@ -56,9 +55,9 @@ public class SongList<E> extends DLList<E> {
 
     public DLList<String> sortBySongTitle() {
         DLList<String> titleList = new DLList<String>();
-        //System.out.println(this.size());
-        for(int x = 0; x < this.size() ; x++) {
-            //System.out.println("wedfrg");
+        // System.out.println(this.size());
+        for (int x = 0; x < this.size(); x++) {
+            // System.out.println("wedfrg");
             titleList.add(((Song)this.get(x)).getSongTitle());
         }
         return alphabeticalOrder(titleList);
@@ -67,16 +66,15 @@ public class SongList<E> extends DLList<E> {
 
     public DLList<Integer> sortByReleaseYear() {
         DLList<Integer> yearList = new DLList<Integer>();
-        //System.out.println(this.size());
-        for(int x = 0; x < this.size() ; x++) {
-            //System.out.println("wedfrg");
+        // System.out.println(this.size());
+        for (int x = 0; x < this.size(); x++) {
+            // System.out.println("wedfrg");
             yearList.add(((Song)this.get(x)).getDate());
         }
 
         for (int j = 0; j < yearList.size() - 1; j++) {
             for (int i = 0; i < yearList.size() - j - 1; i++) {
-                if (yearList.get(i).toString().compareTo(yearList.get(i + 1)
-                    .toString()) > 0) {
+                if (yearList.get(i) > yearList.get(i + 1)) {
 
                     Integer first = yearList.get(i);
 
@@ -92,9 +90,9 @@ public class SongList<E> extends DLList<E> {
 
     public DLList<String> sortByGenre() {
         DLList<String> genreList = new DLList<String>();
-        //System.out.println(this.size());
-        for(int x = 0; x < this.size() ; x++) {
-            //System.out.println("wedfrg");
+        // System.out.println(this.size());
+        for (int x = 0; x < this.size(); x++) {
+            // System.out.println("wedfrg");
             genreList.add(((Song)this.get(x)).getGenre());
         }
         return alphabeticalOrder(genreList);

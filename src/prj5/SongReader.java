@@ -81,24 +81,24 @@ public class SongReader {
             
             
             String[] in = line.split(",");
-            
-            
-            
+
             SongList<Song> newSongList = this.readSongFile(thisSongListFileName);
             //System.out.println(newSongList.size());
             //System.out.println(count);
             //System.out.println(in[5]);
 
-            for (int i = 5; i < newSongList.size() + 4; i++)
+            for (int i = 5; i < newSongList.size() + 5; i++)
             {
                 
                 if (in[i].equals("Yes")) newSongList.incrementHeard(i - 5);;
                 
                 //System.out.println("index: " + in[0] + " i: " + i + " " + in[i] + newSongList.get(i - 5).getHeard() + " Song: " + newSongList.get(i - 5).toString());
-                i++;
-                if (in[i].equals("Yes")) newSongList.incrementLike(i - 5);
+                
+                if (in[i + 1].equals("Yes")) newSongList.incrementLike(i - 5);
+                
                 
                 //System.out.println("index: " + in[0] + " i: " + i + " " + in[i] + newSongList.get(i - 5).getLiked() + " Song: " + newSongList.get(i - 5).toString());
+                i++;
                 //System.out.println("index: " + in[0] + " i: " + i + " " + in[i] +" Like: " + newSongList.get(i - 5).getLiked() + " Heard: " + newSongList.get(i - 5).getHeard() + " Song: " + newSongList.get(i - 5).toString());
 
 
