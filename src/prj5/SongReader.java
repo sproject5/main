@@ -73,30 +73,20 @@ public class SongReader {
         int count = 0;
         while (file2.hasNextLine())
         {
-             line = file2.nextLine();
+            line = file2.nextLine();
+            
+            
             String[] in = line.split(",");
+            
+            
+            
             DLList<Song> newSongList = this.readSongFile(thisSongListFileName);
-            for (int i = 4; i < newSongList.size() + 4; i++)
+            //System.out.println(count);
+            for (int i = 5; i < newSongList.size() + 5; i++)
             {
-                Song song = newSongList.get(i - 4);
-                switch (in[i]) 
-                {
-                    case "Yes":
-                        song.addHeard();
-                        break;
-                    default:
-                        break;
-                }
+                if (in[i].equals("Yes")) newSongList.get(i - 5).addHeard();
                 i++;
-                switch (in[i]) 
-                {
-                    case "Yes":
-                        song.addLiked();
-                        break;
-                    default:
-                        break;
-                }
-
+                if (in[i].equals("Yes")) newSongList.get(i - 5).addHeard();
             }
 
             Person newPerson = new Person(newSongList, in[4], in[3], in[2], Integer.parseInt(in[0]));
@@ -104,6 +94,7 @@ public class SongReader {
             count++;
             
         }
+        
         return person;
 
     } 

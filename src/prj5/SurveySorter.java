@@ -21,7 +21,7 @@ public class SurveySorter {
     /**
      * return the lked data of the hobby
      */
-    public int HeardDataOf(String title, String Hobby )
+    public int DataOf(String title, String Hobby, Boolean isHeardData )
     {
         int count = 0;
 
@@ -30,17 +30,33 @@ public class SurveySorter {
         int i = 0;
         while(person[i] != null)
         {
+            //System.out.println(person[i].toString());
             Hobby thisHobby =  person[i].getHobby();
             if (thisHobby == hobby)
             {
+                
                 DLList<Song> thisSongList = person[i].getSongList();
                 Song thisSong = this.getSong(title, thisSongList);
-
-                if (thisSong != null && thisSong.getHeard() > 0)
+                
+                if (isHeardData)
                 {
-                    System.out.println(thisSong.getSongTitle());
-                    count++;
+                    System.out.println( person[i].getIndex()+ " : " + (thisSong.getHeard()));
+                    if (thisSong != null && thisSong.getHeard() > 0)
+                    {
+                     
+                        //System.out.println(i + ", "+ thisSong.getSongTitle());
+                        count++;
+                    }
+                    
                 }
+                else 
+                {
+                    if (thisSong != null && thisSong.getLiked() > 0)
+                    {
+                        count++;
+                    }
+                }
+                
             }
             
             i++;
@@ -58,7 +74,7 @@ public class SurveySorter {
             //System.out.println(curSongList.get(k).getSongTitle());
             if (curSongList.get(k).getSongTitle().equals(title))
             {
-                System.out.println(title);
+                //System.out.println(title);
                 targetSong = curSongList.get(k);
             }
         }

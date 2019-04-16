@@ -29,21 +29,42 @@ public class SongReaderTest extends TestCase {
      */
     public void setUp() throws FileNotFoundException, ParseException, java.text.ParseException
     {
-        reader = new SongReader("SongList2018.csv", "MusicSurveyData2018.csv");
+        reader = new SongReader("SongList2018.csv", "MusicSurveyData2018Test1.csv");
     }
 
     /**
+     * @throws java.text.ParseException 
+     * @throws FileNotFoundException 
      * 
      */
-    public void testReadSongFile() 
+    public void testReadSongFile() throws FileNotFoundException, java.text.ParseException 
     {
+        SongReader reader = new SongReader("SongList2018.csv", "MusicSurveyData2018.csv");
         DLList<Song> songList = reader.getSongList();
-        System.out.println(songList.get(10).getArtistName());
-        System.out.println(songList.get(10).getSongTitle());
-        //System.out.println(songList.size());
- 
+
         Person[] persons = reader.getPersonList();
+        assertEquals(001, persons[0].getIndex());
+        assertEquals(Hobby.READ, persons[0].getHobby());
+        
+         assertEquals(1, persons[0].getSongList().get(0).getHeard());
+         assertEquals(1, persons[1].getSongList().get(0).getHeard());
+         assertEquals(1, persons[2].getSongList().get(0).getHeard());
+         assertEquals(1, persons[3].getSongList().get(0).getHeard());
+         assertEquals(1, persons[4].getSongList().get(0).getHeard());
+         assertEquals(1, persons[5].getSongList().get(0).getHeard());
+         assertEquals(1, persons[6].getSongList().get(0).getHeard());
+         assertEquals(0, persons[7].getSongList().get(0).getHeard());
+         
         //System.out.println(persons[1].getHobby());
+        
+        assertEquals(1, persons[0].getSongList().get(0).getHeard());
+        assertEquals(1, persons[0].getSongList().get(1).getHeard());
+        assertEquals(0, persons[0].getSongList().get(2).getHeard());
+        assertEquals(0, persons[0].getSongList().get(3).getHeard());
+        assertEquals(1, persons[0].getSongList().get(4).getHeard());
+        //assertEquals(1, persons[0].getSongList().get(5).getHeard());
+        assertEquals(1, persons[0].getSongList().get(6).getHeard());
+        //assertEquals(1, persons[0].getSongList().get(7).getHeard());
         
     }
     
