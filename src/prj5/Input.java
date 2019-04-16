@@ -10,9 +10,17 @@ package prj5;
 import java.io.FileNotFoundException;
 import java.text.ParseException;
 
+/**
+ * This class holds the main method which launches the GUI Music Window.
+ *
+ * @author Conner Mangin (cmangin)
+ * @version 2019.04.14
+ */
 public class Input {
 
-
+    /**
+     * This main method launches the GUI Window.
+     */
     public static void main(String[] args)
     {
         //System.out.println(args.length);
