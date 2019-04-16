@@ -1,3 +1,10 @@
+// Virginia Tech Honor Code Pledge:
+//
+// As a Hokie, I will conduct myself with honor and integrity at all times.
+// I will not lie, cheat, or steal, nor will I accept the actions of those who
+// do.
+// -- cmangin
+
 package prj5;
 
 import java.io.FileNotFoundException;
@@ -22,7 +29,7 @@ public class SurveySorter {
     }
 
     /**
-     * return the lked data of the hobby
+     * return the liked data of the hobby
      */
     public double DataOf(String title, Hobby hobby, Boolean isHeardData )
     {
