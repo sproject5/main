@@ -29,7 +29,7 @@ public class SurveySorter {
     }
 
     /**
-     * return the lked data of the hobby
+     * return the liked data of the hobby
      */
     public double DataOf(String title, Hobby hobby, Boolean isHeardData )
     {
