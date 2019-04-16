@@ -80,13 +80,11 @@ public class SurveySorterTest extends TestCase
          */
         
         assertEquals(100, surveySorter.DataOf(name, Hobby.READ, true), 0.1);
-        assertEquals(0, surveySorter.DataOf(name, Hobby.ART, true), 0.1);
         assertEquals(100, surveySorter.DataOf(name, Hobby.SPORTS, true), 0.1);
         assertEquals(100, surveySorter.DataOf(name, Hobby.MUSIC, true), 0.1);
 
         
         assertEquals(100, surveySorter.DataOf(name, Hobby.READ, false), 0.1);
-        assertEquals(0, surveySorter.DataOf(name, Hobby.ART, false), 0.1);
         assertEquals(33, surveySorter.DataOf(name, Hobby.SPORTS, false), 0.5);
         assertEquals(100, surveySorter.DataOf(name, Hobby.MUSIC , false), 0.1);
     }
@@ -124,5 +122,24 @@ public class SurveySorterTest extends TestCase
         assertEquals(37, surveySorter.DataOf(name, Hobby.SPORTS, false), 1);
         assertEquals(42, surveySorter.DataOf(name, Hobby.MUSIC , false), 1);
 
+    }
+
+    public void testNumberOf() throws FileNotFoundException, ParseException
+    {
+        SongReader reader = new SongReader("SongListTest1.csv", "MusicSurveyDataTest1.csv");
+        SurveySorter surveySorter = new SurveySorter(reader.getPersonList(), reader.getSongList(), reader.getPersonListSize());
+        String title = "All These Things I've Done";
+        System.out.println(surveySorter.numberOf(title, Hobby.READ, true));
+        System.out.println(surveySorter.numberOf(title, Hobby.ART, true));
+        System.out.println(surveySorter.numberOf(title, Hobby.SPORTS, true));
+        System.out.println(surveySorter.numberOf(title, Hobby.MUSIC, true));
+        
+        System.out.println(surveySorter.numberOf(title, Hobby.READ, false));
+        System.out.println(surveySorter.numberOf(title, Hobby.ART, false));
+        System.out.println(surveySorter.numberOf(title, Hobby.SPORTS, false));
+        System.out.println(surveySorter.numberOf(title, Hobby.MUSIC, false));
+        
+        
+        
     }
 }
