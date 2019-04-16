@@ -85,7 +85,7 @@ public class GUI_MusicWindow
 
     public GUI_MusicWindow( SurveySorter input)
     {
-        this();
+        //this();
         survey = input;
         //System.out.println( survey.getSongList().toString());
         this.clickedSortBySongTitle();
@@ -93,12 +93,31 @@ public class GUI_MusicWindow
 
     public void clickedSortBySongTitle()
     {
-        DLList<String> sortedList = survey.getSongList().sortByArtistName();
+        SongList songList = survey.getSongList();
+        DLList<String> sortedList = songList.sortBySongTitle();
 
         for( int i = 0; i < sortedList.size() ; i++)
         {
+            String songName = sortedList.get(i);
+            //System.out.println(songName);
+            
+            String heard = "\nheard \n" 
+                + "reading" + survey.DataOf(songName, Hobby.READ, true)
+                + " art" + survey.DataOf(songName, Hobby.ART, true)
+                + " sports" + survey.DataOf(songName, Hobby.SPORTS, true)
+                + " music" + survey.DataOf(songName, Hobby.MUSIC, true);
+            
+            String like = "\nlikes \n" 
+                + "reading" + survey.DataOf(songName, Hobby.READ, false)
+                + " art" + survey.DataOf(songName, Hobby.ART, false)
+                + " sports" + survey.DataOf(songName, Hobby.SPORTS, false)
+                + " music" + survey.DataOf(songName, Hobby.MUSIC, false) + " \n";
+            
+            System.out.println(survey.getSong(songName, songList).toStringTest() + heard + like);
             
 
+
+            
 
 
 

@@ -129,5 +129,14 @@ public class Song
             + "; Heard: " + heard;
     }
 
+    public String toStringTest()
+    {
+        String str = "song title " + songTitle + "\n"
+            + "song artist " + artistName + "\n"
+            + "song genre " + genre + "\n"
+            + "song year " + date;
+        return str;
+    }
+
 }
 
