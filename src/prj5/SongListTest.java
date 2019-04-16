@@ -48,7 +48,7 @@ public class SongListTest extends student.TestCase
     {
         //System.out.println(songList.sortByArtistName());
         DLList<String> artistList = songList.sortByArtistName();
-        System.out.println(artistList.get(0));
+        //System.out.println(artistList.get(0));
         assertEquals(artistList.get(0), conner.getArtistName());
         assertEquals(artistList.get(0), conner.getArtistName());
         assertEquals(artistList.get(1), drew.getArtistName());
@@ -105,5 +105,20 @@ public class SongListTest extends student.TestCase
         assertEquals("Title: goodBye; Artist: jack; Genre: jazz; Date: 1999; Liked: 0; Heard: 1", list.get(0).toString());
         list.incrementLike(0);
         assertEquals("Title: goodBye; Artist: jack; Genre: jazz; Date: 1999; Liked: 1; Heard: 1", list.get(0).toString());
+        
+        
+    }
+    
+    public void testToString()
+    {
+        SongList<Song> list = new SongList<Song>();
+        Song song = new Song("jack", "goodBye", "jazz", 1999, 0, 0);
+        list.add(song);
+        assertEquals("Title: goodBye; Artist: jack; Genre: jazz; Date: 1999; Liked: 0; Heard: 0\n", list.toString());
+        
+        song = new Song("jack2", "goodBye2", "jazz2", 1999, 0, 0);
+        list.add(song);
+        assertEquals("Title: goodBye; Artist: jack; Genre: jazz; Date: 1999; Liked: 0; Heard: 0\n" + 
+            "Title: goodBye2; Artist: jack2; Genre: jazz2; Date: 1999; Liked: 0; Heard: 0\n", list.toString());
     }
 }

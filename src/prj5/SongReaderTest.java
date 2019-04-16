@@ -58,14 +58,14 @@ public class SongReaderTest extends TestCase {
         //System.out.println(persons[1].getHobby());
         
         
-        //System.out.println(persons[0].getSongList().get(0).toString());
+        //System.out.println(persons[0].getSongList().toString());
         assertEquals(1, persons[0].getSongList().get(0).getHeard());
         assertEquals(1, persons[0].getSongList().get(0).getLiked());
         
         assertEquals(0, persons[0].getSongList().get(1).getHeard());
         assertEquals(0, persons[0].getSongList().get(1).getLiked());
         
-        System.out.println(persons[0].getSongList().get(2).toString());
+        
         assertEquals(1, persons[0].getSongList().get(2).getHeard());
         assertEquals(1, persons[0].getSongList().get(2).getLiked());
 

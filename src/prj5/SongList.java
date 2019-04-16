@@ -1,9 +1,10 @@
 package prj5;
 
+import java.util.Iterator;
+
 /**
  * @author Ruba Shawkat
- * @version 2019-04-15
- *          The class SongList extends the DLList class
+ * @version 2019-04-15 The class SongList extends the DLList class
  */
 public class SongList<E> extends DLList<E> {
 
@@ -13,7 +14,6 @@ public class SongList<E> extends DLList<E> {
     public SongList() {
     }
 
-
     /**
      * 
      * @param list
@@ -21,14 +21,10 @@ public class SongList<E> extends DLList<E> {
      */
     private DLList<String> alphabeticalOrder(DLList<String> list) {
 
-        for (int i = 0; i < list.size() - 1; i++) {
-            // System.out.println(list.size());
-
-            // System.out.println("erdtf");
-
-            for (int j = 0; j < list.size() - 1; j++) {
-                // System.out.println(list.get(j).compareTo(list.get(j + 1)));
-
+        for (int i = 0; i < list.size() - 1; i++) 
+        {
+            for (int j = 0; j < list.size() - 1; j++) 
+            {
                 if (list.get(j).compareTo(list.get(j + 1)) > 0) {
                     String first = list.get(j);
 
@@ -41,35 +37,28 @@ public class SongList<E> extends DLList<E> {
         return list;
     }
 
-
-    public DLList<String> sortByArtistName() {
+    public DLList<String> sortByArtistName() 
+    {
         DLList<String> artistList = new DLList<String>();
-        // System.out.println(this.size());
-        for (int x = 0; x < this.size(); x++) {
-            // System.out.println("wedfrg");
-            artistList.add(((Song)this.get(x)).getArtistName());
+        for (int x = 0; x < this.size(); x++) 
+        {
+            artistList.add(((Song) this.get(x)).getArtistName());
         }
         return alphabeticalOrder(artistList);
     }
 
-
     public DLList<String> sortBySongTitle() {
         DLList<String> titleList = new DLList<String>();
-        // System.out.println(this.size());
         for (int x = 0; x < this.size(); x++) {
-            // System.out.println("wedfrg");
-            titleList.add(((Song)this.get(x)).getSongTitle());
+            titleList.add(((Song) this.get(x)).getSongTitle());
         }
         return alphabeticalOrder(titleList);
     }
 
-
     public DLList<Integer> sortByReleaseYear() {
         DLList<Integer> yearList = new DLList<Integer>();
-        // System.out.println(this.size());
         for (int x = 0; x < this.size(); x++) {
-            // System.out.println("wedfrg");
-            yearList.add(((Song)this.get(x)).getDate());
+            yearList.add(((Song) this.get(x)).getDate());
         }
 
         for (int j = 0; j < yearList.size() - 1; j++) {
@@ -87,32 +76,44 @@ public class SongList<E> extends DLList<E> {
         return yearList;
     }
 
-
     public DLList<String> sortByGenre() {
         DLList<String> genreList = new DLList<String>();
         // System.out.println(this.size());
         for (int x = 0; x < this.size(); x++) {
             // System.out.println("wedfrg");
-            genreList.add(((Song)this.get(x)).getGenre());
+            genreList.add(((Song) this.get(x)).getGenre());
         }
         return alphabeticalOrder(genreList);
     }
 
-    public void incrementHeard(int index)
-    {
+    /**
+     * increment Heard 
+     * @param index
+     */
+    public void incrementHeard(int index) {
         Song song = (Song) this.get(index);
         this.remove(index);
         song.addHeard();
         this.add(index, (E) song);
     }
 
-    public void incrementLike(int index)
-    {
+    public void incrementLike(int index) {
         Song song = (Song) this.get(index);
         this.remove(index);
         song.addLiked();
         this.add(index, (E) song);
     }
 
+    public String toString() {
+        String str = "";
 
+        Iterator<E> list = this.iterator();
+        while(list.hasNext())
+        {
+            str = str + list.next().toString() + "\n";
+        }
+        //System.out.println(str);
+
+        return str;
+    }
 }

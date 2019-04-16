@@ -9,7 +9,7 @@ public class SurveySorterTest extends TestCase
 
     public void setUp() throws FileNotFoundException, ParseException
     {
-        survey = new SurveySorter("SongList2018.csv", "MusicSurveyData2018Test1.csv");
+        survey = new SurveySorter("SongList2018.csv", "MusicSurveyData2018.csv");
     }
 
     public void testLinkedDataOf()

@@ -8,6 +8,7 @@ public class Input {
 
     public static void main(String[] args) throws FileNotFoundException, ParseException
     {
-        SurveySorter survey = new SurveySorter(args[1], args[0]);
+        //System.out.println(args.length);
+        SongReader reader = new SongReader(args[1], args[0]);
     }
 }

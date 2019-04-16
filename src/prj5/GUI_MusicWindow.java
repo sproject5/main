@@ -38,14 +38,18 @@ public class GUI_MusicWindow
     private Button representMajor;
     private Button representRegion;
     private int pageNumber;
+
+
+    private SurveySorter survey;
     
     /**
      * This is the constructor for the MusicWindow
      * Allows users to interact with song statistics
      * and sort songs based on certain information
      */
-    public GUI_MusicWindow()
+    public GUI_MusicWindow( )
     {
+        
         window = new Window("Project 5");
         
         prev = new Button(" <- Prev");
@@ -78,4 +82,34 @@ public class GUI_MusicWindow
         quit = new Button("Quit");
         window.addButton(quit, WindowSide.SOUTH);
     }
+
+    public GUI_MusicWindow( SurveySorter input)
+    {
+        this();
+        survey = input;
+        //System.out.println( survey.getSongList().toString());
+        this.clickedSortBySongTitle();
+    }
+
+    public void clickedSortBySongTitle()
+    {
+        DLList<String> sortedList = survey.getSongList().sortByArtistName();
+
+        for( int i = 0; i < sortedList.size() ; i++)
+        {
+            
+
+
+
+
+
+
+
+        }
+
+        //System.out.println(sortedList.toString());
+
+    }
+    
+
 }

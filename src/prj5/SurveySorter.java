@@ -5,49 +5,39 @@ import java.text.ParseException;
 
 public class SurveySorter {
 
-    private DLList<Song> songList;
+    private SongList<Song> songList;
     private Person[] person;
     private SongReader songReader;
     private int size;
 
-    public SurveySorter(String songNameFile, String surveyListFile) throws FileNotFoundException, ParseException
+    public SurveySorter(Person[] inputPerson, SongList<Song> inputSongList) throws FileNotFoundException, ParseException
     {
-        songReader = new SongReader(songNameFile, surveyListFile);
-        person = songReader.getPersonList();
-        songList = songReader.getSongList();
+        person = inputPerson;
+        songList = inputSongList;
         size = 0;
     }
 
     /**
      * return the lked data of the hobby
      */
-    public int DataOf(String title, String Hobby, Boolean isHeardData )
+    public int DataOf(String title, Hobby hobby, Boolean isHeardData )
     {
         int count = 0;
-
-        Hobby hobby = this.hobbyTranslate(Hobby);
-
         int i = 0;
         while(person[i] != null)
         {
-            //System.out.println(person[i].toString());
             Hobby thisHobby =  person[i].getHobby();
             if (thisHobby == hobby)
             {
-                
                 DLList<Song> thisSongList = person[i].getSongList();
                 Song thisSong = this.getSong(title, thisSongList);
                 
                 if (isHeardData)
                 {
-                    System.out.println( person[i].getIndex()+ " : " + (thisSong.getHeard()));
                     if (thisSong != null && thisSong.getHeard() > 0)
-                    {
-                     
-                        //System.out.println(i + ", "+ thisSong.getSongTitle());
+                    {   
                         count++;
-                    }
-                    
+                    }  
                 }
                 else 
                 {
@@ -65,6 +55,18 @@ public class SurveySorter {
         return count;
     }
 
+    public int numberOf(Hobby hobby)
+    {
+        int count = 0;
+        for (int i = 0; i < person.length; i++)
+        {
+            if (person[i] != null && person[i].getHobby()==hobby)
+            {
+                count++;
+            }
+        }
+        return count;
+    }
 
     public Song getSong(String title, DLList<Song> curSongList)
     {
@@ -82,6 +84,13 @@ public class SurveySorter {
 
         return targetSong;
     }
+    
+    
+    public SongList<Song> getSongList()
+    {
+        return songList;
+    }
+    
     /**
      * translate the string to Hobby
      * @param str the string to be translate
