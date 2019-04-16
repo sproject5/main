@@ -19,7 +19,6 @@ package prj5;
 public class SongListTest extends student.TestCase
 {
     private SongList<Song> songList;
-    private DLList<Song> dList;
     private Song marx;
     private Song conner;
     private Song ruba;
@@ -30,11 +29,10 @@ public class SongListTest extends student.TestCase
      */
     public void setUp()
     {
-        dList = new DLList<Song>();
         songList = new SongList<Song>();
         marx = new Song("Marx Wang", "Rockstar Marx", "Rock", 1971, 70, 100);
         conner = new Song("Conner Mangin", "Conner Yay", "Country", 2004, 56, 75);
-        ruba = new Song("Ruba Shawkat", "Love song", "R&B", 1995, 100, 200);
+        ruba = new Song("Ruba Shawkat", "Love song", "Pop", 1995, 100, 200);
         drew = new Song("Drew Pompeii", "Pizza Pizza", "Rock", 1995, 25, 50);
         
         songList.add(marx);
@@ -48,11 +46,14 @@ public class SongListTest extends student.TestCase
      */
     public void testSortByArtistName()
     {
-        songList.sortByArtistName();
-        assertEquals(songList.get(0), conner);
-        assertEquals(songList.get(1), drew);
-        assertEquals(songList.get(2), marx);
-        assertEquals(songList.get(3), ruba);
+        //System.out.println(songList.sortByArtistName());
+        DLList<String> artistList = songList.sortByArtistName();
+        System.out.println(artistList.get(0));
+        assertEquals(artistList.get(0), conner.getArtistName());
+        assertEquals(artistList.get(0), conner.getArtistName());
+        assertEquals(artistList.get(1), drew.getArtistName());
+        assertEquals(artistList.get(2), marx.getArtistName());
+        assertEquals(artistList.get(3), ruba.getArtistName());
     }
     
     /**
@@ -60,11 +61,11 @@ public class SongListTest extends student.TestCase
      */
     public void testSortBySongTitle()
     {
-        songList.sortBySongTitle();
-        assertEquals(songList.get(0), conner);
-        assertEquals(songList.get(1), ruba);
-        assertEquals(songList.get(2), drew);
-        assertEquals(songList.get(3), marx);
+        DLList<String> songTitleList = songList.sortBySongTitle();
+        assertEquals(songTitleList.get(0), conner.getSongTitle());
+        assertEquals(songTitleList.get(1), ruba.getSongTitle());
+        assertEquals(songTitleList.get(2), drew.getSongTitle());
+        assertEquals(songTitleList.get(3), marx.getSongTitle());
     }
     
     /**
@@ -72,13 +73,12 @@ public class SongListTest extends student.TestCase
      */
     public void testSortByReleaseYear()
     {
-        songList.sortByReleaseYear();
-        assertEquals(songList.get(0), marx);
-        assertEquals(songList.get(1), ruba);
-        assertEquals(songList.get(2), drew);
-        assertEquals(songList.get(3), conner);
+        DLList<Integer> yearList = songList.sortByReleaseYear();
+        assertTrue(yearList.get(0) == marx.getDate());
+        assertTrue(yearList.get(1) == ruba.getDate());
+        assertTrue(yearList.get(2) == drew.getDate());
+        assertTrue(yearList.get(3) == conner.getDate());
         
-        //conner
         
     }
     
@@ -87,11 +87,11 @@ public class SongListTest extends student.TestCase
      */
     public void testSortByGenre()
     {
-        songList.sortByGenre();
-        assertEquals(songList.get(0), ruba);
-        assertEquals(songList.get(1), conner);
-        assertEquals(songList.get(2), marx);
-        assertEquals(songList.get(3), drew);
+        DLList<String> genreList = songList.sortByGenre();
+        assertEquals(genreList.get(0), conner.getGenre());
+        assertEquals(genreList.get(1), ruba.getGenre());
+        assertEquals(genreList.get(2), marx.getGenre());
+        assertEquals(genreList.get(3), drew.getGenre());
     }
 
     public void testIncrementHeard()
