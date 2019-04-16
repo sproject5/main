@@ -11,11 +11,13 @@ public class SurveySorter {
     private Person[] person;
     private SongReader songReader;
     private int size;
+    private int personListSize;
 
-    public SurveySorter(Person[] inputPerson, SongList<Song> inputSongList) throws FileNotFoundException, ParseException
+    public SurveySorter(Person[] inputPerson, SongList<Song> inputSongList, int otherPersonListSize) throws FileNotFoundException, ParseException
     {
         person = inputPerson;
         songList = inputSongList;
+        personListSize = otherPersonListSize;
         size = 0;
     }
 
@@ -26,31 +28,35 @@ public class SurveySorter {
     {
         int count = 0;
         int i = 0;
-        while(person[i] != null)
+        while(i <= personListSize)
         {
+            if (person[i] == null)
+            {
+                i++;
+                continue;
+            }
+
             Hobby thisHobby =  person[i].getHobby();
             if (thisHobby == hobby)
             {
-                DLList<Song> thisSongList = person[i].getSongList();
+                SongList<Song> thisSongList = person[i].getSongList();
                 Song thisSong = this.getSong(title, thisSongList);
                 
                 if (isHeardData)
                 {
-                    if (thisSong != null && thisSong.getHeard() > 0) count++;
+                    if (thisSong != null && thisSong.getHeard() == 1) count++;
                 }
                 else 
                 {
-                    if (thisSong != null && thisSong.getLiked() > 0) count++;
+                    if (thisSong != null && thisSong.getLiked() == 1) count++;
                 }
-                
-                
             }
             
             i++;
         }
 
         double output = ((double)count / this.numberOf(title, hobby, isHeardData)) * 100;
-        //System.out.println( "Hobby: "+ hobby + " count: " + count +" number: " + this.numberOf(title, hobby, isHeardData) + " output: "  + output);
+        System.out.println( "Hobby: "+ hobby + " count: " + count +" number: " + this.numberOf(title, hobby, isHeardData) + " output: "  + output);
         return output;
     }
 

@@ -16,25 +16,25 @@ public class SongReader {
     private SongList<Song> songList;
     private Person[] person;
     private String thisSongListFileName;
-
+    private int personListSize;
     /**
      * 
      * @param songListFileName
      * @param surveyFileName
-     * @throws ParseException 
+     * 
      * @throws FileNotFoundException
      */
     public SongReader(String songListFileName, String surveyFileName) throws FileNotFoundException, ParseException {
         thisSongListFileName = songListFileName;
         songList = this.readSongFile(songListFileName);
         person = this.readPersonFile(surveyFileName);
-        GUI_MusicWindow window = new GUI_MusicWindow(new SurveySorter(person, songList));
+        GUI_MusicWindow window = new GUI_MusicWindow(new SurveySorter(person, songList, personListSize));
     }
 
     /**
      * @throws FileNotFoundException
-     * @throws ParseException
      * 
+     * @throws ParseException
      */
     private SongList<Song> readSongFile(String fileName) throws FileNotFoundException, ParseException
     {
@@ -63,11 +63,12 @@ public class SongReader {
     
     /**
      * @throws FileNotFoundException
-     * @throws ParseException
+     * 
      * 
      */
     private Person[] readPersonFile(String fileName) throws FileNotFoundException, ParseException
     {
+        
         person = new Person[1000];
 
         File file = new File(fileName);
@@ -143,9 +144,9 @@ public class SongReader {
             //System.out.println("//////////////////////////////////////////////");
 
             count++;
-            
+            //System.out.println("totalNumber: " + count);
         }
-        
+        personListSize = count;
         return person;
 
     } 
@@ -164,7 +165,10 @@ public class SongReader {
     }
 
 
-
+    public int getPersonListSize()
+    {
+        return personListSize;
+    }
 
 
 }

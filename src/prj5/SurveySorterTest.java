@@ -25,7 +25,7 @@ public class SurveySorterTest extends TestCase
     public void testDataOf2() throws FileNotFoundException, ParseException
     {
         SongReader reader = new SongReader("SongListTest1.csv", "MusicSurveyDataTest1.csv");
-        SurveySorter surveySorter = new SurveySorter(reader.getPersonList(), reader.getSongList());
+        SurveySorter surveySorter = new SurveySorter(reader.getPersonList(), reader.getSongList(), reader.getPersonListSize());
 
         //System.out.println(reader.getPersonList()[0].getSongList().size());
         /*
@@ -51,33 +51,33 @@ public class SurveySorterTest extends TestCase
          */
         
         String name = "Another One Bites the Dust";
-        
-          System.out.println(reader.getPersonList()[0].getHobby() + " : "+
-          (reader.getPersonList()[0].getSongList().get(0).getLiked()));
-          System.out.println(reader.getPersonList()[1].getHobby() + " : "+
-          reader.getPersonList()[1].getSongList().get(0).getLiked());
-          System.out.println(reader.getPersonList()[2].getHobby() + " : "+
-          reader.getPersonList()[2].getSongList().get(0).getLiked());
-          System.out.println(reader.getPersonList()[3].getHobby() + " : "+
-          reader.getPersonList()[3].getSongList().get(0).getLiked());
-          System.out.println(reader.getPersonList()[4].getHobby() + " : "+
-          reader.getPersonList()[4].getSongList().get(0).getLiked());
-          System.out.println(reader.getPersonList()[5].getHobby() + " : "+
-          reader.getPersonList()[5].getSongList().get(0).getLiked());
-          System.out.println("//////////////////////////////////////////////");
-          System.out.println(reader.getPersonList()[0].getHobby() + " : "+
-          reader.getPersonList()[0].getSongList().get(4).getLiked());
-          System.out.println(reader.getPersonList()[1].getHobby() + " : "+
-          reader.getPersonList()[1].getSongList().get(4).getLiked());
-          System.out.println(reader.getPersonList()[2].getHobby() + " : "+
-          reader.getPersonList()[2].getSongList().get(4).getLiked());
-          System.out.println(reader.getPersonList()[3].getHobby() + " : "+
-          reader.getPersonList()[3].getSongList().get(4).getLiked());
-          System.out.println(reader.getPersonList()[4].getHobby() + " : "+
-          reader.getPersonList()[4].getSongList().get(4).getLiked());
-          System.out.println(reader.getPersonList()[5].getHobby() + " : "+
-          reader.getPersonList()[5].getSongList().get(4).getLiked());
-         
+        /*
+         * System.out.println(reader.getPersonList()[0].getHobby() + " : "+
+         * (reader.getPersonList()[0].getSongList().get(0).getLiked()));
+         * System.out.println(reader.getPersonList()[1].getHobby() + " : "+
+         * reader.getPersonList()[1].getSongList().get(0).getLiked());
+         * System.out.println(reader.getPersonList()[2].getHobby() + " : "+
+         * reader.getPersonList()[2].getSongList().get(0).getLiked());
+         * System.out.println(reader.getPersonList()[3].getHobby() + " : "+
+         * reader.getPersonList()[3].getSongList().get(0).getLiked());
+         * System.out.println(reader.getPersonList()[4].getHobby() + " : "+
+         * reader.getPersonList()[4].getSongList().get(0).getLiked());
+         * System.out.println(reader.getPersonList()[5].getHobby() + " : "+
+         * reader.getPersonList()[5].getSongList().get(0).getLiked());
+         * System.out.println("//////////////////////////////////////////////");
+         * System.out.println(reader.getPersonList()[0].getHobby() + " : "+
+         * reader.getPersonList()[0].getSongList().get(4).getLiked());
+         * System.out.println(reader.getPersonList()[1].getHobby() + " : "+
+         * reader.getPersonList()[1].getSongList().get(4).getLiked());
+         * System.out.println(reader.getPersonList()[2].getHobby() + " : "+
+         * reader.getPersonList()[2].getSongList().get(4).getLiked());
+         * System.out.println(reader.getPersonList()[3].getHobby() + " : "+
+         * reader.getPersonList()[3].getSongList().get(4).getLiked());
+         * System.out.println(reader.getPersonList()[4].getHobby() + " : "+
+         * reader.getPersonList()[4].getSongList().get(4).getLiked());
+         * System.out.println(reader.getPersonList()[5].getHobby() + " : "+
+         * reader.getPersonList()[5].getSongList().get(4).getLiked());
+         */
         
         assertEquals(100, surveySorter.DataOf(name, Hobby.READ, true), 0.1);
         assertEquals(0, surveySorter.DataOf(name, Hobby.ART, true), 0.1);
@@ -89,5 +89,40 @@ public class SurveySorterTest extends TestCase
         assertEquals(0, surveySorter.DataOf(name, Hobby.ART, false), 0.1);
         assertEquals(33, surveySorter.DataOf(name, Hobby.SPORTS, false), 0.5);
         assertEquals(100, surveySorter.DataOf(name, Hobby.MUSIC , false), 0.1);
+    }
+
+    public void testDataOf3() throws FileNotFoundException, ParseException
+    {
+        SongReader reader = new SongReader("SongListNoGenreRepeats.csv", "MusicSurveyDataNoGenreRepeats.csv");
+        SurveySorter surveySorter = new SurveySorter(reader.getPersonList(), reader.getSongList(), reader.getPersonListSize());
+  
+        String name = "All These Things I've Done";
+        
+        /*
+         * assertEquals(41, surveySorter.DataOf(name, Hobby.READ, true), 1);
+         * assertEquals(37, surveySorter.DataOf(name, Hobby.ART, true), 1);
+         * assertEquals(34, surveySorter.DataOf(name, Hobby.SPORTS, true), 1);
+         * assertEquals(35, surveySorter.DataOf(name, Hobby.MUSIC, true), 1);
+         * 
+         * 
+         * assertEquals(41, surveySorter.DataOf(name, Hobby.READ, false), 1);
+         * assertEquals(40, surveySorter.DataOf(name, Hobby.ART, false), 1);
+         * assertEquals(33, surveySorter.DataOf(name, Hobby.SPORTS, false), 1);
+         * assertEquals(38, surveySorter.DataOf(name, Hobby.MUSIC , false), 1);
+         */
+        
+        name = "Tik Tok";
+        
+        assertEquals(80, surveySorter.DataOf(name, Hobby.READ, true), 1);
+        assertEquals(79, surveySorter.DataOf(name, Hobby.ART, true), 1);
+        assertEquals(79, surveySorter.DataOf(name, Hobby.SPORTS, true), 1);
+        assertEquals(84, surveySorter.DataOf(name, Hobby.MUSIC, true), 1);
+
+        
+        assertEquals(46, surveySorter.DataOf(name, Hobby.READ, false), 1);
+        assertEquals(25, surveySorter.DataOf(name, Hobby.ART, false), 1);
+        assertEquals(37, surveySorter.DataOf(name, Hobby.SPORTS, false), 1);
+        assertEquals(42, surveySorter.DataOf(name, Hobby.MUSIC , false), 1);
+
     }
 }

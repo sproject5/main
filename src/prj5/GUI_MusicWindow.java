@@ -90,7 +90,7 @@ public class GUI_MusicWindow
         //this();
         survey = input;
         //System.out.println( survey.getSongList().toString());
-        //this.clickedSortBySongTitle();
+        this.clickedSortBySongTitle();
     }
 
     public void clickedSortBySongTitle()
