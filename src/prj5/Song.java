@@ -95,7 +95,7 @@ public class Song
      * Gets how many people heard the song
      * @return the amount of people who heard the song
      */
-    public int getHeard()
+    public int getLiked()
     {
         return heard;
     }
@@ -105,7 +105,7 @@ public class Song
      */
     public void addLiked()
     {
-        liked++;
+        liked = 1;
     }
     
     /**
@@ -113,7 +113,24 @@ public class Song
      */
     public void addHeard()
     {
-        heard++;
+        
+        heard = 1;
+    }
+
+    /**
+     * Adds a like to the song when someone likes the song
+     */
+    public void minusLiked()
+    {
+        liked = -1;
+    }
+    
+    /**
+     * Add a heard to the song when someone has heard the song
+     */
+    public void minusHeard()
+    {
+        heard = -1;
     }
 
 

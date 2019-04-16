@@ -79,35 +79,69 @@ public class SongReader {
             line = file2.nextLine();
             
             
-            String[] in = line.split(",");
+            String[] in2 = line.split(",");
             
-            for (int i = 0; i < in.length; i++)
+            String[] in = new String[in2.length + 1];
+
+            for (int i = 0; i < in2.length; i++)
             {
-                //System.out.println(i + " : " + in[i]);
+                in[i] = in2[i];
             }
-            
-            
-            
+
+            //for (int i = 0; i < in.length; i++)
+            //{
+            //    System.out.println( "i: "+ i + " Content: " +in[i]);
+            //}
+
             SongList<Song> newSongList = this.readSongFile(thisSongListFileName);
 
-            for (int i = 5; i < (in.length - 4); i  = i + 2)
+            for (int i = 5; i < in.length - 1; i  = i + 2)
             {
+                //System.out.println("i: "+ i + " Content: [" +in[i] + "]");
+                //System.out.println("i + 1: "+ (i + 1) + " Content: " +in[i + 1]);
+                //System.out.println(newSongList.get((i - 5) /2));
 
-                if (in[i].equals("Yes")) newSongList.incrementHeard((i - 5) /2);;               
-                if (in[i + 1].equals("Yes")) newSongList.incrementLike((i - 5) /2);
+                if (in[i] == null || in[i].equals(""))
+                {
+                    //System.out.println("i: "+ i + " Content: " +in[i] + " decrement");
+                    newSongList.decrementHeard((i - 5) /2);
+                }
+                else if (in[i].equals("Yes"))
+                {
+                    //System.out.println("i: "+ i + " Content: " +in[i] + " increment");
+                    newSongList.incrementHeard((i - 5) /2);
+                }
+                
+                if (in[i + 1] == null || in[i + 1].equals(""))
+                {
+                    //System.out.println("i+1: "+ (i+1) + " Content: " +in[i + 1] + " decrement");
+                    newSongList.decrementLike((i - 5) /2);
+                }
+                else if (in[i + 1].equals("Yes"))
+                {
+                    //System.out.println("i+1: "+ (i+1) + " Content: " +in[i + 1] + " increment");
+                    newSongList.incrementLike((i - 5) /2);
+                }
+
             }
+            //System.out.println(newSongList.get(0).getHeard());
+
             Person newPerson;
-            if (in.length < 5)
+            if (in[4].equals("") || in[2].equals("") || in[3].equals("") || in.length < 5 )
             {
                 newPerson = null;
             }
             else
             {
                 newPerson = new Person(newSongList, in[4], in[3], in[2], Integer.parseInt(in[0]));
-
             }
 
+
             person[count] = newPerson;
+            //System.out.println(newPerson.getHobby() + " : "+ (newPerson.getSongList().get(0).getHeard()));
+            //System.out.println(this.getPersonList()[count].getHobby() + " : "+ (this.getPersonList()[count].getSongList().get(0).getHeard()));
+            //System.out.println("//////////////////////////////////////////////");
+
             count++;
             
         }
@@ -128,6 +162,7 @@ public class SongReader {
     {
         return person;
     }
+
 
 
 

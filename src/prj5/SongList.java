@@ -92,15 +92,34 @@ public class SongList<E> extends DLList<E> {
      */
     public void incrementHeard(int index) {
         Song song = (Song) this.get(index);
+        //System.out.println(song.getSongTitle());
+        //System.out.println("before: " + song.getHeard());
         this.remove(index);
         song.addHeard();
         this.add(index, (E) song);
+        //System.out.println("after: " + song.getHeard());
+
+
     }
 
     public void incrementLike(int index) {
         Song song = (Song) this.get(index);
         this.remove(index);
         song.addLiked();
+        this.add(index, (E) song);
+    }
+
+    public void decrementHeard(int index) {
+        Song song = (Song) this.get(index);
+        this.remove(index);
+        song.minusHeard();
+        this.add(index, (E) song);
+    }
+
+    public void decrementLike(int index) {
+        Song song = (Song) this.get(index);
+        this.remove(index);
+        song.minusLiked();
         this.add(index, (E) song);
     }
 

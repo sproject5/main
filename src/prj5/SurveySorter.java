@@ -3,6 +3,8 @@ package prj5;
 import java.io.FileNotFoundException;
 import java.text.ParseException;
 
+import javax.print.attribute.standard.OutputDeviceAssigned;
+
 public class SurveySorter {
 
     private SongList<Song> songList;
@@ -20,7 +22,7 @@ public class SurveySorter {
     /**
      * return the lked data of the hobby
      */
-    public int DataOf(String title, Hobby hobby, Boolean isHeardData )
+    public double DataOf(String title, Hobby hobby, Boolean isHeardData )
     {
         int count = 0;
         int i = 0;
@@ -34,30 +36,27 @@ public class SurveySorter {
                 
                 if (isHeardData)
                 {
-                    if (thisSong != null && thisSong.getHeard() > 0)
-                    {   
-                        count++;
-                    }  
+                    if (thisSong != null && thisSong.getHeard() > 0) count++;
                 }
                 else 
                 {
-                    if (thisSong != null && thisSong.getLiked() > 0)
-                    {
-                        count++;
-                    }
+                    if (thisSong != null && thisSong.getLiked() > 0) count++;
                 }
+                
                 
             }
             
             i++;
         }
-        
-        return count;
+
+        double output = ((double)count / this.numberOf(hobby)) * 100;
+        System.out.println( "Hobby: "+ hobby + " count: " + count +" number: " + this.numberOf(hobby) + " output: "  + output);
+        return output;
     }
 
-    public int numberOf(Hobby hobby)
+    public double numberOf(Hobby hobby)
     {
-        int count = 0;
+        double count = 0.001;
         for (int i = 0; i < person.length; i++)
         {
             if (person[i] != null && person[i].getHobby()==hobby)
@@ -90,35 +89,5 @@ public class SurveySorter {
     {
         return songList;
     }
-    
-    /**
-     * translate the string to Hobby
-     * @param str the string to be translate
-     * @return the aimed hobby
-     */
-    public Hobby hobbyTranslate(String str)
-    {
-        Hobby hobby;
-        switch (str) 
-        {
-            case "reading":
-                hobby = Hobby.READ;
-                break;
-            case "art":
-                hobby = Hobby.ART;
-                break;
-            case "music":
-                hobby = Hobby.MUSIC;
-                break;
-            case "sports":
-                hobby = Hobby.SPORTS;
-                break;
-            default:
-                hobby = null;
-                break;
-        }
-        return hobby;
-    }
-
-
+   
 }

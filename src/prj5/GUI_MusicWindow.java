@@ -10,6 +10,8 @@
  */
 package prj5;
 
+import java.text.DecimalFormat;
+
 import CS2114.Button;
 import CS2114.Window;
 import CS2114.WindowSide;
@@ -88,7 +90,7 @@ public class GUI_MusicWindow
         //this();
         survey = input;
         //System.out.println( survey.getSongList().toString());
-        this.clickedSortBySongTitle();
+        //this.clickedSortBySongTitle();
     }
 
     public void clickedSortBySongTitle()
@@ -100,30 +102,22 @@ public class GUI_MusicWindow
         {
             String songName = sortedList.get(i);
             //System.out.println(songName);
-            
+            DecimalFormat df = new DecimalFormat("0");
+
             String heard = "\nheard \n" 
-                + "reading" + survey.DataOf(songName, Hobby.READ, true)
-                + " art" + survey.DataOf(songName, Hobby.ART, true)
-                + " sports" + survey.DataOf(songName, Hobby.SPORTS, true)
-                + " music" + survey.DataOf(songName, Hobby.MUSIC, true);
+                + "reading" + df.format(survey.DataOf(songName, Hobby.READ, true))
+                + " art" + df.format(survey.DataOf(songName, Hobby.ART, true))
+                + " sports" + df.format(survey.DataOf(songName, Hobby.SPORTS, true))
+                + " music" + df.format(survey.DataOf(songName, Hobby.MUSIC, true));
             
             String like = "\nlikes \n" 
-                + "reading" + survey.DataOf(songName, Hobby.READ, false)
-                + " art" + survey.DataOf(songName, Hobby.ART, false)
-                + " sports" + survey.DataOf(songName, Hobby.SPORTS, false)
-                + " music" + survey.DataOf(songName, Hobby.MUSIC, false) + " \n";
+                + "reading" + df.format(survey.DataOf(songName, Hobby.READ, false))
+                + " art" + df.format(survey.DataOf(songName, Hobby.ART, false))
+                + " sports" + df.format(survey.DataOf(songName, Hobby.SPORTS, false))
+                + " music" + df.format(survey.DataOf(songName, Hobby.MUSIC, false)) + " \n";
             
             System.out.println(survey.getSong(songName, songList).toStringTest() + heard + like);
-            
-
-
-            
-
-
-
-
-
-
+        
         }
 
         //System.out.println(sortedList.toString());
