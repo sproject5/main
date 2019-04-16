@@ -69,4 +69,12 @@ public class PersonTest extends TestCase {
         assertEquals(list, person.getSongList());
     }
 
+    /**
+     * Tests the person's toString method
+     */
+    public void testToString() {
+        assertEquals(person.toString(), "0; Hobby: sports; "
+            + "Major: Computer Science; State: Northeast");
+    }
+
 }

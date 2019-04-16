@@ -82,5 +82,15 @@ public class SongTest extends TestCase
         song.addHeard();
         assertEquals(song.getHeard(), 101);
     }
+
+    /**
+     * Test the toString method
+     */
+    public void testToString()
+    {
+        assertEquals(song.toString(), "Title: All These Things I've Done; "
+            + "Artist: The Killers; Genre: Alternative; Date: 2005;"
+            + " Liked: 50; Heard: 100");
+    }
 }
 
