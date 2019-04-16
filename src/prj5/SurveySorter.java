@@ -49,20 +49,37 @@ public class SurveySorter {
             i++;
         }
 
-        double output = ((double)count / this.numberOf(hobby)) * 100;
-        System.out.println( "Hobby: "+ hobby + " count: " + count +" number: " + this.numberOf(hobby) + " output: "  + output);
+        double output = ((double)count / this.numberOf(title, hobby, isHeardData)) * 100;
+        //System.out.println( "Hobby: "+ hobby + " count: " + count +" number: " + this.numberOf(title, hobby, isHeardData) + " output: "  + output);
         return output;
     }
 
-    public double numberOf(Hobby hobby)
+    public double numberOf(String title, Hobby hobby, Boolean isHeardData)
     {
         double count = 0.001;
+        
+        
         for (int i = 0; i < person.length; i++)
         {
-            if (person[i] != null && person[i].getHobby()==hobby)
+            if(isHeardData)
             {
-                count++;
+                if (person[i] != null && person[i].getHobby()==hobby
+                && (person[i].getSongList().getSong(title).getHeard() >= 0))
+                {
+                    count++;
+                }
             }
+            else
+            {
+                if (person[i] != null && person[i].getHobby()==hobby
+                && (person[i].getSongList().getSong(title).getLiked() >= 0))
+                {
+                    count++;
+                }
+            }
+            
+
+            
         }
         return count;
     }

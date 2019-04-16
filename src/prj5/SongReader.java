@@ -127,7 +127,7 @@ public class SongReader {
             //System.out.println(newSongList.get(0).getHeard());
 
             Person newPerson;
-            if (in[4].equals("") || in[2].equals("") || in[3].equals("") || in.length < 5 )
+            if (in.length < 5 || in[4].equals("") || in[2].equals("") || in[3].equals("") )
             {
                 newPerson = null;
             }

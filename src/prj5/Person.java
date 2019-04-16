@@ -6,13 +6,13 @@ package prj5;
  */
 public class Person {
 
-    private DLList<Song> songList;
+    private SongList<Song> songList;
     private Hobby hobby;
     private Major major;
     private State state;
     private int index;
 
-    public Person(DLList<Song> thisSongList, 
+    public Person(SongList<Song> thisSongList, 
         String thisHobby, String thisState, String thisMajor, int thisIndex)
     {
 
@@ -119,7 +119,7 @@ public class Person {
      * gets the song list of the person.
      * @return the song list data
      */
-    public DLList<Song> getSongList()
+    public SongList<Song> getSongList()
     {
         return songList;
     }

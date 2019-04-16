@@ -95,7 +95,7 @@ public class Song
      * Gets how many people heard the song
      * @return the amount of people who heard the song
      */
-    public int getLiked()
+    public int getHeard()
     {
         return heard;
     }

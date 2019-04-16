@@ -87,7 +87,7 @@ public class SurveySorterTest extends TestCase
         
         assertEquals(100, surveySorter.DataOf(name, Hobby.READ, false), 0.1);
         assertEquals(0, surveySorter.DataOf(name, Hobby.ART, false), 0.1);
-        assertEquals(33, surveySorter.DataOf(name, Hobby.SPORTS, false), 0.1);
+        assertEquals(33, surveySorter.DataOf(name, Hobby.SPORTS, false), 0.5);
         assertEquals(100, surveySorter.DataOf(name, Hobby.MUSIC , false), 0.1);
     }
 }
