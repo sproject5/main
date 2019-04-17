@@ -77,8 +77,8 @@ public class InputReferenceTest extends student.TestCase {
      */
     @Hint("The main method is not working properly with input files " +
           "MusicSurveyDataTest1.csv and SongListTest1.csv")
-    public void testMain1() throws FileNotFoundException, ParseException {
-
+    public void testMain1() throws FileNotFoundException, ParseException 
+    {
         // Notice need to pass in an array of the parameters
         Input.main(new String[] { "MusicSurveyDataTest1.csv",
             "SongListTest1.csv" });

@@ -156,8 +156,8 @@ public class Song
 
     public String toStringTest()
     {
-        String str = "song title " + songTitle + "\n"
-            + "song artist " + artistName + "\n"
+        String str = "song title " + songTitle.toLowerCase() + "\n"
+            + "song artist " + artistName.toLowerCase() + "\n"
             + "song genre " + genre + "\n"
             + "song year " + date;
         return str;

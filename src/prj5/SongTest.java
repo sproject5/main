@@ -35,7 +35,7 @@ public class SongTest extends TestCase
     public void setUp()
     {
         song = new Song("The Killers", "All These Things I've Done", 
-            "alternative", 2005, 50, 100);
+            "alternative", 2005);
     }
     
     /**
@@ -76,7 +76,7 @@ public class SongTest extends TestCase
     public void testAddLiked()
     {
         assertEquals(song.getLiked(), 50);
-        song.addLiked();
+        //song.addLiked();
         assertEquals(song.getLiked(), 51);
     }
     
@@ -86,7 +86,7 @@ public class SongTest extends TestCase
     public void testAddHeard()
     {
         assertEquals(song.getHeard(), 100);
-        song.addHeard();
+        //song.addHeard();
         assertEquals(song.getHeard(), 101);
     }
 
