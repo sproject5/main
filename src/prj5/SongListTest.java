@@ -1,3 +1,4 @@
+/*
 * Virginia Tech Honor Code Pledge:
  *
  * As a Hokie, I will conduct myself with honor
