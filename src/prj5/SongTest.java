@@ -104,8 +104,8 @@ public class SongTest extends TestCase {
      */
     public void testToStringTest()
     {
-        assertEquals(song.toStringTest(), "song title all these things i've"
-            + " done" + "\n" + "song artist the killers" + "\n" + "song "
+        assertEquals(song.toStringTest(), "song title All These Things I've"
+            + " Done" + "\n" + "song artist The Killers" + "\n" + "song "
                 + "genre Alternative" + "\n" +  "song year 2005");
     }
 }
