@@ -74,7 +74,7 @@ public class SurveySorter {
         {
             if(isHeardData)
             {
-                if (person[i] != null && person[i].getHobby()==hobby
+                if (person[i] != null && person[i].getHobby()==hobby && person[i].getSongList().getSong(title) != null
                 && (person[i].getSongList().getSong(title).getHeard() >= 0))
                 {
                     count++;
@@ -82,7 +82,7 @@ public class SurveySorter {
             }
             else
             {
-                if (person[i] != null && person[i].getHobby()==hobby
+                if (person[i] != null && person[i].getHobby()==hobby && person[i].getSongList().getSong(title) != null
                 && (person[i].getSongList().getSong(title).getLiked() >= 0))
                 {
                     count++;
@@ -109,8 +109,22 @@ public class SurveySorter {
 
         return targetSong;
     }
+
     
-    
+    public SongList<Song> getSongByGenre(String genre, SongList<Song> curSongList)
+    {
+        SongList<Song> targetSong = new SongList<Song>();
+        for (int k = 0; k < curSongList.size(); k++)
+        {
+            if (curSongList.get(k).getGenre().equals(genre))
+            {
+                targetSong.add(curSongList.get(k));
+            }
+        }
+        return targetSong;
+    }
+
+
     public SongList<Song> getSongList()
     {
         return songList;

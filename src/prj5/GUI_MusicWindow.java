@@ -91,6 +91,7 @@ public class GUI_MusicWindow
         survey = input;
         //System.out.println( survey.getSongList().toString());
         this.clickedSortBySongTitle();
+        this.clickedSortByGenre();
     }
 
     public void clickedSortBySongTitle()
@@ -118,6 +119,46 @@ public class GUI_MusicWindow
             
             System.out.println(survey.getSong(songName, songList).toStringTest() + heard + like);
         
+        }
+
+        //System.out.println(sortedList.toString());
+
+    }
+
+
+    public void clickedSortByGenre()
+    {
+        SongList songList = survey.getSongList();
+        DLList<String> sortedList = songList.sortByGenre();
+
+        for( int i = 0; i < sortedList.size() ; i++)
+        {
+            String genre = sortedList.get(i);
+            SongList<Song> tempSongList = survey.getSongByGenre(genre, songList);
+            for (int j = 0; j < tempSongList.size()  ; j++)
+            {
+                
+                
+                Song temp = tempSongList.get(j);
+                String songName = temp.getSongTitle();
+                DecimalFormat df = new DecimalFormat("0");
+                String heard = "\nheard \n" 
+                + "reading" + df.format(survey.DataOf(songName, Hobby.READ, true))
+                + " art" + df.format(survey.DataOf(songName, Hobby.ART, true))
+                + " sports" + df.format(survey.DataOf(songName, Hobby.SPORTS, true))
+                + " music" + df.format(survey.DataOf(songName, Hobby.MUSIC, true));
+            
+                String like = "\nlikes \n" 
+                    + "reading" + df.format(survey.DataOf(songName, Hobby.READ, false))
+                    + " art" + df.format(survey.DataOf(songName, Hobby.ART, false))
+                    + " sports" + df.format(survey.DataOf(songName, Hobby.SPORTS, false))
+                    + " music" + df.format(survey.DataOf(songName, Hobby.MUSIC, false)) + " \n";
+                
+                System.out.println(survey.getSong(songName, songList).toStringTest() + heard + like);
+        
+            }
+            
+            
         }
 
         //System.out.println(sortedList.toString());
