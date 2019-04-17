@@ -92,6 +92,7 @@ public class PersonTest extends TestCase {
     public void testToString() {
         
         Person test1 = new Person(new SongList<Song>(), "d", "d", "d", 10);
+        test1.getHobby()
         assertEquals(person.toString(), "0; Hobby: SPORTS; "
             + "Major: CS; State: NORTHEAST_US");
     }

@@ -15,5 +15,8 @@ package prj5;
  */
 public enum Major 
 {
+    /**
+     * stands for the specific major
+     */
     CS, OTHER_ENGE, MATH_OR_CMDA, OTHER;
 }

@@ -15,5 +15,8 @@ package prj5;
  */
 public enum State 
 {
+    /**
+     * stands for the specific major
+     */
     NORTHEAST_US, SOUTHEAST_US, THE_REST_OF_US, OUTSIDE_THE_US;
 }

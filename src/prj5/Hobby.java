@@ -15,6 +15,9 @@ package prj5;
  */
 public enum Hobby 
 {
+    /**
+     * stands for the hobby
+     */
     READ, ART, SPORTS, MUSIC;    
 }
 
