@@ -12,6 +12,11 @@ import java.text.ParseException;
 
 import javax.print.attribute.standard.OutputDeviceAssigned;
 
+/**
+ *  * @author cmangin
+ *              The SurveySorter class will serve to sort data into a songList
+ *
+ */
 public class SurveySorter {
 
     private SongList<Song> songList;
@@ -20,6 +25,17 @@ public class SurveySorter {
     private int size;
     private int personListSize;
 
+    /**
+     * This method is the default constructor of the Survey sorter
+     * @param inputPerson
+     *              a person
+     * @param inputSongList
+     *              a SongList
+     * @param otherPersonListSize
+     *              the size of another person's list
+     * @throws FileNotFoundException
+     * @throws ParseException
+     */
     public SurveySorter(Person[] inputPerson, SongList<Song> inputSongList, int otherPersonListSize) throws FileNotFoundException, ParseException
     {
         person = inputPerson;
@@ -66,7 +82,19 @@ public class SurveySorter {
         //System.out.println( "Hobby: "+ hobby + " count: " + count +" number: " + this.numberOf(title, hobby, isHeardData) + " output: "  + output);
         return output;
     }
-
+    
+    /**
+     * This method returns the number of times within the data
+     * a person with a certain hobby heard the song
+     * @param title
+     *          the title of the song
+     * @param hobby
+     *          the hobby of the person
+     * @param isHeardData
+     *          boolean describing whether heard is true or false
+     * @return
+     *      the count
+     */
     public double numberOf(String title, Hobby hobby, Boolean isHeardData)
     {
         double count = 0.0000001;
@@ -94,7 +122,15 @@ public class SurveySorter {
     }
 
 
-
+    /**
+     * This method will return the song in lower case
+     * @param title
+     *      the title of the song
+     * @param curSongList
+     *       the current songList
+     * @return
+     *      the targetSong
+     */
     public Song getSongInLowerCase(String title, DLList<Song> curSongList)
     {
         Song targetSong = null;
@@ -112,6 +148,15 @@ public class SurveySorter {
         return targetSong;
     }
     
+    /**
+     * The method will return the song's genre
+     * @param genre
+     *          the genre of the song
+     * @param curSongList
+     *          the current song list
+     * @return
+     *      the targetSong
+     */
     public SongList<Song> getSongByGenre(String genre, SongList<Song> curSongList)
     {
         SongList<Song> targetSong = new SongList<Song>();
@@ -125,7 +170,11 @@ public class SurveySorter {
         return targetSong;
     }
 
-
+    /**
+     * This metho get the song list
+     * @return
+     *      the songList
+     */
     public SongList<Song> getSongList()
     {
         return songList;
