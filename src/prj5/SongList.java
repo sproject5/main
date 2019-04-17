@@ -114,39 +114,48 @@ public class SongList<E> extends DLList<E> {
      * increment Heard 
      * @param index
      */
-    public void incrementHeard(int index) {
+    public void heardToYes(int index) {
         Song song = (Song) this.get(index);
-        //System.out.println(song.getSongTitle());
-        //System.out.println("before: " + song.getHeard());
+
         this.remove(index);
-        song.addHeard();
-        this.add(index, (E) song);
-        //System.out.println("after: " + song.getHeard());
-
-
-    }
-
-    public void incrementLike(int index) {
-        Song song = (Song) this.get(index);
-        this.remove(index);
-        song.addLiked();
+        song.heardIsYes();
         this.add(index, (E) song);
     }
 
-    public void decrementHeard(int index) {
+   
+    /**
+     * increment Heard 
+     * @param index
+     */
+    public void heardToNo(int index) {
         Song song = (Song) this.get(index);
+
         this.remove(index);
-        song.minusHeard();
+        song.heardIsNo();
         this.add(index, (E) song);
     }
-
-    public void decrementLike(int index) {
+    /**
+     * increment Heard 
+     * @param index
+     */
+    public void likedToYes(int index) {
         Song song = (Song) this.get(index);
+
         this.remove(index);
-        song.minusLiked();
+        song.likedIsYes();
         this.add(index, (E) song);
     }
+        /**
+     * increment Heard 
+     * @param index
+     */
+    public void likedToNo(int index) {
+        Song song = (Song) this.get(index);
 
+        this.remove(index);
+        song.likedIsNo();
+        this.add(index, (E) song);
+    }
 
     public Song getSong(String title)
     {
