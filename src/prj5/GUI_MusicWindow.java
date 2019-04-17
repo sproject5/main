@@ -90,8 +90,9 @@ public class GUI_MusicWindow
         //this();
         survey = input;
         //System.out.println( survey.getSongList().toString());
-        this.clickedSortBySongTitle();
+        
         this.clickedSortByGenre();
+        this.clickedSortBySongTitle();
     }
 
     public void clickedSortBySongTitle()
@@ -117,7 +118,7 @@ public class GUI_MusicWindow
                 + " sports" + df.format(survey.DataOf(songName, Hobby.SPORTS, false))
                 + " music" + df.format(survey.DataOf(songName, Hobby.MUSIC, false)) + " \n";
             
-            System.out.println(survey.getSong(songName, songList).toStringTest() + heard + like);
+            System.out.println(survey.getSongInLowerCase(songName, songList).toStringTest() + heard + like);
         
         }
 
@@ -140,7 +141,7 @@ public class GUI_MusicWindow
                 
                 
                 Song temp = tempSongList.get(j);
-                String songName = temp.getSongTitle();
+                String songName = temp.getSongTitle().toLowerCase();
                 DecimalFormat df = new DecimalFormat("0");
                 String heard = "\nheard \n" 
                 + "reading" + df.format(survey.DataOf(songName, Hobby.READ, true))
@@ -154,7 +155,7 @@ public class GUI_MusicWindow
                     + " sports" + df.format(survey.DataOf(songName, Hobby.SPORTS, false))
                     + " music" + df.format(survey.DataOf(songName, Hobby.MUSIC, false)) + " \n";
                 
-                System.out.println(survey.getSong(songName, songList).toStringTest() + heard + like);
+                System.out.println(survey.getSongInLowerCase(songName, songList).toStringTest() + heard + like);
         
             }
             

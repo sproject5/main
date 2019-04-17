@@ -47,7 +47,7 @@ public class SurveySorter {
             if (thisHobby == hobby)
             {
                 SongList<Song> thisSongList = person[i].getSongList();
-                Song thisSong = this.getSong(title, thisSongList);
+                Song thisSong = this.getSongInLowerCase(title, thisSongList);
                 
                 if (isHeardData)
                 {
@@ -74,16 +74,16 @@ public class SurveySorter {
         {
             if(isHeardData)
             {
-                if (person[i] != null && person[i].getHobby()==hobby && person[i].getSongList().getSong(title) != null
-                && (person[i].getSongList().getSong(title).getHeard() >= 0))
+                if (person[i] != null && person[i].getHobby()==hobby && person[i].getSongList().getSongInLowerCase(title) != null
+                && (person[i].getSongList().getSongInLowerCase(title).getHeard() >= 0))
                 {
                     count++;
                 }
             }
             else
             {
-                if (person[i] != null && person[i].getHobby()==hobby && person[i].getSongList().getSong(title) != null
-                && (person[i].getSongList().getSong(title).getLiked() >= 0))
+                if (person[i] != null && person[i].getHobby()==hobby && person[i].getSongList().getSongInLowerCase(title) != null
+                && (person[i].getSongList().getSongInLowerCase(title).getLiked() >= 0))
                 {
                     count++;
                 }
@@ -110,6 +110,22 @@ public class SurveySorter {
         return targetSong;
     }
 
+    public Song getSongInLowerCase(String title, DLList<Song> curSongList)
+    {
+        Song targetSong = null;
+        for (int k = 0; k < curSongList.size(); k++)
+        {
+            //System.out.println(curSongList.get(k).getSongTitle());
+            if (curSongList.get(k).getSongTitle().toLowerCase().equals(title))
+            {
+                //System.out.println(title);
+                targetSong = curSongList.get(k);
+            }
+        }
+
+
+        return targetSong;
+    }
     
     public SongList<Song> getSongByGenre(String genre, SongList<Song> curSongList)
     {

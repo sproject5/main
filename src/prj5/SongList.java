@@ -23,11 +23,11 @@ public class SongList<E> extends DLList<E> {
      * @return
      *      the alphabetized list
      */
-    private DLList<String> alphabeticalOrder(DLList<String> list) {
-
+    private DLList<String> alphabeticalOrder(DLList<String> list) 
+    {
         for (int i = 0; i < list.size() - 1; i++) {
             for (int j = 0; j < list.size() - 1; j++) {
-                if (list.get(j).compareToIgnoreCase(list.get(j + 1)) > 0) {
+                if (list.get(j).compareTo(list.get(j + 1)) > 0) {
                     String first = list.get(j);
 
                     list.remove(j);
@@ -44,7 +44,8 @@ public class SongList<E> extends DLList<E> {
      * @return
      *      the alphabetized list of artist names
      */
-    public DLList<String> sortByArtistName() {
+    public DLList<String> sortByArtistName() 
+    {
         DLList<String> artistList = new DLList<String>();
         for (int x = 0; x < this.size(); x++) {
             artistList.add(((Song)this.get(x)).getArtistName());
@@ -57,14 +58,19 @@ public class SongList<E> extends DLList<E> {
      * @return
      *      the alphabetized list of song titles
      */
-    public DLList<String> sortBySongTitle() {
+    public DLList<String> sortBySongTitle() 
+    {
         DLList<String> titleList = new DLList<String>();
         // System.out.println(this.size());
         for (int x = 0; x < this.size(); x++) {
-            titleList.add(((Song)this.get(x)).getSongTitle());
+            titleList.add(((Song)this.get(x)).getSongTitle().toLowerCase());
         }
-        return alphabeticalOrder(titleList);
+
+        DLList<String> newTitleList = alphabeticalOrder(titleList);
+        return alphabeticalOrder(newTitleList);
     }
+
+
 
     /**
      * This method will sort a list of integers representing 
@@ -72,10 +78,12 @@ public class SongList<E> extends DLList<E> {
      * @return
      *      a list of release years sorted chronologically
      */
-    public DLList<Integer> sortByReleaseYear() {
+    public DLList<Integer> sortByReleaseYear() 
+    {
         DLList<Integer> yearList = new DLList<Integer>();
         // System.out.println(this.size());
-        for (int x = 0; x < this.size(); x++) {
+        for (int x = 0; x < this.size(); x++) 
+        {
             yearList.add(((Song)this.get(x)).getDate());
         }
 
@@ -177,6 +185,22 @@ public class SongList<E> extends DLList<E> {
         {
             //System.out.println(curSongList.get(k).getSongTitle());
             if (((Song) this.get(k)).getSongTitle().equals(title))
+            {
+                //System.out.println(title);
+                targetSong = (Song) this.get(k);
+            }
+        }
+
+        return targetSong;
+    }
+
+    public Song getSongInLowerCase(String title)
+    {
+        Song targetSong = null;
+        for (int k = 0; k < this.size(); k++)
+        {
+            //System.out.println(curSongList.get(k).getSongTitle());
+            if (((Song) this.get(k)).getSongTitle().toLowerCase().equals(title))
             {
                 //System.out.println(title);
                 targetSong = (Song) this.get(k);
