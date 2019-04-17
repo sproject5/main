@@ -10,19 +10,17 @@ package prj5;
 import java.io.FileNotFoundException;
 import java.text.ParseException;
 
-import javax.print.attribute.standard.OutputDeviceAssigned;
 
 /**
- *  * @author cmangin
- *              The SurveySorter class will serve to sort data into a songList
- *
+ * 
+ * @author cmangin
+ *  he SurveySorter class will serve to sort data into a songList
+ *@version 2019.4
  */
 public class SurveySorter {
 
     private SongList<Song> songList;
     private Person[] person;
-    private SongReader songReader;
-    private int size;
     private int personListSize;
 
     /**
@@ -37,12 +35,12 @@ public class SurveySorter {
      * @throws ParseException
      */
     public SurveySorter(Person[] inputPerson, SongList<Song> 
-        inputSongList, int otherPersonListSize) throws FileNotFoundException, ParseException
+        inputSongList, int otherPersonListSize) 
+        throws FileNotFoundException, ParseException
     {
         person = inputPerson;
         songList = inputSongList;
         personListSize = otherPersonListSize;
-        size = 0;
     }
 
     /**
@@ -52,7 +50,7 @@ public class SurveySorter {
      * @param title the title of the song
      * @param isHeardData if it is true
      */
-    public double DataOf(String title, Hobby hobby, Boolean isHeardData )
+    public double dataOf(String title, Hobby hobby, Boolean isHeardData )
     {
         int count = 0;
         int i = 0;
@@ -73,16 +71,16 @@ public class SurveySorter {
                 if (isHeardData)
                 {
                     if (thisSong != null && thisSong.getHeard() == 1)
-                        {
-                            count++;
-                        }
+                    {
+                        count++;
+                    }
                 }
                 else 
                 {
                     if (thisSong != null && thisSong.getLiked() == 1)
-                        {
-                            count++;
-                        }
+                    {
+                        count++;
+                    }
                 }
             }
 
@@ -90,7 +88,7 @@ public class SurveySorter {
         }
 
         double output = ((double)count / this
-            .numberOf(title, hobby, isHeardData) )* 100;
+            .numberOf(title, hobby, isHeardData) ) * 100;
         return output;
     }
     
@@ -116,7 +114,7 @@ public class SurveySorter {
                 if (person[i] != null && person[i].getHobby() 
                     == hobby && person[i]
                     .getSongList().getSongInLowerCase(title) != null
-                && (person[i].getSongList()
+                    && (person[i].getSongList()
                     .getSongInLowerCase(title).getHeard() >= 0))
                 {
                     count++;
@@ -127,7 +125,7 @@ public class SurveySorter {
                 if (person[i] != null && person[i].getHobby() == 
                     hobby && person[i].getSongList().getSongInLowerCase(title) 
                     != null
-                && (person[i].getSongList().getSongInLowerCase(title)
+                    && (person[i].getSongList().getSongInLowerCase(title)
                     .getLiked() >= 0))
                 {
                     count++;

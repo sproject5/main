@@ -4,7 +4,7 @@ import java.util.Iterator;
 
 /**
  * Add the class description here.
- *
+ *@param E the generic
  * @author Drew Pompeii (drewp24)
  * @version 04/14/2019
  */
@@ -176,7 +176,7 @@ public class SongList<E> extends DLList<E> {
 
     /**
      * return the song search in lower case
-     * @param title
+     * @param title the title of the song
      * @return the song
      */
     public Song getSongInLowerCase(String title)

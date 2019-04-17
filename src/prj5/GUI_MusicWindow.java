@@ -198,16 +198,16 @@ public class GUI_MusicWindow
             DecimalFormat df = new DecimalFormat("0");
 
             String heard = "\nheard \n" 
-                + "reading" + df.format(survey.DataOf(songName, Hobby.READ, true))
-                + " art" + df.format(survey.DataOf(songName, Hobby.ART, true))
-                + " sports" + df.format(survey.DataOf(songName, Hobby.SPORTS, true))
-                + " music" + df.format(survey.DataOf(songName, Hobby.MUSIC, true));
+                + "reading" + df.format(survey.dataOf(songName, Hobby.READ, true))
+                + " art" + df.format(survey.dataOf(songName, Hobby.ART, true))
+                + " sports" + df.format(survey.dataOf(songName, Hobby.SPORTS, true))
+                + " music" + df.format(survey.dataOf(songName, Hobby.MUSIC, true));
             
             String like = "\nlikes \n" 
-                + "reading" + df.format(survey.DataOf(songName, Hobby.READ, false))
-                + " art" + df.format(survey.DataOf(songName, Hobby.ART, false))
-                + " sports" + df.format(survey.DataOf(songName, Hobby.SPORTS, false))
-                + " music" + df.format(survey.DataOf(songName, Hobby.MUSIC, false)) + " \n";
+                + "reading" + df.format(survey.dataOf(songName, Hobby.READ, false))
+                + " art" + df.format(survey.dataOf(songName, Hobby.ART, false))
+                + " sports" + df.format(survey.dataOf(songName, Hobby.SPORTS, false))
+                + " music" + df.format(survey.dataOf(songName, Hobby.MUSIC, false)) + " \n";
             
                 System.out.println(survey.getSongInLowerCase(songName, songList).toStringTest() + heard + like);
         
@@ -231,16 +231,16 @@ public class GUI_MusicWindow
                 String songName = temp.getSongTitle().toLowerCase();
                 DecimalFormat df = new DecimalFormat("0");
                 String heard = "\nheard \n" 
-                + "reading" + df.format(survey.DataOf(songName, Hobby.READ, true))
-                + " art" + df.format(survey.DataOf(songName, Hobby.ART, true))
-                + " sports" + df.format(survey.DataOf(songName, Hobby.SPORTS, true))
-                + " music" + df.format(survey.DataOf(songName, Hobby.MUSIC, true));
+                + "reading" + df.format(survey.dataOf(songName, Hobby.READ, true))
+                + " art" + df.format(survey.dataOf(songName, Hobby.ART, true))
+                + " sports" + df.format(survey.dataOf(songName, Hobby.SPORTS, true))
+                + " music" + df.format(survey.dataOf(songName, Hobby.MUSIC, true));
 
                 String like = "\nlikes \n" 
-                + "reading" + df.format(survey.DataOf(songName, Hobby.READ, false))
-                + " art" + df.format(survey.DataOf(songName, Hobby.ART, false))
-                + " sports" + df.format(survey.DataOf(songName, Hobby.SPORTS, false))
-                + " music" + df.format(survey.DataOf(songName, Hobby.MUSIC, false)) + " \n";
+                + "reading" + df.format(survey.dataOf(songName, Hobby.READ, false))
+                + " art" + df.format(survey.dataOf(songName, Hobby.ART, false))
+                + " sports" + df.format(survey.dataOf(songName, Hobby.SPORTS, false))
+                + " music" + df.format(survey.dataOf(songName, Hobby.MUSIC, false)) + " \n";
                 System.out.println(survey.getSongInLowerCase(songName, songList).toStringTest() + heard + like);
 
             }

@@ -349,7 +349,6 @@ public class DLList<E> implements Iterable {
 
     /**
      * Iterator creates iterator object.
-     * 
      * @return - new iterator object.
      */
     @Override
