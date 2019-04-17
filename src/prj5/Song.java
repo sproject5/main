@@ -154,6 +154,10 @@ public class Song
             + "; Heard: " + heard;
     }
 
+    /**
+    * Test the toString
+    * @return the test of the toString
+    */
     public String toStringTest()
     {
         String str = "song title " + songTitle.toLowerCase() + "\n"
