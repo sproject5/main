@@ -32,8 +32,8 @@ public class SongListTest extends student.TestCase
         songList = new SongList<Song>();
         marx = new Song("Marx Wang", "Rockstar Marx", "Rock", 1971, 70, 100);
         conner = new Song("Conner Mangin", "Conner Yay", "Country", 2004, 56, 75);
-        ruba = new Song("Ruba Shawkat", "Love song", "Pop", 1995, 100, 200);
-        drew = new Song("Drew Pompeii", "Pizza Pizza", "Rock", 1995, 25, 50);
+        ruba = new Song("Ruba Shawkat", "Cove song", "EDM", 1995, 100, 200);
+        drew = new Song("Drew Pompeii", "Cizza Pizza", "Rock", 1995, 25, 50);
         
         songList.add(marx);
         songList.add(conner);
@@ -48,7 +48,6 @@ public class SongListTest extends student.TestCase
     {
         //System.out.println(songList.sortByArtistName());
         DLList<String> artistList = songList.sortByArtistName();
-        //System.out.println(artistList.get(0));
         assertEquals(artistList.get(0), conner.getArtistName());
         assertEquals(artistList.get(0), conner.getArtistName());
         assertEquals(artistList.get(1), drew.getArtistName());
@@ -62,9 +61,9 @@ public class SongListTest extends student.TestCase
     public void testSortBySongTitle()
     {
         DLList<String> songTitleList = songList.sortBySongTitle();
-        assertEquals(songTitleList.get(0), conner.getSongTitle());
-        assertEquals(songTitleList.get(1), ruba.getSongTitle());
-        assertEquals(songTitleList.get(2), drew.getSongTitle());
+        assertEquals(songTitleList.get(0), drew.getSongTitle());
+        assertEquals(songTitleList.get(1), conner.getSongTitle());
+        assertEquals(songTitleList.get(2), ruba.getSongTitle());
         assertEquals(songTitleList.get(3), marx.getSongTitle());
     }
     
@@ -93,7 +92,10 @@ public class SongListTest extends student.TestCase
         assertEquals(genreList.get(2), marx.getGenre());
         assertEquals(genreList.get(3), drew.getGenre());
     }
-
+    
+    /**
+     * Tests the incrementHeard and incrementLiked method
+     */
     public void testIncrementHeard()
     {
         SongList<Song> list = new SongList<Song>();
@@ -105,10 +107,27 @@ public class SongListTest extends student.TestCase
         assertEquals("Title: goodBye; Artist: jack; Genre: jazz; Date: 1999; Liked: 0; Heard: 1", list.get(0).toString());
         list.incrementLike(0);
         assertEquals("Title: goodBye; Artist: jack; Genre: jazz; Date: 1999; Liked: 1; Heard: 1", list.get(0).toString());
-        
-        
     }
     
+    /**
+     * Tests the decrementHeard and decrementLiked method
+     */
+    public void testDecrementHeard()
+    {
+        SongList<Song> list = new SongList<Song>();
+        Song song = new Song("jack", "goodBye", "jazz", 1999, 1, 1);
+        list.add(song);
+        assertEquals("Title: goodBye; Artist: jack; Genre: jazz; Date: 1999; Liked: 1; Heard: 1", list.get(0).toString());
+
+        list.decrementLike(0);
+        assertEquals("Title: goodBye; Artist: jack; Genre: jazz; Date: 1999; Liked: 0; Heard: 1", list.get(0).toString());
+        list.decrementHeard(0);
+        assertEquals("Title: goodBye; Artist: jack; Genre: jazz; Date: 1999; Liked: 0; Heard: 0", list.get(0).toString());
+    }
+    
+    /**
+     * Tests the toString method
+     */
     public void testToString()
     {
         SongList<Song> list = new SongList<Song>();

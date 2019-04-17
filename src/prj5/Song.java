@@ -26,6 +26,8 @@ public class Song
     private int liked;
     private int heard;
     
+
+
     /**
      * The constructor for the Song class
      * @param artistName  the name of the arist
@@ -36,14 +38,16 @@ public class Song
      * @param heard  the amount of people who have heard the song
      */
     public Song(String artistName, String songTitle, String genre,
-        int date, int liked, int heard)
+        int date)
     {
         this.artistName = artistName;
         this.songTitle = songTitle;
         this.genre = genre;
         this.date = date;
-        this.liked = liked;
-        this.heard = heard;
+        this.liked = -1;
+        this.heard = -1;
+
+
     }
     
     /**
@@ -100,18 +104,12 @@ public class Song
         return heard;
     }
     
-    /**
-     * Adds a like to the song when someone likes the song
-     */
-    public void addLiked()
-    {
-        liked = 1;
-    }
+
     
     /**
      * Add a heard to the song when someone has heard the song
      */
-    public void addHeard()
+    public void heardIsYes()
     {
         
         heard = 1;
@@ -120,17 +118,27 @@ public class Song
     /**
      * Adds a like to the song when someone likes the song
      */
-    public void minusLiked()
+    public void likedIsYes()
     {
-        liked = -1;
+        liked = 1;
     }
+
+ 
     
     /**
      * Add a heard to the song when someone has heard the song
      */
-    public void minusHeard()
+    public void heardIsNo()
     {
-        heard = -1;
+        heard = 0;
+    }
+
+    /**
+     * Adds a like to the song when someone likes the song
+     */
+    public void likedIsNo()
+    {
+        liked = 0;
     }
 
 

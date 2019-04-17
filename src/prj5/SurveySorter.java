@@ -29,13 +29,13 @@ public class SurveySorter {
     }
 
     /**
-     * return the lked data of the hobby
+     * return the liked data of the hobby
      */
     public double DataOf(String title, Hobby hobby, Boolean isHeardData )
     {
         int count = 0;
         int i = 0;
-        while(i <= personListSize)
+        while(i < personListSize)
         {
             if (person[i] == null)
             {
@@ -58,20 +58,18 @@ public class SurveySorter {
                     if (thisSong != null && thisSong.getLiked() == 1) count++;
                 }
             }
-            
+
             i++;
         }
 
-        double output = ((double)count / this.numberOf(title, hobby, isHeardData)) * 100;
-        System.out.println( "Hobby: "+ hobby + " count: " + count +" number: " + this.numberOf(title, hobby, isHeardData) + " output: "  + output);
+        double output = ((double)count / this.numberOf(title, hobby, isHeardData) )* 100;
+        //System.out.println( "Hobby: "+ hobby + " count: " + count +" number: " + this.numberOf(title, hobby, isHeardData) + " output: "  + output);
         return output;
     }
 
     public double numberOf(String title, Hobby hobby, Boolean isHeardData)
     {
-        double count = 0.001;
-        
-        
+        double count = 0.0000001;
         for (int i = 0; i < person.length; i++)
         {
             if(isHeardData)
@@ -89,12 +87,10 @@ public class SurveySorter {
                 {
                     count++;
                 }
-            }
-            
-
-            
+            } 
         }
         return count;
+        
     }
 
     public Song getSong(String title, DLList<Song> curSongList)

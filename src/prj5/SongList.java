@@ -3,11 +3,12 @@ package prj5;
 import java.util.Iterator;
 
 /**
- * @author Ruba Shawkat
- * @version 2019-04-15 The class SongList extends the DLList class
+ * Add the class description here.
+ *
+ * @author Drew Pompeii (drewp24)
+ * @version 04/14/2019
  */
 public class SongList<E> extends DLList<E> {
-
     /**
      * The default constructor is intentionally left empty
      */
@@ -58,6 +59,7 @@ public class SongList<E> extends DLList<E> {
      */
     public DLList<String> sortBySongTitle() {
         DLList<String> titleList = new DLList<String>();
+        // System.out.println(this.size());
         for (int x = 0; x < this.size(); x++) {
             titleList.add(((Song)this.get(x)).getSongTitle());
         }
@@ -72,6 +74,7 @@ public class SongList<E> extends DLList<E> {
      */
     public DLList<Integer> sortByReleaseYear() {
         DLList<Integer> yearList = new DLList<Integer>();
+        // System.out.println(this.size());
         for (int x = 0; x < this.size(); x++) {
             yearList.add(((Song)this.get(x)).getDate());
         }
