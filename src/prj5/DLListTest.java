@@ -561,4 +561,27 @@ public class DLListTest extends TestCase {
         assertTrue("illegal.", 
             exception instanceof IllegalStateException);
     }
+    
+    public void testReiterators2()
+    {
+        Exception exception = null;
+        list.add("001");   
+
+        Iterator iter = list.reverseIterator();
+
+        try 
+        {
+            iter.remove();
+        } 
+        catch (Exception e) 
+        {
+            exception = e;
+        }
+
+        assertTrue("illegal.", 
+            exception instanceof IllegalStateException);
+        
+            
+
+    }
 }

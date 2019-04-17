@@ -39,7 +39,6 @@ public class SongReaderTest extends TestCase {
      */
     public void testReadSongFile() throws FileNotFoundException, java.text.ParseException 
     {
-        SongReader reader = new SongReader("SongList2018.csv", "MusicSurveyData2018.csv");
         DLList<Song> songList = reader.getSongList();
 
         Person[] persons = reader.getPersonList();
@@ -47,20 +46,7 @@ public class SongReaderTest extends TestCase {
         assertEquals(Hobby.READ, persons[0].getHobby());
         
          assertEquals(1, persons[0].getSongList().get(0).getHeard());
-         assertEquals(1, persons[1].getSongList().get(0).getHeard());
-         assertEquals(1, persons[2].getSongList().get(0).getHeard());
-         assertEquals(1, persons[3].getSongList().get(0).getHeard());
-         assertEquals(1, persons[4].getSongList().get(0).getHeard());
-         assertEquals(1, persons[5].getSongList().get(0).getHeard());
-         assertEquals(1, persons[6].getSongList().get(0).getHeard());
-         assertEquals(0, persons[7].getSongList().get(0).getHeard());
          
-        //System.out.println(persons[1].getHobby());
-        
-        
-        //System.out.println(persons[0].getSongList().toString());
-        assertEquals(1, persons[0].getSongList().get(0).getHeard());
-        assertEquals(1, persons[0].getSongList().get(0).getLiked());
         
         assertEquals(0, persons[0].getSongList().get(1).getHeard());
         assertEquals(0, persons[0].getSongList().get(1).getLiked());

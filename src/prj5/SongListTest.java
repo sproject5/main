@@ -61,10 +61,12 @@ public class SongListTest extends student.TestCase
     public void testSortBySongTitle()
     {
         DLList<String> songTitleList = songList.sortBySongTitle();
-        assertEquals(songTitleList.get(0), drew.getSongTitle());
-        assertEquals(songTitleList.get(1), conner.getSongTitle());
-        assertEquals(songTitleList.get(2), ruba.getSongTitle());
-        assertEquals(songTitleList.get(3), marx.getSongTitle());
+        
+        assertEquals(songTitleList.get(0), drew.getSongTitle().toLowerCase());
+        assertEquals(songTitleList.get(1), conner.getSongTitle().toLowerCase());
+        assertEquals(songTitleList.get(2), ruba.getSongTitle().toLowerCase());
+        assertEquals(songTitleList.get(3), marx.getSongTitle().toLowerCase());
+        
     }
     
     /**
@@ -132,6 +134,7 @@ public class SongListTest extends student.TestCase
     public void testToString()
     {
         SongList<Song> list = new SongList<Song>();
+        list.getSong(" ");
         Song song = new Song("jack", "goodBye", "jazz", 1999);
         list.add(song);
         assertEquals("Title: goodBye; Artist: jack; Genre: jazz; Date: 1999; Liked: -1; Heard: -1\n", list.toString());

@@ -73,8 +73,12 @@ public class PersonTest extends TestCase {
      * Tests the person's toString method
      */
     public void testToString() {
-        assertEquals(person.toString(), "0; Hobby: sports; "
-            + "Major: Computer Science; State: Northeast");
+        
+        Person test1 = new Person(new SongList<Song>(), "d", "d", "d", 10);
+        assertEquals(person.toString(), "0; Hobby: SPORTS; "
+            + "Major: CS; State: NORTHEAST_US");
     }
+    
+    
 
 }
