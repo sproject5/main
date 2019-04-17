@@ -34,8 +34,6 @@ public class Song
      * @param songTitle  the title of the song
      * @param genre  the genre of the song
      * @param date  the song's release year
-     * @param liked  the amount of likes the song has
-     * @param heard  the amount of people who have heard the song
      */
     public Song(String artistName, String songTitle, String genre,
         int date)

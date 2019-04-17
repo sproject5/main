@@ -27,9 +27,11 @@ public class SongReaderTest extends TestCase {
      * @throws FileNotFoundException 
      * @throws java.text.ParseException 
      */
-    public void setUp() throws FileNotFoundException, ParseException, java.text.ParseException
+    public void setUp() throws FileNotFoundException, 
+        ParseException, java.text.ParseException
     {
-        reader = new SongReader("SongList2018.csv", "MusicSurveyData2018Test1.csv");
+        reader = new SongReader("SongList2018.csv", 
+            "MusicSurveyData2018Test1.csv");
     }
 
     /**
@@ -38,15 +40,15 @@ public class SongReaderTest extends TestCase {
      * @throws FileNotFoundException 
      * 
      */
-    public void testReadSongFile() throws FileNotFoundException, java.text.ParseException 
+    public void testReadSongFile() 
+            throws FileNotFoundException, java.text.ParseException 
     {
-        DLList<Song> songList = reader.getSongList();
 
         Person[] persons = reader.getPersonList();
         assertEquals(001, persons[0].getIndex());
         assertEquals(Hobby.READ, persons[0].getHobby());
         
-         assertEquals(1, persons[0].getSongList().get(0).getHeard());
+        assertEquals(1, persons[0].getSongList().get(0).getHeard());
          
         
         assertEquals(0, persons[0].getSongList().get(1).getHeard());
@@ -70,24 +72,6 @@ public class SongReaderTest extends TestCase {
         //assertEquals(1, persons[0].getSongList().get(7).getHeard());
         
     }
-    
-    /**
-     * Tests that a ParseException is thrown.
-     */
-    public void testReadSongFileException()
-    {
-        Exception thrown = null;
-        
-      //  try {
-             
-          //  }
-      //  }
-
-       // catch (Exception exception) {
-       //     thrown = exception;
-       // }
-       // assertNotNull(thrown);
-        //assertTrue(thrown instanceof ParseException);
-    }
+   
  
 }

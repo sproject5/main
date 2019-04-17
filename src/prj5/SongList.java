@@ -9,15 +9,11 @@ import java.util.Iterator;
  * @version 04/14/2019
  */
 public class SongList<E> extends DLList<E> {
-    /**
-     * The default constructor is intentionally left empty
-     */
-    public SongList() {
-    }
 
 
     /**
-     * This private method is used to sort DLLinked list of strings alphabetically
+     * This private method is used to sort 
+     * DLLinked list of strings alphabetically
      * @param 
      *      list the DLList that will be sorted
      * @return
@@ -75,8 +71,8 @@ public class SongList<E> extends DLList<E> {
     /**
      * This method will sort a list of integers representing 
      * release years of songs 
-     * @return
-     *      a list of release years sorted chronologically
+     * @return a list of release 
+     * years sorted chronologically
      */
     public DLList<Integer> sortByReleaseYear() 
     {
@@ -104,8 +100,8 @@ public class SongList<E> extends DLList<E> {
 
     /**
      * This method will sort a a list of genres alphabetically
-     * @return
-     *      return a list of genres sorted alphabetically(including capitalization)
+     * @return return a list of genres 
+     * sorted alphabetically(including capitalization)
      */
     public DLList<String> sortByGenre() {
         DLList<String> genreList = new DLList<String>();
@@ -132,7 +128,7 @@ public class SongList<E> extends DLList<E> {
 
     /**
      * increment Heard 
-     * @param index
+     * @param index the index of the song
      */
     public void heardToYes(int index) {
         Song song = (Song) this.get(index);
@@ -145,7 +141,7 @@ public class SongList<E> extends DLList<E> {
    
     /**
      * increment Heard 
-     * @param index
+     * @param index the index of the song
      */
     public void heardToNo(int index) {
         Song song = (Song) this.get(index);
@@ -157,7 +153,7 @@ public class SongList<E> extends DLList<E> {
     }
     /**
      * increment Heard 
-     * @param index
+     * @param index the index of the song
      */
     public void likedToYes(int index) {
         Song song = (Song) this.get(index);
@@ -168,7 +164,7 @@ public class SongList<E> extends DLList<E> {
     }
         /**
      * increment Heard 
-     * @param index
+     * @param index the index of the song
      */
     public void likedToNo(int index) {
         Song song = (Song) this.get(index);
@@ -178,25 +174,11 @@ public class SongList<E> extends DLList<E> {
         this.add(index, (E) song);
     }
 
-
-/*
- * public Song getSong(String title)
- * {
- * Song targetSong = null;
- * for (int k = 0; k < this.size(); k++)
- * {
- * //System.out.println(curSongList.get(k).getSongTitle());
- * if (((Song) this.get(k)).getSongTitle().equals(title))
- * {
- * //System.out.println(title);
- * targetSong = (Song) this.get(k);
- * }
- * }
- * 
- * return targetSong;
- * }
- */
-
+    /**
+     * return the song search in lower case
+     * @param title
+     * @return the song
+     */
     public Song getSongInLowerCase(String title)
     {
         Song targetSong = null;
@@ -216,12 +198,13 @@ public class SongList<E> extends DLList<E> {
 
     /**
      * This method returns the String version of the song
+     * @return the string content
      */
     public String toString() {
         String str = "";
 
         Iterator<E> list = this.iterator();
-        while(list.hasNext())
+        while (list.hasNext())
         {
             str = str + list.next().toString() + "\n";
         }

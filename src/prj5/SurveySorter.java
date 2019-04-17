@@ -36,7 +36,8 @@ public class SurveySorter {
      * @throws FileNotFoundException
      * @throws ParseException
      */
-    public SurveySorter(Person[] inputPerson, SongList<Song> inputSongList, int otherPersonListSize) throws FileNotFoundException, ParseException
+    public SurveySorter(Person[] inputPerson, SongList<Song> 
+        inputSongList, int otherPersonListSize) throws FileNotFoundException, ParseException
     {
         person = inputPerson;
         songList = inputSongList;
@@ -46,12 +47,16 @@ public class SurveySorter {
 
     /**
      * return the liked data of the hobby
+     * @return the data of sorting
+     * @param hobby the hobby input
+     * @param title the title of the song
+     * @param isHeardData if it is true
      */
     public double DataOf(String title, Hobby hobby, Boolean isHeardData )
     {
         int count = 0;
         int i = 0;
-        while(i < personListSize)
+        while (i < personListSize)
         {
             if (person[i] == null)
             {
@@ -67,19 +72,25 @@ public class SurveySorter {
                 
                 if (isHeardData)
                 {
-                    if (thisSong != null && thisSong.getHeard() == 1) count++;
+                    if (thisSong != null && thisSong.getHeard() == 1)
+                        {
+                            count++;
+                        }
                 }
                 else 
                 {
-                    if (thisSong != null && thisSong.getLiked() == 1) count++;
+                    if (thisSong != null && thisSong.getLiked() == 1)
+                        {
+                            count++;
+                        }
                 }
             }
 
             i++;
         }
 
-        double output = ((double)count / this.numberOf(title, hobby, isHeardData) )* 100;
-        //System.out.println( "Hobby: "+ hobby + " count: " + count +" number: " + this.numberOf(title, hobby, isHeardData) + " output: "  + output);
+        double output = ((double)count / this
+            .numberOf(title, hobby, isHeardData) )* 100;
         return output;
     }
     
@@ -100,18 +111,24 @@ public class SurveySorter {
         double count = 0.0000001;
         for (int i = 0; i < person.length; i++)
         {
-            if(isHeardData)
+            if (isHeardData)
             {
-                if (person[i] != null && person[i].getHobby()==hobby && person[i].getSongList().getSongInLowerCase(title) != null
-                && (person[i].getSongList().getSongInLowerCase(title).getHeard() >= 0))
+                if (person[i] != null && person[i].getHobby() 
+                    == hobby && person[i]
+                    .getSongList().getSongInLowerCase(title) != null
+                && (person[i].getSongList()
+                    .getSongInLowerCase(title).getHeard() >= 0))
                 {
                     count++;
                 }
             }
             else
             {
-                if (person[i] != null && person[i].getHobby()==hobby && person[i].getSongList().getSongInLowerCase(title) != null
-                && (person[i].getSongList().getSongInLowerCase(title).getLiked() >= 0))
+                if (person[i] != null && person[i].getHobby() == 
+                    hobby && person[i].getSongList().getSongInLowerCase(title) 
+                    != null
+                && (person[i].getSongList().getSongInLowerCase(title)
+                    .getLiked() >= 0))
                 {
                     count++;
                 }
@@ -157,7 +174,8 @@ public class SurveySorter {
      * @return
      *      the targetSong
      */
-    public SongList<Song> getSongByGenre(String genre, SongList<Song> curSongList)
+    public SongList<Song> 
+        getSongByGenre(String genre, SongList<Song> curSongList)
     {
         SongList<Song> targetSong = new SongList<Song>();
         for (int k = 0; k < curSongList.size(); k++)

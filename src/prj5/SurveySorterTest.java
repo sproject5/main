@@ -9,16 +9,19 @@ package prj5;
 import java.io.FileNotFoundException;
 import java.text.ParseException;
 import student.TestCase;
-
+/**
+ * test the surveysorter
+ * @author boyuan
+ *@version 2019.4
+ */
 public class SurveySorterTest extends TestCase
 {
    
-
-    public void setUp() throws FileNotFoundException, ParseException
-    {
-        
-    }
-
+    /**
+     *  test the linkedDataOf
+     * @throws FileNotFoundException when no files
+     * @throws ParseException when pase exception
+     */
     public void testLinkedDataOf() throws FileNotFoundException, ParseException
     {
         //SongReader reader = new SongReader("SongList2018.csv", "MusicSurveyData2018.csv");
@@ -28,7 +31,11 @@ public class SurveySorterTest extends TestCase
         //assertEquals(42, survey.DataOf("Hotline Bling", Hobby.ART, true));
         
     }
-    
+    /**
+     *  test the number of
+     * @throws FileNotFoundException when the file is not found
+     * @throws ParseException when the parse error
+     */
     public void testDataOf2() throws FileNotFoundException, ParseException
     {
         SongReader reader = new SongReader("SongListTest1.csv", "MusicSurveyDataTest1.csv");
@@ -95,25 +102,18 @@ public class SurveySorterTest extends TestCase
         assertEquals(0, surveySorter.DataOf(name, Hobby.SPORTS, false), 0.5);
         assertEquals(0, surveySorter.DataOf(name, Hobby.MUSIC , false), 0.1);
     }
-
+    /**
+     *  test the number of
+     * @throws FileNotFoundException when the file is not found
+     * @throws ParseException when the parse error
+     */
     public void testDataOf3() throws FileNotFoundException, ParseException
     {
         SongReader reader = new SongReader("SongListNoGenreRepeats.csv", "MusicSurveyDataNoGenreRepeats.csv");
         SurveySorter surveySorter = new SurveySorter(reader.getPersonList(), reader.getSongList(), reader.getPersonListSize());
         String name = "All These Things I've Done";
         
-        /*
-         * assertEquals(41, surveySorter.DataOf(name, Hobby.READ, true), 1);
-         * assertEquals(37, surveySorter.DataOf(name, Hobby.ART, true), 1);
-         * assertEquals(34, surveySorter.DataOf(name, Hobby.SPORTS, true), 1);
-         * assertEquals(35, surveySorter.DataOf(name, Hobby.MUSIC, true), 1);
-         * 
-         * 
-         * assertEquals(41, surveySorter.DataOf(name, Hobby.READ, false), 1);
-         * assertEquals(40, surveySorter.DataOf(name, Hobby.ART, false), 1);
-         * assertEquals(33, surveySorter.DataOf(name, Hobby.SPORTS, false), 1);
-         * assertEquals(38, surveySorter.DataOf(name, Hobby.MUSIC , false), 1);
-         */
+
         
         name = "Tik Tok";
         
@@ -130,11 +130,17 @@ public class SurveySorterTest extends TestCase
         
 
     }
-
+    /**
+     *  test the number of
+     * @throws FileNotFoundException when the file is not found
+     * @throws ParseException when the parse error
+     */
     public void testNumberOf() throws FileNotFoundException, ParseException
     {
-        SongReader reader = new SongReader("SongListTest1.csv", "MusicSurveyDataTest1.csv");
-        SurveySorter surveySorter = new SurveySorter(reader.getPersonList(), reader.getSongList(), reader.getPersonListSize());
+        SongReader reader = new 
+               SongReader("SongListTest1.csv", "MusicSurveyDataTest1.csv");
+        SurveySorter surveySorter = new 
+               SurveySorter(reader.getPersonList(), reader.getSongList(), reader.getPersonListSize());
         String title = "All These Things I've Done";
         System.out.println(surveySorter.numberOf(title, Hobby.READ, true));
         System.out.println(surveySorter.numberOf(title, Hobby.ART, true));
