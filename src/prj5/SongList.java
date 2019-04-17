@@ -1,9 +1,21 @@
+/*
+* Virginia Tech Honor Code Pledge:
+ *
+ * As a Hokie, I will conduct myself with honor
+ * and integrity at all times.
+ * I will not lie, cheat, or steal, nor will I
+ * accept the actions of those who do.
+ * -- Drew Pompeii (drewp24)
+
+ */
+
 package prj5;
 
 import java.util.Iterator;
 
 /**
- * Add the class description here.
+ * This class manipulates the songs of a list by sorting, 
+ * and keeping track of their stats
  *
  * @author Drew Pompeii (drewp24)
  * @version 04/14/2019
@@ -134,7 +146,7 @@ public class SongList<E> extends DLList<E> {
 
     /**
      * increment Heard 
-     * @param index
+     * @param index  to keep track
      */
     public void heardToYes(int index) {
         Song song = (Song) this.get(index);
@@ -147,7 +159,7 @@ public class SongList<E> extends DLList<E> {
    
     /**
      * increment Heard 
-     * @param index
+     * @param index  to keep track
      */
     public void heardToNo(int index) {
         Song song = (Song) this.get(index);
@@ -159,7 +171,7 @@ public class SongList<E> extends DLList<E> {
     }
     /**
      * increment Heard 
-     * @param index
+     * @param index  to keep track
      */
     public void likedToYes(int index) {
         Song song = (Song) this.get(index);
@@ -168,9 +180,9 @@ public class SongList<E> extends DLList<E> {
         song.likedIsYes();
         this.add(index, (E) song);
     }
-        /**
+    /**
      * increment Heard 
-     * @param index
+     * @param index  to keep track
      */
     public void likedToNo(int index) {
         Song song = (Song) this.get(index);
@@ -180,6 +192,11 @@ public class SongList<E> extends DLList<E> {
         this.add(index, (E) song);
     }
 
+    /**
+     * Gets the song
+     * @param title  the title of the returning song
+     * @return the song searched for
+     */
     public Song getSong(String title)
     {
         Song targetSong = null;
@@ -196,6 +213,11 @@ public class SongList<E> extends DLList<E> {
         return targetSong;
     }
 
+    /**
+     * Gets the song in lower case
+     * @param title  the title changing into lower case
+     * @return the song in lower case
+     */
     public Song getSongInLowerCase(String title)
     {
         Song targetSong = null;
@@ -213,6 +235,10 @@ public class SongList<E> extends DLList<E> {
         return targetSong;
     }
 
+    /**
+     * Creates a string of the song list
+     * @return a string of the song list
+     */
     public String toString() {
         String str = "";
 
