@@ -39,6 +39,17 @@ public class PersonTest extends TestCase {
 
 
     /**
+     * Tests that a person's hobby is incorrect and then
+     * kicks out to the default case, which is null.
+     */
+    public void testGetHobbyNull() {
+        Person personNull = new Person(list, "Null", "Northeast",
+            "Computer Science", 0);
+        assertNull(personNull.getHobby());
+    }
+
+ 
+    /**
      * Tests that a person's state is correctly given.
      */
     public void testGetState() {
@@ -47,10 +58,31 @@ public class PersonTest extends TestCase {
 
 
     /**
+     * Tests that a person's state is incorrect and then
+     * kicks out to the default case, which is null.
+     */
+    public void testGetStateNull() {
+        Person personNull = new Person(list, "sports", "Error",
+            "Computer Science", 0);
+        assertNull(personNull.getState());
+    }
+
+
+    /**
      * Test that a person's major is correctly given.
      */
     public void testGetMajor() {
         assertEquals(MajorEnum.CS, person.getMajor());
+    }
+
+
+    /**
+     * Tests that a person's major is incorrect and then
+     * kicks out to the default case, which is null.
+     */
+    public void testGetMajorNull() {
+        Person personNull = new Person(list, "sports", "Northeast", "Error", 0);
+        assertNull(personNull.getMajor());
     }
 
 
@@ -72,7 +104,7 @@ public class PersonTest extends TestCase {
 
     /**
      * Tests the person's toString method
-     */ 
+     */
     public void testToString() {
         assertEquals(person.toString(), "0; Hobby: SPORTS; "
             + "Major: CS; State: NORTHEAST_US");
