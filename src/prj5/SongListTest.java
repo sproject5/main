@@ -1,4 +1,3 @@
-/*
 * Virginia Tech Honor Code Pledge:
  *
  * As a Hokie, I will conduct myself with honor
@@ -94,34 +93,35 @@ public class SongListTest extends student.TestCase
     }
     
     /**
-     * Tests the incrementHeard and incrementLiked method
+     * Tests the heardToYes and likedToYes method
      */
-    public void testIncrementHeard()
+    public void testHeardAndLikedToYes()
     {
+        
         SongList<Song> list = new SongList<Song>();
         Song song = new Song("jack", "goodBye", "jazz", 1999);
         list.add(song);
-        assertEquals("Title: goodBye; Artist: jack; Genre: jazz; Date: 1999; Liked: 0; Heard: 0", list.get(0).toString());
+        assertEquals("Title: goodBye; Artist: jack; Genre: jazz; Date: 1999; Liked: -1; Heard: -1", list.get(0).toString());
 
-        //list.incrementHeard(0);
-        assertEquals("Title: goodBye; Artist: jack; Genre: jazz; Date: 1999; Liked: 0; Heard: 1", list.get(0).toString());
-        //list.incrementLike(0);
+        list.heardToYes(0);
+        assertEquals("Title: goodBye; Artist: jack; Genre: jazz; Date: 1999; Liked: -1; Heard: 1", list.get(0).toString());
+        list.likedToYes(0);
         assertEquals("Title: goodBye; Artist: jack; Genre: jazz; Date: 1999; Liked: 1; Heard: 1", list.get(0).toString());
     }
     
     /**
-     * Tests the decrementHeard and decrementLiked method
+     * Tests the heardToNo and likedToNo method
      */
-    public void testDecrementHeard()
+    public void testHeardAndLikedToNo()
     {
         SongList<Song> list = new SongList<Song>();
         Song song = new Song("jack", "goodBye", "jazz", 1999);
         list.add(song);
-        assertEquals("Title: goodBye; Artist: jack; Genre: jazz; Date: 1999; Liked: 1; Heard: 1", list.get(0).toString());
+        assertEquals("Title: goodBye; Artist: jack; Genre: jazz; Date: 1999; Liked: -1; Heard: -1", list.get(0).toString());
 
-        //list.decrementLike(0);
-        assertEquals("Title: goodBye; Artist: jack; Genre: jazz; Date: 1999; Liked: 0; Heard: 1", list.get(0).toString());
-        //list.decrementHeard(0);
+        list.heardToNo(0);
+        assertEquals("Title: goodBye; Artist: jack; Genre: jazz; Date: 1999; Liked: -1; Heard: 0", list.get(0).toString());
+        list.likedToNo(0);
         assertEquals("Title: goodBye; Artist: jack; Genre: jazz; Date: 1999; Liked: 0; Heard: 0", list.get(0).toString());
     }
     
@@ -133,11 +133,11 @@ public class SongListTest extends student.TestCase
         SongList<Song> list = new SongList<Song>();
         Song song = new Song("jack", "goodBye", "jazz", 1999);
         list.add(song);
-        assertEquals("Title: goodBye; Artist: jack; Genre: jazz; Date: 1999; Liked: 0; Heard: 0\n", list.toString());
+        assertEquals("Title: goodBye; Artist: jack; Genre: jazz; Date: 1999; Liked: -1; Heard: -1\n", list.toString());
         
         song = new Song("jack2", "goodBye2", "jazz2", 1999);
         list.add(song);
-        assertEquals("Title: goodBye; Artist: jack; Genre: jazz; Date: 1999; Liked: 0; Heard: 0\n" + 
-            "Title: goodBye2; Artist: jack2; Genre: jazz2; Date: 1999; Liked: 0; Heard: 0\n", list.toString());
+        assertEquals("Title: goodBye; Artist: jack; Genre: jazz; Date: 1999; Liked: -1; Heard: -1\n" + 
+            "Title: goodBye2; Artist: jack2; Genre: jazz2; Date: 1999; Liked: -1; Heard: -1\n", list.toString());
     }
 }
