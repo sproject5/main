@@ -153,17 +153,16 @@ public class Song
     }
 
     /**
-    * Test the toString
-    * @return the test of the toString
-    */
+     * Testing of the toString
+     * @return string after calling toStringTest
+     */
     public String toStringTest()
     {
-        String str = "song title " + songTitle.toLowerCase() + "\n"
-            + "song artist " + artistName.toLowerCase() + "\n"
+        String str = "song title " + songTitle + "\n"
+            + "song artist " + artistName + "\n"
             + "song genre " + genre + "\n"
             + "song year " + date;
         return str;
     }
 
 }
-
