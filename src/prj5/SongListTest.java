@@ -13,7 +13,7 @@ package prj5;
 /**
  * Tests the methods and constructors in the SongList class
  *
- * @author Drew Pompeii (drewp24) boyuan
+ * @author Drew Pompeii (drewp24)
  * @version 2019.04.16
  */
 public class SongListTest extends student.TestCase
@@ -61,12 +61,10 @@ public class SongListTest extends student.TestCase
     public void testSortBySongTitle()
     {
         DLList<String> songTitleList = songList.sortBySongTitle();
-        
-        assertEquals(songTitleList.get(0), drew.getSongTitle().toLowerCase());
-        assertEquals(songTitleList.get(1), conner.getSongTitle().toLowerCase());
-        assertEquals(songTitleList.get(2), ruba.getSongTitle().toLowerCase());
-        assertEquals(songTitleList.get(3), marx.getSongTitle().toLowerCase());
-        
+        assertEquals(songTitleList.get(0), drew.getSongTitle()); 
+        assertEquals(songTitleList.get(1), conner.getSongTitle());
+        assertEquals(songTitleList.get(2), ruba.getSongTitle());
+        assertEquals(songTitleList.get(3), marx.getSongTitle());
     }
     
     /**
@@ -75,10 +73,12 @@ public class SongListTest extends student.TestCase
     public void testSortByReleaseYear()
     {
         DLList<Integer> yearList = songList.sortByReleaseYear();
-        assertEquals(0, yearList.get(0) - marx.getDate());
-        assertEquals(0, yearList.get(1) - ruba.getDate());
-        assertEquals(0, yearList.get(2) - drew.getDate());
-    
+        assertTrue(yearList.get(0) == marx.getDate());
+        assertTrue(yearList.get(1) == ruba.getDate());
+        assertTrue(yearList.get(2) == drew.getDate());
+        assertTrue(yearList.get(3) == conner.getDate());
+        
+        
     }
     
     /**
@@ -102,15 +102,12 @@ public class SongListTest extends student.TestCase
         SongList<Song> list = new SongList<Song>();
         Song song = new Song("jack", "goodBye", "jazz", 1999);
         list.add(song);
-        assertEquals("Title: goodBye; Artist: jack; Genre: "
-            + "jazz; Date: 1999; Liked: -1; Heard: -1", list.get(0).toString());
+        assertEquals("Title: goodBye; Artist: jack; Genre: jazz; Date: 1999; Liked: -1; Heard: -1", list.get(0).toString());
 
         list.heardToYes(0);
-        assertEquals("Title: goodBye; Artist: jack; Genre: "
-            + "jazz; Date: 1999; Liked: -1; Heard: 1", list.get(0).toString());
+        assertEquals("Title: goodBye; Artist: jack; Genre: jazz; Date: 1999; Liked: -1; Heard: 1", list.get(0).toString());
         list.likedToYes(0);
-        assertEquals("Title: goodBye; Artist: jack; Genre:"
-            + " jazz; Date: 1999; Liked: 1; Heard: 1", list.get(0).toString());
+        assertEquals("Title: goodBye; Artist: jack; Genre: jazz; Date: 1999; Liked: 1; Heard: 1", list.get(0).toString());
     }
     
     /**
@@ -121,15 +118,12 @@ public class SongListTest extends student.TestCase
         SongList<Song> list = new SongList<Song>();
         Song song = new Song("jack", "goodBye", "jazz", 1999);
         list.add(song);
-        assertEquals("Title: goodBye; Artist: jack; Genre: "
-            + "jazz; Date: 1999; Liked: -1; Heard: -1", list.get(0).toString());
+        assertEquals("Title: goodBye; Artist: jack; Genre: jazz; Date: 1999; Liked: -1; Heard: -1", list.get(0).toString());
 
         list.heardToNo(0);
-        assertEquals("Title: goodBye; Artist: jack; Genre: "
-            + "jazz; Date: 1999; Liked: -1; Heard: 0", list.get(0).toString());
+        assertEquals("Title: goodBye; Artist: jack; Genre: jazz; Date: 1999; Liked: -1; Heard: 0", list.get(0).toString());
         list.likedToNo(0);
-        assertEquals("Title: goodBye; Artist: jack; Genre:"
-            + " jazz; Date: 1999; Liked: 0; Heard: 0", list.get(0).toString());
+        assertEquals("Title: goodBye; Artist: jack; Genre: jazz; Date: 1999; Liked: 0; Heard: 0", list.get(0).toString());
     }
     
     /**
@@ -140,14 +134,11 @@ public class SongListTest extends student.TestCase
         SongList<Song> list = new SongList<Song>();
         Song song = new Song("jack", "goodBye", "jazz", 1999);
         list.add(song);
-        assertEquals("Title: goodBye; Artist: jack; Genre:"
-            + " jazz; Date: 1999; Liked: -1; Heard: -1\n", list.toString());
+        assertEquals("Title: goodBye; Artist: jack; Genre: jazz; Date: 1999; Liked: -1; Heard: -1\n", list.toString());
         
         song = new Song("jack2", "goodBye2", "jazz2", 1999);
         list.add(song);
-        assertEquals("Title: goodBye; Artist: jack; Genre:"
-            + " jazz; Date: 1999; Liked: -1; Heard: -1\n" + 
-            "Title: goodBye2; Artist: jack2; Genre: jazz2; "
-            + "Date: 1999; Liked: -1; Heard: -1\n", list.toString());
+        assertEquals("Title: goodBye; Artist: jack; Genre: jazz; Date: 1999; Liked: -1; Heard: -1\n" + 
+            "Title: goodBye2; Artist: jack2; Genre: jazz2; Date: 1999; Liked: -1; Heard: -1\n", list.toString());
     }
 }
