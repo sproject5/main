@@ -34,24 +34,7 @@ public class PersonTest extends TestCase {
      * Tests that a person's hobby is correctly given.
      */
     public void testGetHobby() {
-        assertEquals(Hobby.SPORTS, person.getHobby());
-        System.out.println(Hobby.SPORTS);
-        System.out.println(Hobby.ART);
-        System.out.println(Hobby.MUSIC);
-        System.out.println(Hobby.READ);
-        
-        System.out.println(Major.MATH_OR_CMDA);
-        System.out.println(Major.OTHER);
-        System.out.println(Major.OTHER_ENGE);
-        System.out.println(Major.CS);
-        
-        System.out.println(State.OUTSIDE_THE_US);
-        System.out.println(State.SOUTHEAST_US);
-        System.out.println(State.NORTHEAST_US);
-        System.out.println(State.THE_REST_OF_US);
-
-
-        
+        assertEquals(HobbyEnum.SPORTS, person.getHobby());
     }
 
 
@@ -59,7 +42,7 @@ public class PersonTest extends TestCase {
      * Tests that a person's state is correctly given.
      */
     public void testGetState() {
-        assertEquals(State.NORTHEAST_US, person.getState());
+        assertEquals(StateEnum.NORTHEAST_US, person.getState());
     }
 
 
@@ -67,7 +50,7 @@ public class PersonTest extends TestCase {
      * Test that a person's major is correctly given.
      */
     public void testGetMajor() {
-        assertEquals(Major.CS, person.getMajor());
+        assertEquals(MajorEnum.CS, person.getMajor());
     }
 
 
@@ -86,17 +69,13 @@ public class PersonTest extends TestCase {
         assertEquals(list, person.getSongList());
     }
 
+
     /**
      * Tests the person's toString method
-     */
+     */ 
     public void testToString() {
-        
-        Person test1 = new Person(new SongList<Song>(), "d", "d", "d", 10);
-        test1.getHobby();
         assertEquals(person.toString(), "0; Hobby: SPORTS; "
             + "Major: CS; State: NORTHEAST_US");
     }
-    
-    
 
 }
