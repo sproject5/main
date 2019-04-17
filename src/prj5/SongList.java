@@ -177,7 +177,12 @@ public class SongList<E> extends DLList<E> {
         song.likedIsNo();
         this.add(index, (E) song);
     }
-
+    /**
+     * Gets the song 
+     * @param title
+     * @return
+     *      returns the song
+     */
     public Song getSong(String title)
     {
         Song targetSong = null;
@@ -193,7 +198,13 @@ public class SongList<E> extends DLList<E> {
 
         return targetSong;
     }
-
+    
+    /**
+     * This method gets the song in lowercase
+     * @param title
+     * @return
+     *      the lowercase song
+     */
     public Song getSongInLowerCase(String title)
     {
         Song targetSong = null;
@@ -211,6 +222,9 @@ public class SongList<E> extends DLList<E> {
         return targetSong;
     }
 
+    /**
+     * This method returns the String version of the song
+     */
     public String toString() {
         String str = "";
 
