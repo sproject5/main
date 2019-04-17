@@ -1,25 +1,30 @@
-// Virginia Tech Honor Code Pledge:
-//
-// As a Hokie, I will conduct myself with honor and integrity at all times.
-// I will not lie, cheat, or steal, nor will I accept the actions of those who
-// do.
-// -- cmangin
+/**
+ * Virginia Tech Honor Code Pledge:
+ *
+ * As a Hokie, I will conduct myself with honor
+ * and integrity at all times.
+ * I will not lie, cheat, or steal, nor will I
+ * accept the actions of those who do.
+ * -- Drew Pompeii (drewp24)
 
+ */
 package prj5;
 
 import java.util.Iterator;
 
 /**
- * @author Ruba Shawkat
- * @version 2019-04-15 The class SongList extends the DLList class
+ * Add the class description here.
+ *
+ * @author Drew Pompeii (drewp24)
+ * @version 04/14/2019
  */
 public class SongList<E> extends DLList<E> {
-
     /**
      * The default constructor is intentionally left empty
      */
     public SongList() {
     }
+
 
     /**
      * 
@@ -28,10 +33,14 @@ public class SongList<E> extends DLList<E> {
      */
     private DLList<String> alphabeticalOrder(DLList<String> list) {
 
-        for (int i = 0; i < list.size() - 1; i++) 
-        {
-            for (int j = 0; j < list.size() - 1; j++) 
-            {
+        for (int i = 0; i < list.size() - 1; i++) {
+            // System.out.println(list.size());
+
+            // System.out.println("erdtf");
+
+            for (int j = 0; j < list.size() - 1; j++) {
+                // System.out.println(list.get(j).compareTo(list.get(j + 1)));
+
                 if (list.get(j).compareTo(list.get(j + 1)) > 0) {
                     String first = list.get(j);
 
@@ -44,28 +53,35 @@ public class SongList<E> extends DLList<E> {
         return list;
     }
 
-    public DLList<String> sortByArtistName() 
-    {
+
+    public DLList<String> sortByArtistName() {
         DLList<String> artistList = new DLList<String>();
-        for (int x = 0; x < this.size(); x++) 
-        {
-            artistList.add(((Song) this.get(x)).getArtistName());
+        // System.out.println(this.size());
+        for (int x = 0; x < this.size(); x++) {
+            // System.out.println("wedfrg");
+            artistList.add(((Song)this.get(x)).getArtistName());
         }
         return alphabeticalOrder(artistList);
     }
 
+
     public DLList<String> sortBySongTitle() {
         DLList<String> titleList = new DLList<String>();
+        // System.out.println(this.size());
         for (int x = 0; x < this.size(); x++) {
-            titleList.add(((Song) this.get(x)).getSongTitle());
+            // System.out.println("wedfrg");
+            titleList.add(((Song)this.get(x)).getSongTitle());
         }
         return alphabeticalOrder(titleList);
     }
 
+
     public DLList<Integer> sortByReleaseYear() {
         DLList<Integer> yearList = new DLList<Integer>();
+        // System.out.println(this.size());
         for (int x = 0; x < this.size(); x++) {
-            yearList.add(((Song) this.get(x)).getDate());
+            // System.out.println("wedfrg");
+            yearList.add(((Song)this.get(x)).getDate());
         }
 
         for (int j = 0; j < yearList.size() - 1; j++) {
@@ -83,50 +99,51 @@ public class SongList<E> extends DLList<E> {
         return yearList;
     }
 
+
     public DLList<String> sortByGenre() {
         DLList<String> genreList = new DLList<String>();
         // System.out.println(this.size());
         for (int x = 0; x < this.size(); x++) {
             // System.out.println("wedfrg");
-            genreList.add(((Song) this.get(x)).getGenre());
+            genreList.add(((Song)this.get(x)).getGenre());
         }
         return alphabeticalOrder(genreList);
     }
-
+    
     /**
      * increment Heard 
      * @param index
      */
-    public void heardToYes(int index) 
-    {
+    public void incrementHeard(int index) {
         Song song = (Song) this.get(index);
-
+        //System.out.println(song.getSongTitle());
+        //System.out.println("before: " + song.getHeard());
         this.remove(index);
-        song.heardIsYes();
+        song.addHeard();
         this.add(index, (E) song);
+        //System.out.println("after: " + song.getHeard());
+
 
     }
 
-    public void likedToYes(int index) 
-    {
+    public void incrementLike(int index) {
         Song song = (Song) this.get(index);
         this.remove(index);
-        song.likedIsYes();
+        song.addLiked();
         this.add(index, (E) song);
     }
 
-    public void heardToNo(int index) 
-    {
+    public void decrementHeard(int index) {
         Song song = (Song) this.get(index);
         this.remove(index);
-        song.heardIsNo();
+        song.minusHeard();
         this.add(index, (E) song);
     }
 
-    public void likedToNo(int index) {
+    public void decrementLike(int index) {
         Song song = (Song) this.get(index);
         this.remove(index);
-        song.likedIsNo();
+        song.minusLiked();
         this.add(index, (E) song);
     }
 
