@@ -1,13 +1,3 @@
-/**
- * Virginia Tech Honor Code Pledge:
- *
- * As a Hokie, I will conduct myself with honor
- * and integrity at all times.
- * I will not lie, cheat, or steal, nor will I
- * accept the actions of those who do.
- * -- Drew Pompeii (drewp24)
-
- */
 package prj5;
 
 import java.util.Iterator;
@@ -27,21 +17,17 @@ public class SongList<E> extends DLList<E> {
 
 
     /**
-     * 
-     * @param list
+     * This private method is used to sort DLLinked list of strings alphabetically
+     * @param 
+     *      list the DLList that will be sorted
      * @return
+     *      the alphabetized list
      */
     private DLList<String> alphabeticalOrder(DLList<String> list) {
 
         for (int i = 0; i < list.size() - 1; i++) {
-            // System.out.println(list.size());
-
-            // System.out.println("erdtf");
-
             for (int j = 0; j < list.size() - 1; j++) {
-                // System.out.println(list.get(j).compareTo(list.get(j + 1)));
-
-                if (list.get(j).compareTo(list.get(j + 1)) > 0) {
+                if (list.get(j).compareToIgnoreCase(list.get(j + 1)) > 0) {
                     String first = list.get(j);
 
                     list.remove(j);
@@ -53,34 +39,43 @@ public class SongList<E> extends DLList<E> {
         return list;
     }
 
-
+    /**
+     * This method will sort a list of artist names alphabetically
+     * @return
+     *      the alphabetized list of artist names
+     */
     public DLList<String> sortByArtistName() {
         DLList<String> artistList = new DLList<String>();
-        // System.out.println(this.size());
         for (int x = 0; x < this.size(); x++) {
-            // System.out.println("wedfrg");
             artistList.add(((Song)this.get(x)).getArtistName());
         }
         return alphabeticalOrder(artistList);
     }
 
-
+    /**
+     * This method will sort a list of song titles alphabetically
+     * @return
+     *      the alphabetized list of song titles
+     */
     public DLList<String> sortBySongTitle() {
         DLList<String> titleList = new DLList<String>();
         // System.out.println(this.size());
         for (int x = 0; x < this.size(); x++) {
-            // System.out.println("wedfrg");
             titleList.add(((Song)this.get(x)).getSongTitle());
         }
         return alphabeticalOrder(titleList);
     }
 
-
+    /**
+     * This method will sort a list of integers representing 
+     * release years of songs 
+     * @return
+     *      a list of release years sorted chronologically
+     */
     public DLList<Integer> sortByReleaseYear() {
         DLList<Integer> yearList = new DLList<Integer>();
         // System.out.println(this.size());
         for (int x = 0; x < this.size(); x++) {
-            // System.out.println("wedfrg");
             yearList.add(((Song)this.get(x)).getDate());
         }
 
@@ -99,7 +94,11 @@ public class SongList<E> extends DLList<E> {
         return yearList;
     }
 
-
+    /**
+     * This method will sort a a list of genres alphabetically
+     * @return
+     *      return a list of genres sorted alphabetically(including capitalization)
+     */
     public DLList<String> sortByGenre() {
         DLList<String> genreList = new DLList<String>();
         // System.out.println(this.size());
@@ -107,9 +106,22 @@ public class SongList<E> extends DLList<E> {
             // System.out.println("wedfrg");
             genreList.add(((Song)this.get(x)).getGenre());
         }
-        return alphabeticalOrder(genreList);
+        for (int i = 0; i < genreList.size() - 1; i++) {
+            for (int j = 0; j < genreList.size() - 1; j++) {
+                if (genreList.get(j).compareTo(genreList.get(j + 1)) > 0) {
+                    String first = genreList.get(j);
+
+                    genreList.remove(j);
+                    genreList.add(j + 1, first);
+                }
+            }
+
+        }
+        return genreList;
     }
-    
+
+
+
     /**
      * increment Heard 
      * @param index
@@ -170,7 +182,6 @@ public class SongList<E> extends DLList<E> {
                 targetSong = (Song) this.get(k);
             }
         }
-
 
         return targetSong;
     }
