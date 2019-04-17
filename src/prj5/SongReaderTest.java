@@ -12,7 +12,7 @@ import java.io.FileNotFoundException;
 import bsh.ParseException;
 
 /**
- * Tests the Person class.
+ * Tests the SongReader class.
  *
  * @author Conner Mangin (cmangin)
  * @version 2019.04.14
