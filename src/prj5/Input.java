@@ -33,5 +33,15 @@ public class Input {
         catch (ParseException e) {
             e.printStackTrace();
         }
+
+        //        try {
+//            SongReader reader = new SongReader("MusicSurveyData2018.csv", "SurveyList2018.csv");
+//        }
+//        catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//        }
+//        catch (ParseException e) {
+//            e.printStackTrace();
+//        }
     }
 }
