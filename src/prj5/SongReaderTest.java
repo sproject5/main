@@ -3,7 +3,7 @@
 // As a Hokie, I will conduct myself with honor and integrity at all times.
 // I will not lie, cheat, or steal, nor will I accept the actions of those who
 // do.
-// -- cmangin
+// -- cmangin, drewp24
 
 package prj5;
 
@@ -12,9 +12,9 @@ import java.io.FileNotFoundException;
 import bsh.ParseException;
 
 /**
- * Tests the Person class.
+ * Tests the SongReader class.
  *
- * @author Conner Mangin (cmangin)
+ * @author Conner Mangin (cmangin) (drewp24)
  * @version 2019.04.14
  */
 public class SongReaderTest extends TestCase {
@@ -33,6 +33,7 @@ public class SongReaderTest extends TestCase {
     }
 
     /**
+     * Tests the readSongFile method
      * @throws java.text.ParseException 
      * @throws FileNotFoundException 
      * 

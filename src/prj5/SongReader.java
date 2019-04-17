@@ -15,7 +15,7 @@ import java.util.Scanner;
 /**
  * 
  *
- * @author 
+ * @author drewp24
  * @version 2019.04.14
  */
 public class SongReader {
@@ -25,9 +25,9 @@ public class SongReader {
     private String thisSongListFileName;
     private int personListSize;
     /**
-     * 
-     * @param songListFileName
-     * @param surveyFileName
+     * This is the constructor for the SongReader
+     * @param songListFileName songListFileName
+     * @param surveyFileName surveyFileName
      * 
      * @throws FileNotFoundException
      */
@@ -150,6 +150,7 @@ public class SongReader {
     } 
 
     /**
+     * Gets the songList
      * @return songList of the import data
      */
     public SongList<Song> getSongList()
@@ -157,12 +158,20 @@ public class SongReader {
         return songList;
     }
 
+    /**
+     * Gets the personList
+     * @return the personList
+     */
     public Person[] getPersonList()
     {
         return person;
     }
 
 
+    /**
+     * Gets the PersonListSize
+     * @return size of person list
+     */
     public int getPersonListSize()
     {
         return personListSize;

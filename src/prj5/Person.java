@@ -3,13 +3,16 @@
 // As a Hokie, I will conduct myself with honor and integrity at all times.
 // I will not lie, cheat, or steal, nor will I accept the actions of those who
 // do.
-// -- cmangin
+// -- cmangin, drewp24
 
 package prj5;
 
 /**
  * This is the person class
  * store survey data of one person
+ * 
+ * @author drewp24
+ * @version 2019.16.04
  */
 public class Person {
 
@@ -18,7 +21,15 @@ public class Person {
     private Major major;
     private State state;
     private int index;
-
+    
+    /**
+     * This is the constructor for the Person class
+     * @param thisSongList songList passed through
+     * @param thisHobby the person's hobby
+     * @param thisState the person's state
+     * @param thisMajor the person's major
+     * @param thisIndex the person's index
+     */
     public Person(SongList<Song> thisSongList, 
         String thisHobby, String thisState, String thisMajor, int thisIndex)
     {

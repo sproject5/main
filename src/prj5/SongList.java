@@ -214,6 +214,9 @@ public class SongList<E> extends DLList<E> {
         return targetSong;
     }
 
+    /**
+     * This method returns the String version of the song
+     */
     public String toString() {
         String str = "";
 
