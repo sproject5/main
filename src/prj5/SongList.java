@@ -130,6 +130,7 @@ public class SongList<E> extends DLList<E> {
     public void heardToNo(int index) {
         Song song = (Song) this.get(index);
 
+        
         this.remove(index);
         song.heardIsNo();
         this.add(index, (E) song);
