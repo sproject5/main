@@ -35,6 +35,23 @@ public class PersonTest extends TestCase {
      */
     public void testGetHobby() {
         assertEquals(Hobby.SPORTS, person.getHobby());
+        System.out.println(Hobby.SPORTS);
+        System.out.println(Hobby.ART);
+        System.out.println(Hobby.MUSIC);
+        System.out.println(Hobby.READ);
+        
+        System.out.println(Major.MATH_OR_CMDA);
+        System.out.println(Major.OTHER);
+        System.out.println(Major.OTHER_ENGE);
+        System.out.println(Major.CS);
+        
+        System.out.println(State.OUTSIDE_THE_US);
+        System.out.println(State.SOUTHEAST_US);
+        System.out.println(State.NORTHEAST_US);
+        System.out.println(State.THE_REST_OF_US);
+
+
+        
     }
 
 

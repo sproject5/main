@@ -178,21 +178,24 @@ public class SongList<E> extends DLList<E> {
         this.add(index, (E) song);
     }
 
-    public Song getSong(String title)
-    {
-        Song targetSong = null;
-        for (int k = 0; k < this.size(); k++)
-        {
-            //System.out.println(curSongList.get(k).getSongTitle());
-            if (((Song) this.get(k)).getSongTitle().equals(title))
-            {
-                //System.out.println(title);
-                targetSong = (Song) this.get(k);
-            }
-        }
 
-        return targetSong;
-    }
+/*
+ * public Song getSong(String title)
+ * {
+ * Song targetSong = null;
+ * for (int k = 0; k < this.size(); k++)
+ * {
+ * //System.out.println(curSongList.get(k).getSongTitle());
+ * if (((Song) this.get(k)).getSongTitle().equals(title))
+ * {
+ * //System.out.println(title);
+ * targetSong = (Song) this.get(k);
+ * }
+ * }
+ * 
+ * return targetSong;
+ * }
+ */
 
     public Song getSongInLowerCase(String title)
     {

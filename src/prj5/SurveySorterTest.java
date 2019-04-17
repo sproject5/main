@@ -100,7 +100,6 @@ public class SurveySorterTest extends TestCase
     {
         SongReader reader = new SongReader("SongListNoGenreRepeats.csv", "MusicSurveyDataNoGenreRepeats.csv");
         SurveySorter surveySorter = new SurveySorter(reader.getPersonList(), reader.getSongList(), reader.getPersonListSize());
-        surveySorter.getSong("df", new SongList<Song>());
         String name = "All These Things I've Done";
         
         /*

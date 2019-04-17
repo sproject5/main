@@ -1,9 +1,3 @@
-// Virginia Tech Honor Code Pledge:
-//
-// As a Hokie, I will conduct myself with honor and integrity at all times.
-// I will not lie, cheat, or steal, nor will I accept the actions of those who
-// do.
-// -- cmangin
 
 package prj5;
 
@@ -19,9 +13,12 @@ import student.TestCase;
  */
 public class DLListTest extends TestCase {
     /**
-     * the list we will use
+     * the list we will use 
      */
-    private DLList<String> list;
+    private DLList<String> list; 
+    private Iterator<String> ite;
+    private Iterator<String> reverse;
+
 
     /**
      * run before every test case
@@ -29,7 +26,10 @@ public class DLListTest extends TestCase {
     @Override
     public void setUp() {
         list = new DLList<String>();
+        ite = list.iterator();
+        reverse = list.reverseIterator();
     }
+
 
     /**
      * Tests that an IndexOutOfBounds exception is thrown when the index is
@@ -40,7 +40,7 @@ public class DLListTest extends TestCase {
         Exception e = null;
         try {
             list.remove(2);
-        } 
+        }
         catch (Exception exception) {
             e = exception;
         }
@@ -48,12 +48,13 @@ public class DLListTest extends TestCase {
         e = null;
         try {
             list.remove(-1);
-        } 
+        }
         catch (Exception exception) {
             e = exception;
         }
         assertTrue(e instanceof IndexOutOfBoundsException);
     }
+
 
     /**
      * Tests that objects can be removed at the beginning and end and that the
@@ -69,6 +70,7 @@ public class DLListTest extends TestCase {
         assertEquals(1, list.size());
     }
 
+
     /**
      * Tests the add method. Ensures that it adds the object is added at the end
      * and the size is increased
@@ -82,6 +84,7 @@ public class DLListTest extends TestCase {
         assertEquals("B", list.get(1));
 
     }
+
 
     /**
      * Tests that objects can be added at the beginning and end and that they
@@ -98,6 +101,7 @@ public class DLListTest extends TestCase {
         assertEquals("C", list.get(2));
     }
 
+
     /**
      * This tests that the add method throws a null pointer exception when
      * adding null data to the list
@@ -106,12 +110,13 @@ public class DLListTest extends TestCase {
         Exception e = null;
         try {
             list.add(null);
-        } 
+        }
         catch (Exception exception) {
             e = exception;
         }
         assertTrue(e instanceof IllegalArgumentException);
     }
+
 
     /**
      * This tests that the add method throws a Invalid argument when adding null
@@ -121,12 +126,13 @@ public class DLListTest extends TestCase {
         Exception e = null;
         try {
             list.add(0, null);
-        } 
+        }
         catch (Exception exception) {
             e = exception;
         }
         assertTrue(e instanceof IllegalArgumentException);
     }
+
 
     /**
      * This tests when the add method is called and the index is greater than
@@ -137,7 +143,7 @@ public class DLListTest extends TestCase {
         Exception e = null;
         try {
             list.add(2, "B");
-        } 
+        }
         catch (Exception exception) {
             e = exception;
         }
@@ -145,12 +151,13 @@ public class DLListTest extends TestCase {
         e = null;
         try {
             list.add(-1, "B");
-        } 
+        }
         catch (Exception exception) {
             e = exception;
         }
-        assertTrue( e instanceof IndexOutOfBoundsException);
+        assertTrue(e instanceof IndexOutOfBoundsException);
     }
+
 
     /**
      * Tests removing a object changes the size appropiately and that you can
@@ -160,13 +167,14 @@ public class DLListTest extends TestCase {
         assertFalse(list.remove(null));
         list.add("A");
         list.add("B");
-        assertTrue( list.remove("A"));
-        assertEquals( "B", list.get(0));
-        assertEquals( 1, list.size());
+        assertTrue(list.remove("A"));
+        assertEquals("B", list.get(0));
+        assertEquals(1, list.size());
         list.add("C");
         assertTrue(list.remove("C"));
         assertEquals("B", list.get(0));
     }
+
 
     /**
      * Tests get when the index is greater than or equal to size and when the
@@ -176,7 +184,7 @@ public class DLListTest extends TestCase {
         Exception exception = null;
         try {
             list.get(-1);
-        } 
+        }
         catch (Exception e) {
             exception = e;
         }
@@ -185,18 +193,19 @@ public class DLListTest extends TestCase {
         list.add("A");
         try {
             list.get(1);
-        } 
+        }
         catch (IndexOutOfBoundsException e) {
             exception = e;
         }
         assertTrue(exception instanceof IndexOutOfBoundsException);
     }
 
+
     /**
      * Test contains when it does and does not contain the object
      */
     public void testContains() {
-        assertFalse( list.contains("A"));
+        assertFalse(list.contains("A"));
         list.add("A");
         assertTrue(list.contains("A"));
         assertFalse(list.contains("B"));
@@ -204,12 +213,13 @@ public class DLListTest extends TestCase {
         assertTrue(list.contains("B"));
     }
 
+
     /**
      * Test lastIndexOf when the list is empty, when the object is not in the
      * list, and when it is at the beginning or end
      */
     public void testLastIndexOf() {
-        assertEquals( -1, list.lastIndexOf("A"));
+        assertEquals(-1, list.lastIndexOf("A"));
         list.add("A");
         assertEquals(0, list.lastIndexOf("A"));
         list.add("A");
@@ -221,14 +231,16 @@ public class DLListTest extends TestCase {
         assertEquals(3, list.lastIndexOf("A"));
     }
 
+
     /**
      * Tests isEmpty when empty and full
      */
     public void testIsEmpty() {
-        assertTrue( list.isEmpty());
+        assertTrue(list.isEmpty());
         list.add("A");
         assertFalse(list.isEmpty());
     }
+
 
     /**
      * Ensures that all of the objects are cleared and the size is changed
@@ -237,23 +249,21 @@ public class DLListTest extends TestCase {
         list.add("A");
         list.clear();
         assertEquals(0, list.size());
-        assertFalse(
-                list.contains("A"));
+        assertFalse(list.contains("A"));
     }
+
 
     /**
      * Tests the toString when there are 0, 1, and 2 objects in the list
      */
     public void testToString() {
-        assertEquals("{}",
-                list.toString());
+        assertEquals("{}", list.toString());
         list.add("A");
-        assertEquals("{A}",
-                list.toString());
+        assertEquals("{A}", list.toString());
         list.add("B");
-        assertEquals("{A, B}",
-                list.toString());
+        assertEquals("{A, B}", list.toString());
     }
+
 
     /**
      * Tests removing from an empty list
@@ -267,321 +277,162 @@ public class DLListTest extends TestCase {
         exception = null;
         try {
             list.remove(0);
-        } 
+        }
         catch (IndexOutOfBoundsException e) {
             exception = e;
         }
-        assertTrue(  exception instanceof IndexOutOfBoundsException);
+        assertTrue(exception instanceof IndexOutOfBoundsException);
 
         DLList<String> emptyList = new DLList<String>();
         exception = null;
         try {
             emptyList.remove(0);
-        } 
+        }
         catch (IndexOutOfBoundsException e) {
             exception = e;
         }
-        assertTrue( exception instanceof IndexOutOfBoundsException);
+        assertTrue(exception instanceof IndexOutOfBoundsException);
     }
+
 
     /**
-     * test the iterators
+     * Tests the next value is properly given.
      */
-    public void testiterators()
-    {
+    public void testNext() {
+        list.add("apple");
+        list.add("banana");
 
+        assertEquals("apple", ite.next());
 
-        list.add("001");       
-        list.add("002");
-        list.add("003");
-        Iterator iter = list.iterator();
-        assertTrue(iter.hasNext());
-        //System.out.println(list.getHead().next().getData());
-        //System.out.println(list.getTail().previous().getData());
-        assertEquals("{001, 002, 003}", list.toString());
-        assertTrue(iter.hasNext());
-        assertEquals("001", iter.next());
-        assertTrue(iter.hasNext());
-        assertEquals("002", iter.next());
-        assertTrue(iter.hasNext());
-        assertEquals("003", iter.next());
-        assertFalse(iter.hasNext());
-
-        Exception exception = null;
-        try 
-        {
-            assertEquals("003", iter.next());
-        } 
-        catch (Exception e) 
-        {
-            exception = e;
-        }
-
-        assertTrue("Illegal call to next(); " 
-            + "iterator is after end of list.", 
-            exception instanceof NoSuchElementException);
-        //iter.remove();
     }
-    
+
+
     /**
-     * test the iterators
+     * Tests that a NoSuchElementException is thrown when
+     * there are no nodes left in the list.
      */
-    public void testiterators2()
-    {
-        Exception exception = null;
-
-        list.add("001");       
-        list.add("002");
-        list.add("003");
-        Iterator iter = list.iterator();
-        
-        try 
-        {
-            iter.remove();
-        } 
-        catch (Exception e) 
-        {
-            exception = e;
+    public void testNextException() {
+        list.add("apple");
+        ite.next();
+        Exception e = null;
+        try {
+            ite.next();
         }
-
-        assertTrue("illegal.", 
-            exception instanceof IllegalStateException);
-        
-        assertEquals("{001, 002, 003}", list.toString());
-        iter.next();
-        iter.remove();
-        assertEquals("{002, 003}", list.toString());
-        assertEquals(2, list.size());
-        iter.next();
-        iter.remove();
-        assertEquals("{003}", list.toString());
-        assertEquals(1, list.size());
-        iter.next();
-        iter.remove();
-        assertEquals("{}", list.toString());
-        assertEquals(0, list.size());
-        
-        
-        try 
-        {
-            iter.remove();
-        } 
-        catch (Exception e) 
-        {
-            exception = e;
+        catch (Exception exception) {
+            e = exception;
         }
-
-        assertTrue("illegal.", 
-            exception instanceof IllegalStateException);
-        
+        assertTrue(e instanceof NoSuchElementException);
     }
+
+
     /**
-     * test the iterators
+     * Tests that the next element is properly removed.
      */
-    public void testiterators4()
-    {
-        Exception exception = null;
-
-        list.add("001");       
-        list.add("002");
-        list.add("003");
-        Iterator iter = list.iterator();
-        
-        try 
-        {
-            iter.remove();
-        } 
-        catch (Exception e) 
-        {
-            exception = e;
-        }
-
-        assertTrue("illegal.", 
-            exception instanceof IllegalStateException);
-        
-        assertEquals("{001, 002, 003}", list.toString());
-        iter.next();
-        iter.remove();
-        assertEquals("{002, 003}", list.toString());
-        assertEquals(2, list.size());
-        assertEquals("002", iter.next());
-        list.remove("003");  
-        
-        assertEquals("{002}", list.toString());
-        try 
-        {
-            iter.remove();
-        } 
-        catch (Exception e) 
-        {
-            exception = e;
-        }
-
-        assertTrue("illegal.", 
-            exception instanceof IllegalStateException);
-        
+    public void testRemoveIterator() {
+        list.add("apple");
+        list.add("orange");
+        ite.next();
+        ite.remove();
+        assertEquals("orange", list.get(0));
     }
+
+
     /**
-     * test the iterators
+     * Tests that an IllegalStateException is thrown
+     * when the next element hasn't been called and
+     * the element has already been removed.
      */
-    public void testiterator3()
-    {
-        Iterator iter = list.iterator();
-        assertFalse(iter.hasNext());
-        
-        Exception exception = null;
-        try 
-        {
-            iter.remove();
-        } 
-        catch (Exception e) 
-        {
-            exception = e;
-        }
+    public void testRemoveExceptionIterator() {
+        list.add("apple");
+        list.add("orange");
 
-        assertTrue("illegal.", 
-            exception instanceof IllegalStateException);
-        
+        Exception e = null;
+        try {
+            ite.remove();
+        }
+        catch (Exception exception) {
+            e = exception;
+        }
+        assertTrue(e instanceof IllegalStateException);
     }
+    // Reverse DL List testing
+    // -----------------------------------------------------------------------
+
+
     /**
-     * test the iterator
+     * Tests the next value is properly given
+     * in a reverse DL List.
      */
-    public void testiterators6()
-    {
-        Exception exception = null;
+    public void testNextReverse() {
+        list.add("apple");
+        list.add("banana");
+        list.add("peach");
 
-        list.add("001");       
-        list.add("002");
-        list.add("003");
-        list.add("004");
-        list.add("005");
-        Iterator iter = list.iterator();
-        
-        try 
-        {
-            iter.remove();
-        } 
-        catch (Exception e) 
-        {
-            exception = e;
+        assertEquals("peach", reverse.next());
+        assertEquals("banana", reverse.next());
+        assertEquals("apple", reverse.next());
+        // Exception e = null;
+        try {
+            reverse.next();
+        }
+        catch (Exception e) {
+            System.out.print(e);
+            assertTrue(e instanceof NoSuchElementException);
         }
 
-        assertTrue("illegal.", 
-            exception instanceof IllegalStateException);
-        
-        assertEquals("{001, 002, 003, 004, 005}", list.toString());
-        iter.next();
-        iter.remove();
-        assertEquals("{002, 003, 004, 005}", list.toString());
-        iter.next();
-        iter.remove();
-        assertEquals("{003, 004, 005}", list.toString());
-        iter.next();
-        iter.remove();
-        assertEquals("{004, 005}", list.toString());
-        iter.next();
-        iter.remove();
-        assertEquals("{005}", list.toString());
-        iter.next();
-        iter.remove();
-        assertEquals("{}", list.toString());
-        assertEquals(0, list.size());
-        
-        
-        try 
-        {
-            iter.remove();
-        } 
-        catch (Exception e) 
-        {
-            exception = e;
-        }
-
-        assertTrue("illegal.", 
-            exception instanceof IllegalStateException);
     }
-    
-    
-    
+
+
     /**
-     * test the iterator
+     * Tests that a NoSuchElementException is thrown when
+     * there are no nodes left in a reverse DL list.
      */
-    public void testReiterators()
-    {
-        Exception exception = null;
-
-        list.add("001");       
-        list.add("002");
-        list.add("003");
-        list.add("004");
-        list.add("005");
-        Iterator iter = list.reverseIterator();
+    public void testNextExceptionReverse() {
+        list.add("apple");
+        reverse.next();
         
-        try 
-        {
-            iter.remove();
-        } 
-        catch (Exception e) 
-        {
-            exception = e;
+
+        try {
+            reverse.next();
         }
-
-        assertTrue("illegal.", 
-            exception instanceof IllegalStateException);
-
-        assertEquals("{001, 002, 003, 004, 005}", list.toString());
-        iter.next();
-        iter.remove();
-        
-        assertEquals("{001, 002, 003, 004}", list.toString());
-        iter.next();
-        iter.remove();
-        assertEquals("{001, 002, 003}", list.toString());
-        iter.next();
-        iter.remove();
-        assertEquals("{001, 002}", list.toString());
-        iter.next();
-        iter.remove();
-        assertEquals("{001}", list.toString());
-        iter.next();
-        iter.remove();
-        assertEquals("{}", list.toString());
-        assertEquals(0, list.size());
-        
-        
-        try 
-        {
-            iter.remove();
-        } 
-        catch (Exception e) 
-        {
-            exception = e;
+        catch (Exception e) {
+            System.out.print(e);
+            assertTrue(e instanceof NoSuchElementException); 
         }
-
-        assertTrue("illegal.", 
-            exception instanceof IllegalStateException);
-    }
-    
-    public void testReiterators2()
-    {
-        Exception exception = null;
-        list.add("001");   
-
-        Iterator iter = list.reverseIterator();
-
-        try 
-        {
-            iter.remove();
-        } 
-        catch (Exception e) 
-        {
-            exception = e;
-        }
-
-        assertTrue("illegal.", 
-            exception instanceof IllegalStateException);
-        
-            
 
     }
+
+
+    /**
+     * Tests that the next element is properly removed
+     * in a reverse DL List
+     */
+    public void testRemoveIteratorReverse() {
+        list.add("apple");
+        list.add("orange");
+        reverse.next();
+        reverse.remove();
+        assertEquals("apple", list.get(0));
+    }
+
+
+    /**
+     * Tests that an IllegalStateException is thrown
+     * when the next element hasn't been called and
+     * the element has already been removed in a reverse DL List.
+     */
+    public void testRemoveExceptionIteratorReverse() {
+        list.add("apple");
+        list.add("orange");
+
+        Exception e = null;
+        try {
+            reverse.remove();
+        }
+        catch (Exception exception) {
+            e = exception;
+        }
+        assertTrue(e instanceof IllegalStateException);
+    }
+
 }

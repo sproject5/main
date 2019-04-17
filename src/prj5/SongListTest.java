@@ -134,7 +134,6 @@ public class SongListTest extends student.TestCase
     public void testToString()
     {
         SongList<Song> list = new SongList<Song>();
-        list.getSong(" ");
         Song song = new Song("jack", "goodBye", "jazz", 1999);
         list.add(song);
         assertEquals("Title: goodBye; Artist: jack; Genre: jazz; Date: 1999; Liked: -1; Heard: -1\n", list.toString());

@@ -93,22 +93,7 @@ public class SurveySorter {
         
     }
 
-    public Song getSong(String title, DLList<Song> curSongList)
-    {
-        Song targetSong = null;
-        for (int k = 0; k < curSongList.size(); k++)
-        {
-            //System.out.println(curSongList.get(k).getSongTitle());
-            if (curSongList.get(k).getSongTitle().equals(title))
-            {
-                //System.out.println(title);
-                targetSong = curSongList.get(k);
-            }
-        }
 
-
-        return targetSong;
-    }
 
     public Song getSongInLowerCase(String title, DLList<Song> curSongList)
     {
