@@ -30,7 +30,7 @@ public class Input {
     {
         //System.out.println(args.length);
         try {
-            SongReader reader = new SongReader("SongList2018.csv","MusicSurveyData2018.csv");
+            SongReader reader = new SongReader(args[1],args[0]);
         }
         catch (FileNotFoundException e) {
             e.printStackTrace();
