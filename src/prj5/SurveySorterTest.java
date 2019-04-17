@@ -6,6 +6,7 @@
 // -- cmangin
 
 package prj5;
+
 import java.io.FileNotFoundException;
 import java.text.ParseException;
 import student.TestCase;
@@ -41,7 +42,20 @@ public class SurveySorterTest extends TestCase
         SongReader reader = new SongReader("SongListTest1.csv", "MusicSurveyDataTest1.csv");
         SurveySorter surveySorter = new SurveySorter(reader.getPersonList(), reader.getSongList(), reader.getPersonListSize());
 
-        //System.out.println(reader.getPersonList()[0].getSongList().size());
+
+    /**
+     * This method tests the DataOf method of the SurveySorter method
+     * 
+     * @throws FileNotFoundException
+     * @throws ParseException
+     */
+    public void testDataOf2() throws FileNotFoundException, ParseException {
+        SongReader reader = new SongReader("SongListTest1.csv",
+            "MusicSurveyDataTest1.csv");
+        SurveySorter surveySorter = new SurveySorter(reader.getPersonList(),
+            reader.getSongList(), reader.getPersonListSize());
+
+        // System.out.println(reader.getPersonList()[0].getSongList().size());
         /*
          * assertEquals(0, surveySorter.DataOf("All These Things I've Done",
          * Hobby.READ, true), 0.1);
@@ -63,7 +77,7 @@ public class SurveySorterTest extends TestCase
          * assertEquals(100, surveySorter.DataOf("All These Things I've Done",
          * Hobby.MUSIC , false), 0.1);
          */
-        
+
         String name = "Another One Bites the Dust";
         /*
          * System.out.println(reader.getPersonList()[0].getHobby() + " : "+
@@ -92,67 +106,79 @@ public class SurveySorterTest extends TestCase
          * System.out.println(reader.getPersonList()[5].getHobby() + " : "+
          * reader.getPersonList()[5].getSongList().get(4).getLiked());
          */
-        
+
         assertEquals(0, surveySorter.DataOf(name, Hobby.READ, true), 0.1);
         assertEquals(0, surveySorter.DataOf(name, Hobby.SPORTS, true), 0.1);
         assertEquals(0, surveySorter.DataOf(name, Hobby.MUSIC, true), 0.1);
 
-        
         assertEquals(0, surveySorter.DataOf(name, Hobby.READ, false), 0.1);
         assertEquals(0, surveySorter.DataOf(name, Hobby.SPORTS, false), 0.5);
-        assertEquals(0, surveySorter.DataOf(name, Hobby.MUSIC , false), 0.1);
+        assertEquals(0, surveySorter.DataOf(name, Hobby.MUSIC, false), 0.1);
     }
-    /**
-     *  test the number of
-     * @throws FileNotFoundException when the file is not found
-     * @throws ParseException when the parse error
-     */
-    public void testDataOf3() throws FileNotFoundException, ParseException
-    {
-        SongReader reader = new SongReader("SongListNoGenreRepeats.csv", "MusicSurveyDataNoGenreRepeats.csv");
-        SurveySorter surveySorter = new SurveySorter(reader.getPersonList(), reader.getSongList(), reader.getPersonListSize());
-        String name = "All These Things I've Done";
-        
 
-        
+
+    /**
+     * This method tests the DataOf method of the SurveySorter method
+     * 
+     * @throws FileNotFoundException
+     * @throws ParseException
+     */
+    public void testDataOf3() throws FileNotFoundException, ParseException {
+        SongReader reader = new SongReader("SongListNoGenreRepeats.csv",
+            "MusicSurveyDataNoGenreRepeats.csv");
+        SurveySorter surveySorter = new SurveySorter(reader.getPersonList(),
+            reader.getSongList(), reader.getPersonListSize());
+        String name = "All These Things I've Done";
+
+        /*
+         * assertEquals(41, surveySorter.DataOf(name, Hobby.READ, true), 1);
+         * assertEquals(37, surveySorter.DataOf(name, Hobby.ART, true), 1);
+         * assertEquals(34, surveySorter.DataOf(name, Hobby.SPORTS, true), 1);
+         * assertEquals(35, surveySorter.DataOf(name, Hobby.MUSIC, true), 1);
+         * 
+         * 
+         * assertEquals(41, surveySorter.DataOf(name, Hobby.READ, false), 1);
+         * assertEquals(40, surveySorter.DataOf(name, Hobby.ART, false), 1);
+         * assertEquals(33, surveySorter.DataOf(name, Hobby.SPORTS, false), 1);
+         * assertEquals(38, surveySorter.DataOf(name, Hobby.MUSIC , false), 1);
+         */
+
         name = "Tik Tok";
-        
+
         assertEquals(0, surveySorter.DataOf(name, Hobby.READ, true), 1);
         assertEquals(0, surveySorter.DataOf(name, Hobby.ART, true), 1);
         assertEquals(0, surveySorter.DataOf(name, Hobby.SPORTS, true), 1);
         assertEquals(0, surveySorter.DataOf(name, Hobby.MUSIC, true), 1);
 
-        
         assertEquals(0, surveySorter.DataOf(name, Hobby.READ, false), 1);
         assertEquals(0, surveySorter.DataOf(name, Hobby.ART, false), 1);
         assertEquals(0, surveySorter.DataOf(name, Hobby.SPORTS, false), 1);
-        assertEquals(0, surveySorter.DataOf(name, Hobby.MUSIC , false), 1);
-        
+        assertEquals(0, surveySorter.DataOf(name, Hobby.MUSIC, false), 1);
 
     }
+
+
     /**
-     *  test the number of
-     * @throws FileNotFoundException when the file is not found
-     * @throws ParseException when the parse error
+     * This method tests the numberOf method in SurveySorter
+     * 
+     * @throws FileNotFoundException
+     * @throws ParseException
      */
-    public void testNumberOf() throws FileNotFoundException, ParseException
-    {
-        SongReader reader = new 
-               SongReader("SongListTest1.csv", "MusicSurveyDataTest1.csv");
-        SurveySorter surveySorter = new 
-               SurveySorter(reader.getPersonList(), reader.getSongList(), reader.getPersonListSize());
+    public void testNumberOf() throws FileNotFoundException, ParseException {
+        SongReader reader = new SongReader("SongListTest1.csv",
+            "MusicSurveyDataTest1.csv");
+        SurveySorter surveySorter = new SurveySorter(reader.getPersonList(),
+            reader.getSongList(), reader.getPersonListSize());
         String title = "All These Things I've Done";
         System.out.println(surveySorter.numberOf(title, Hobby.READ, true));
         System.out.println(surveySorter.numberOf(title, Hobby.ART, true));
         System.out.println(surveySorter.numberOf(title, Hobby.SPORTS, true));
         System.out.println(surveySorter.numberOf(title, Hobby.MUSIC, true));
-        
+
         System.out.println(surveySorter.numberOf(title, Hobby.READ, false));
         System.out.println(surveySorter.numberOf(title, Hobby.ART, false));
         System.out.println(surveySorter.numberOf(title, Hobby.SPORTS, false));
         System.out.println(surveySorter.numberOf(title, Hobby.MUSIC, false));
-        
-        
-        
+
     }
 }
