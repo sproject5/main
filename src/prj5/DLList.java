@@ -1,8 +1,15 @@
+// Virginia Tech Honor Code Pledge:
+//
+// As a Hokie, I will conduct myself with honor and integrity at all times.
+// I will not lie, cheat, or steal, nor will I accept the actions of those who
+// do.
+// -- cmangin
+
 package prj5;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-
+ 
 /**
  * This provides implementation for some of the LList methods.
  *
@@ -347,8 +354,9 @@ public class DLList<E> implements Iterable {
     }
 
 
-    /**
+    /*
      * Iterator creates iterator object.
+     * 
      * @return - new iterator object.
      */
     @Override
@@ -369,7 +377,6 @@ public class DLList<E> implements Iterable {
 
         private Node<E> node;
         private Boolean bool;
-       
 
 
         /**
@@ -380,7 +387,7 @@ public class DLList<E> implements Iterable {
         public <T> DLListIterator() {
             bool = false;
             node = head;
-            
+
         }
 
 
@@ -431,7 +438,7 @@ public class DLList<E> implements Iterable {
                     "The next element has not been called or "
                         + "the element has been removed");
             }
- 
+
             else {
                 node.previous.setNext(node.next);
                 node.next.setPrevious(node.previous);
@@ -440,16 +447,19 @@ public class DLList<E> implements Iterable {
             }
         }
     }
-    
+
+
     /*
      * Iterator creates iterator object.
-     * @return new iterator object.
+     * 
+     * @return - new iterator object.
      */
     public Iterator<E> reverseIterator() {
 
         return new RDLListIterator<E>();
     }
-    
+
+
     /**
      * The Iterator class holds the methods to iterate.
      * 
@@ -461,16 +471,16 @@ public class DLList<E> implements Iterable {
 
         private Node<E> node;
         private Boolean bool;
-       
+
 
         /**
          * Creates a new DLListIterator
          * 
          * @param <T>
          */
-        public <T> RDLListIterator() { 
+        public <T> RDLListIterator() {
             bool = false;
-            node = tail; 
+            node = tail;
         }
 
 
@@ -494,18 +504,18 @@ public class DLList<E> implements Iterable {
          */
         @Override
         public E next() {
-            
-            if (!this.hasNext()) {  
-                throw new NoSuchElementException();  
-            } 
-            else { 
+
+            if (!this.hasNext()) {
+                throw new NoSuchElementException();
+            }
+            else {
                 bool = true;
                 node = node.previous;
                 return node.getData();
-            } 
+            }
 
         }
- 
+
 
         /**
          * Removes the last object returned with next() from the list
@@ -521,7 +531,7 @@ public class DLList<E> implements Iterable {
                 throw new IllegalStateException(
                     "The next element has not been called or "
                         + "the element has been removed");
-            }  
+            }
 
             else {
                 node.next.setPrevious(node.previous);
