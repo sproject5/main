@@ -1,3 +1,9 @@
+// Virginia Tech Honor Code Pledge:
+//
+// As a Hokie, I will conduct myself with honor and integrity at all times.
+// I will not lie, cheat, or steal, nor will I accept the actions of those who
+// do.
+// -- cmangin
 
 package prj5;
 
@@ -6,16 +12,17 @@ import java.util.NoSuchElementException;
 import student.TestCase;
 
 /**
+ * Note: This is the code from Lab10.
  * @author Eric
  * @author maellis1
  * @version 11-2-15
- *
+ * 
  */
 public class DLListTest extends TestCase {
     /**
-     * the list we will use 
+     * the list we will use
      */
-    private DLList<String> list; 
+    private DLList<String> list;
     private Iterator<String> ite;
     private Iterator<String> reverse;
 
@@ -320,7 +327,7 @@ public class DLListTest extends TestCase {
         }
         catch (Exception exception) {
             e = exception;
-        }
+        } 
         assertTrue(e instanceof NoSuchElementException);
     }
 
@@ -390,14 +397,13 @@ public class DLListTest extends TestCase {
     public void testNextExceptionReverse() {
         list.add("apple");
         reverse.next();
-        
 
         try {
             reverse.next();
         }
         catch (Exception e) {
             System.out.print(e);
-            assertTrue(e instanceof NoSuchElementException); 
+            assertTrue(e instanceof NoSuchElementException);
         }
 
     }
