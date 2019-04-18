@@ -39,6 +39,53 @@ public class PersonTest extends TestCase {
 
 
     /**
+     * Tests that the different types of enums are correctly given.
+     */
+    public void testGetEnums() {
+        Person person2 = new Person(list, "art", "Outside of United States",
+            "Math or CMDA", 0);
+        assertEquals(HobbyEnum.ART, person2.getHobby());
+        assertEquals(StateEnum.OUTSIDE_THE_US, person2.getState());
+        assertEquals(MajorEnum.MATH_OR_CMDA, person2.getMajor());
+    }
+
+
+    /**
+     * Tests that the different types of enums are correctly given.
+     */
+    public void testGetEnums2() {
+        Person person2 = new Person(list, "reading", "Southeast", "Other", 0);
+        assertEquals(HobbyEnum.READ, person2.getHobby());
+        assertEquals(StateEnum.SOUTHEAST_US, person2.getState());
+        assertEquals(MajorEnum.OTHER, person2.getMajor());
+    }
+
+
+    /**
+     * Tests that the different types of enums are correctly given.
+     */
+    public void testGetEnums3() {
+        Person person2 = new Person(list, "music",
+            "United States (other than Southeast or Northwest)",
+            "Other Engineering", 0);
+        assertEquals(HobbyEnum.MUSIC, person2.getHobby());
+        assertEquals(StateEnum.THE_REST_OF_US, person2.getState());
+        assertEquals(MajorEnum.OTHER_ENGE, person2.getMajor());
+    }
+
+
+    /**
+     * Tests that the different types of enums are null.
+     */
+    public void testGetEnumsNull() {
+        Person person2 = new Person(list, "null", "error", "test", 0);
+        assertNull(person2.getHobby());
+        assertNull(person2.getState());
+        assertNull(person2.getMajor());
+    }
+
+
+    /**
      * Tests that a person's hobby is incorrect and then
      * kicks out to the default case, which is null.
      */
@@ -48,7 +95,7 @@ public class PersonTest extends TestCase {
         assertNull(personNull.getHobby());
     }
 
- 
+
     /**
      * Tests that a person's state is correctly given.
      */
