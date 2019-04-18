@@ -9,7 +9,7 @@ package prj5;
 
 import java.io.FileNotFoundException;
 import java.text.ParseException;
-import javax.print.attribute.standard.OutputDeviceAssigned;
+//import javax.print.attribute.standard.OutputDeviceAssigned;
 
 /**
  * @author cmangin
@@ -22,8 +22,8 @@ public class SurveySorter {
 
     private SongList<Song> songList;
     private Person[] person;
-    private SongReader songReader;
-    private int size;
+    //private SongReader songReader;
+    //private int size;
     private int personListSize;
 
 
@@ -48,7 +48,7 @@ public class SurveySorter {
         person = inputPerson;
         songList = inputSongList;
         personListSize = otherPersonListSize;
-        size = 0;
+        //size = 0;
     }
 
 
@@ -64,7 +64,7 @@ public class SurveySorter {
      * @return
      *         the output
      */
-    public int DataOf(String title, HobbyEnum hobby, Boolean isHeardData) {
+    public int dataOf(String title, HobbyEnum hobby, Boolean isHeardData) {
         int count = 0;
         int i = 0;
         while (i < personListSize) {
@@ -79,12 +79,14 @@ public class SurveySorter {
                 Song thisSong = this.getSongInLowerCase(title, thisSongList);
 
                 if (isHeardData) {
-                    if (thisSong != null && thisSong.getHeard() == 1)
+                    if (thisSong != null && thisSong.getHeard() == 1) {
                         count++;
+                    }
                 }
                 else {
-                    if (thisSong != null && thisSong.getLiked() == 1)
+                    if (thisSong != null && thisSong.getLiked() == 1) {
                         count++;
+                    }
                 }
             }
 
