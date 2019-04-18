@@ -106,14 +106,14 @@ public class SurveySorterTest extends TestCase
          * reader.getPersonList()[5].getSongList().get(4).getLiked());
          */
         
-        assertEquals(0, surveySorter.DataOf(name, HobbyEnum.READ, true));
-        assertEquals(0, surveySorter.DataOf(name, HobbyEnum.SPORTS, true));
-        assertEquals(0, surveySorter.DataOf(name, HobbyEnum.MUSIC, true));
+        assertEquals(0, surveySorter.dataOf(name, HobbyEnum.READ, true));
+        assertEquals(0, surveySorter.dataOf(name, HobbyEnum.SPORTS, true));
+        assertEquals(0, surveySorter.dataOf(name, HobbyEnum.MUSIC, true));
 
         
-        assertEquals(0, surveySorter.DataOf(name, HobbyEnum.READ, false), 0.1);
-        assertEquals(0, surveySorter.DataOf(name, HobbyEnum.SPORTS, false), 0.5);
-        assertEquals(0, surveySorter.DataOf(name, HobbyEnum.MUSIC , false), 0.1);
+        assertEquals(0, surveySorter.dataOf(name, HobbyEnum.READ, false), 0.1);
+        assertEquals(0, surveySorter.dataOf(name, HobbyEnum.SPORTS, false), 0.5);
+        assertEquals(0, surveySorter.dataOf(name, HobbyEnum.MUSIC , false), 0.1);
     }
 
     /**
@@ -143,16 +143,16 @@ public class SurveySorterTest extends TestCase
         
         name = "Tik Tok";
         
-        assertEquals(0, surveySorter.DataOf(name, HobbyEnum.READ, true), 1);
-        assertEquals(0, surveySorter.DataOf(name, HobbyEnum.ART, true), 1);
-        assertEquals(0, surveySorter.DataOf(name, HobbyEnum.SPORTS, true), 1);
-        assertEquals(0, surveySorter.DataOf(name, HobbyEnum.MUSIC, true), 1);
+        assertEquals(0, surveySorter.dataOf(name, HobbyEnum.READ, true), 1);
+        assertEquals(0, surveySorter.dataOf(name, HobbyEnum.ART, true), 1);
+        assertEquals(0, surveySorter.dataOf(name, HobbyEnum.SPORTS, true), 1);
+        assertEquals(0, surveySorter.dataOf(name, HobbyEnum.MUSIC, true), 1);
 
         
-        assertEquals(0, surveySorter.DataOf(name, HobbyEnum.READ, false), 1);
-        assertEquals(0, surveySorter.DataOf(name, HobbyEnum.ART, false), 1);
-        assertEquals(0, surveySorter.DataOf(name, HobbyEnum.SPORTS, false), 1);
-        assertEquals(0, surveySorter.DataOf(name, HobbyEnum.MUSIC , false), 1);
+        assertEquals(0, surveySorter.dataOf(name, HobbyEnum.READ, false), 1);
+        assertEquals(0, surveySorter.dataOf(name, HobbyEnum.ART, false), 1);
+        assertEquals(0, surveySorter.dataOf(name, HobbyEnum.SPORTS, false), 1);
+        assertEquals(0, surveySorter.dataOf(name, HobbyEnum.MUSIC , false), 1);
 
     }
 
