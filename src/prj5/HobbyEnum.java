@@ -13,7 +13,7 @@ package prj5;
  * @author Conner Mangin (cmangin)
  * @version 2019.04.14
  */
-public enum Hobby 
+public enum HobbyEnum 
 {
     /**
      * stands for the hobby

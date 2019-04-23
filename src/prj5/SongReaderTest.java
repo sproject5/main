@@ -46,7 +46,6 @@ public class SongReaderTest extends TestCase {
 
         Person[] persons = reader.getPersonList();
         assertEquals(001, persons[0].getIndex());
-        assertEquals(Hobby.READ, persons[0].getHobby());
         
         assertEquals(1, persons[0].getSongList().get(0).getHeard());
          

@@ -13,7 +13,7 @@ package prj5;
  * @author Conner Mangin (cmangin)
  * @version 2019.04.14
  */
-public enum State 
+public enum StateEnum 
 {
     /**
      * stands for the specific major
