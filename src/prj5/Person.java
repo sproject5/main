@@ -22,6 +22,7 @@ public class Person {
     private StateEnum state;
     private int index;
 
+    private Attribute attributes;
 
     /**
      * This is the constructor for the Person class
@@ -42,67 +43,17 @@ public class Person {
         String thisHobby,
         String thisState,
         String thisMajor,
-        int thisIndex) {
+        int thisIndex) 
+        {
 
         songList = thisSongList;
         // determines the hobby
-        switch (thisHobby) {
-            case "reading":
-                hobby = HobbyEnum.READ;
-                break;
-            case "art":
-                hobby = HobbyEnum.ART;
-                break;
-            case "music":
-                hobby = HobbyEnum.MUSIC;
-                break;
-            case "sports":
-                hobby = HobbyEnum.SPORTS;
-                break;
-            default:
-                hobby = null;
-                break;
-        }
-        // determines the major
-        switch (thisMajor) {
-            case "Computer Science":
-                major = MajorEnum.CS;
-                break;
-            case "Math or CMDA":
-                major = MajorEnum.MATH_OR_CMDA;
-                break;
-            case "Other":
-                major = MajorEnum.OTHER;
-                break;
-            case "Other Engineering":
-                major = MajorEnum.OTHER_ENGE;
-                break;
-            default:
-                major = null;
-                break;
-        }
 
-        // determines the state
-        switch (thisState) {
-            case "Northeast":
-                state = StateEnum.NORTHEAST_US;
-                break;
-            case "Outside of United States":
-                state = StateEnum.OUTSIDE_THE_US;
-                break;
-            case "Southeast":
-                state = StateEnum.SOUTHEAST_US;
-                break;
-            case "United States (other than Southeast or Northwest)":
-                state = StateEnum.THE_REST_OF_US;
-                break;
-            default:
-                state = null;
-                break;
-        }
-
+        attributes = new Attribute(thisHobby, thisState, thisMajor);
+        
         index = thisIndex;
     }
+
 
 
     /**
@@ -111,7 +62,7 @@ public class Person {
      * @return the hobby data
      */
     public HobbyEnum getHobby() {
-        return hobby;
+        return attributes.getHobby();
     }
 
 
@@ -121,7 +72,7 @@ public class Person {
      * @return the major data
      */
     public MajorEnum getMajor() {
-        return major;
+        return attributes.getMajor();
     }
 
 
@@ -131,7 +82,7 @@ public class Person {
      * @return the state data
      */
     public StateEnum getState() {
-        return state;
+        return attributes.getState();
     }
 
 
@@ -154,6 +105,10 @@ public class Person {
         return songList;
     }
 
+    public Attribute getAttribute()
+    {
+        return this.attributes;
+    }
 
     /**
      * return the content of this person

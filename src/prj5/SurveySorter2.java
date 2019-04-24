@@ -57,15 +57,14 @@ public class SurveySorter {
      * 
      * @param title
      *            the title of the song
-     * @param attribute
-     *            the attribute
+     * @param hobby
+     *            the hobby
      * @param isHeardData
      *            whether or not the person has heard the song
      * @return
      *         the output
      */
-    public int dataOf(String title, String attribute, Boolean isHeardData) {
-        
+    public int dataOf(String title, HobbyEnum hobby, Boolean isHeardData) {
         int count = 0;
         int i = 0;
         while (i < personListSize) {
@@ -73,15 +72,13 @@ public class SurveySorter {
                 i++;
                 continue;
             }
-            Attribute targetAttribute = new Attribute(attribute, attribute, attribute);
-            Attribute thisAttribute = person[i].getAttribute();
-            if (targetAttribute.compare(thisAttribute)) 
-            {
+
+            HobbyEnum thisHobby = person[i].getHobby();
+            if (thisHobby == hobby) {
                 SongList<Song> thisSongList = person[i].getSongList();
                 Song thisSong = this.getSongInLowerCase(title, thisSongList);
 
-                if (isHeardData) 
-                {
+                if (isHeardData) {
                     if (thisSong != null && thisSong.getHeard() == 1) {
                         count++;
                     }
@@ -96,9 +93,9 @@ public class SurveySorter {
             i++;
         }
         int output = 0;
-        if (this.numberOf(title, attribute, isHeardData) != 0) 
+        if (this.numberOf(title, hobby, isHeardData) != 0) 
         {
-            output = count * 100 / this.numberOf(title, attribute, isHeardData);
+            output = count * 100 / this.numberOf(title, hobby, isHeardData);
         }
         return output;
     }
@@ -117,14 +114,11 @@ public class SurveySorter {
      * @return
      *         the count
      */
-    public int numberOf(String title, String attribute, Boolean isHeardData) {
+    public int numberOf(String title, HobbyEnum hobby, Boolean isHeardData) {
         int count = 0;
         for (int i = 0; i < person.length; i++) {
-
-            Attribute targetAttribute = new Attribute(attribute, attribute, attribute);
-
             if (isHeardData) {
-                if (person[i] != null && person[i].getAttribute().compare(targetAttribute)
+                if (person[i] != null && person[i].getHobby() == hobby
                     && person[i].getSongList().getSongInLowerCase(title) != null
                     && (person[i].getSongList().getSongInLowerCase(title)
                         .getHeard() >= 0)) {
@@ -132,7 +126,7 @@ public class SurveySorter {
                 }
             }
             else {
-                if (person[i] != null && person[i].getAttribute().compare(targetAttribute)
+                if (person[i] != null && person[i].getHobby() == hobby
                     && person[i].getSongList().getSongInLowerCase(title) != null
                     && (person[i].getSongList().getSongInLowerCase(title)
                         .getLiked() >= 0)) {

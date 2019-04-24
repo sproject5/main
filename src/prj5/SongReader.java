@@ -137,12 +137,7 @@ public class SongReader {
 
 
             person[count] = newPerson;
-            //System.out.println(newPerson.getHobby() + " : "+ (newPerson.getSongList().get(0).getHeard()));
-            //System.out.println(this.getPersonList()[count].getHobby() + " : "+ (this.getPersonList()[count].getSongList().get(0).getHeard()));
-            //System.out.println("//////////////////////////////////////////////");
-
             count++;
-            //System.out.println("totalNumber: " + count);
         }
         personListSize = count;
         return person;
