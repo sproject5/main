@@ -19,13 +19,15 @@ public class PersonTest extends TestCase {
 
     private Person person;
     private SongList<Song> list;
+    private Attribute attribute;
 
-
+ 
     /**
      * Sets up the test class.
      */
     public void setUp() {
         list = new SongList<Song>();
+        attribute = new Attribute("sports", "Northeast", "Computer Science");
         person = new Person(list, "sports", "Northeast", "Computer Science", 0);
     }
 
@@ -132,7 +134,7 @@ public class PersonTest extends TestCase {
         assertNull(personNull.getMajor());
     }
 
-
+ 
     /**
      * Tests that the index of a person is correctly given.
      */
@@ -148,7 +150,14 @@ public class PersonTest extends TestCase {
         assertEquals(list, person.getSongList());
     }
 
-
+    /**
+     * Tests that the person's attributes are correctly given.
+     */
+    public void testGetAttribute()
+    {
+        assertEquals(attribute, person.getAttribute());
+    }
+  
     /**
      * Tests the person's toString method
      */
