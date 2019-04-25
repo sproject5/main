@@ -1,16 +1,19 @@
+// Virginia Tech Honor Code Pledge:
+//
+// As a Hokie, I will conduct myself with honor and integrity at all times.
+// I will not lie, cheat, or steal, nor will I accept the actions of those who
+// do.
+// -- cmangin, drewp24
+
 package prj5;
 
-public class Attribute 
-{
+public class Attribute {
     private HobbyEnum hobby;
     private MajorEnum major;
     private StateEnum state;
 
-    public Attribute(
-        String thisHobby,
-        String thisState,
-        String thisMajor)
-    {
+
+    public Attribute(String thisHobby, String thisState, String thisMajor) {
         switch (thisHobby) {
             case "reading":
                 hobby = HobbyEnum.READ;
@@ -97,30 +100,26 @@ public class Attribute
         return state;
     }
 
-    public boolean equals(Object obj)
-    {
-        if (obj == null || obj.getClass() != this.getClass())
-        {
+
+    public boolean equals(Object obj) {
+        if (obj == null || obj.getClass() != this.getClass()) {
             return false;
         }
-        Attribute others = (Attribute) obj;
+        Attribute others = (Attribute)obj;
 
-        return this.state == others.getState() 
-            && this.major == others.getMajor() 
-            && this.hobby == others.getHobby(); 
+        return this.state == others.getState() && this.major == others
+            .getMajor() && this.hobby == others.getHobby();
     }
 
-    public boolean compare(Object obj)
-    {
-        if (obj == null || obj.getClass() != this.getClass())
-        {
+
+    public boolean compare(Object obj) {
+        if (obj == null || obj.getClass() != this.getClass()) {
             return false;
         }
-        Attribute others = (Attribute) obj;
+        Attribute others = (Attribute)obj;
 
-        return this.state == others.getState() 
-            || this.major == others.getMajor() 
-            || this.hobby == others.getHobby(); 
+        return this.state == others.getState() || this.major == others
+            .getMajor() || this.hobby == others.getHobby();
     }
 
 }
