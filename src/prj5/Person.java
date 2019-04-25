@@ -116,8 +116,8 @@ public class Person {
      * @return the string content of this person
      */
     public String toString() {
-        return index + "; Hobby: " + hobby + "; Major: " + major + "; State: "
-            + state;
+        return index + "; Hobby: " + getHobby() + "; Major: " + getMajor() +
+            "; State: " + getState();
     }
 
 }
