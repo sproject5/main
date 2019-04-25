@@ -7,12 +7,28 @@
 
 package prj5;
 
+/**
+ * This class holds the attributes of a person.
+ *
+ * @author Drew Pompeii (drewp24)
+ * @version 04/17/2019
+ */
 public class Attribute {
     private HobbyEnum hobby;
     private MajorEnum major;
     private StateEnum state;
 
 
+    /**
+     * This is the constructor for the Attribute class.
+     * 
+     * @param thisHobby
+     *            the person's hobby
+     * @param thisState
+     *            the person's state
+     * @param thisMajor
+     *            the person's major
+     */
     public Attribute(String thisHobby, String thisState, String thisMajor) {
         switch (thisHobby) {
             case "reading":
@@ -101,6 +117,14 @@ public class Attribute {
     }
 
 
+    /**
+     * Checks equality between two different attributes.
+     * 
+     * @param obj
+     *            the object being passed as an attribute.
+     * @return true if the attributes are equal,
+     *         false in all other cases.
+     */
     public boolean equals(Object obj) {
         if (obj == null || obj.getClass() != this.getClass()) {
             return false;
@@ -112,6 +136,15 @@ public class Attribute {
     }
 
 
+    /**
+     * Compares two different attributes.
+     * 
+     * @param obj
+     *            the object being compared to as an attribute.
+     * 
+     * @return true if the compared attributes are equal,
+     *         false in all other cases.
+     */
     public boolean compare(Object obj) {
         if (obj == null || obj.getClass() != this.getClass()) {
             return false;
