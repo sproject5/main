@@ -8,7 +8,7 @@
 package prj5;
 
 /**
- *  
+ * 
  * This class tests the Attribute constructor and methods
  *
  * @author Drew Pompeii (drewp24)
@@ -34,7 +34,8 @@ public class AttributeTest extends student.TestCase {
      * Tests that a person's hobby is correctly given.
      */
     public void testGetHobby() {
-        assertEquals(HobbyEnum.SPORTS, person.getHobby());
+        assertEquals(HobbyEnum.SPORTS, attribute.getHobby());
+
     }
 
 
@@ -100,7 +101,7 @@ public class AttributeTest extends student.TestCase {
      * Tests that a person's state is correctly given.
      */
     public void testGetState() {
-        assertEquals(StateEnum.NORTHEAST_US, person.getState());
+        assertEquals(StateEnum.NORTHEAST_US, attribute.getState());
     }
 
 
@@ -112,14 +113,14 @@ public class AttributeTest extends student.TestCase {
         Person personNull = new Person(list, "sports", "Error",
             "Computer Science", 0);
         assertNull(personNull.getState());
-    } 
+    }
 
 
     /**
      * Test that a person's major is correctly given.
      */
     public void testGetMajor() {
-        assertEquals(MajorEnum.CS, person.getMajor());
+        assertEquals(MajorEnum.CS, attribute.getMajor());
     }
 
 
@@ -132,4 +133,160 @@ public class AttributeTest extends student.TestCase {
         assertNull(personNull.getMajor());
     }
 
+
+    /**
+     * Tests that the attributes are equal.
+     */
+    public void testEquals() {
+        Attribute attribute2 = new Attribute("sports", "Northeast",
+            "Computer Science");
+        assertTrue(attribute.equals(attribute2));
+    }
+
+
+    /**
+     * Tests that the state attributes are NOT equal.
+     */
+    public void testEqualsNotEqualState() {
+        Attribute attribute2 = new Attribute("sports", "southeast",
+            "Computer Science");
+        assertFalse(attribute.equals(attribute2));
+    }
+
+
+    /**
+     * Tests that the major attributes are NOT equal.
+     */
+    public void testEqualsNotEqualMajor() {
+        Attribute attribute2 = new Attribute("sports", "Northeast", "Other");
+        assertFalse(attribute.equals(attribute2));
+    }
+
+
+    /**
+     * Tests that the hobby attributes are NOT equal.
+     */
+    public void testEqualsNotEqualHobby() {
+        Attribute attribute2 = new Attribute("reading", "Northeast",
+            "Computer Science");
+        assertFalse(attribute.equals(attribute2));
+    }
+
+
+    /**
+     * Test that an Attribute cannot
+     * equal another class, like object.
+     */
+    public void testEqualsClass() {
+        Attribute attribute2 = new Attribute("sports", "southeast",
+            "Computer Science");
+        Object obj = new Object();
+        assertFalse(attribute2.equals(obj));
+    }
+
+
+    /**
+     * Tests that an Attribute is null
+     */
+    public void testEqualsNull() {
+        Attribute attributeNull = null;
+        assertFalse(attribute.equals(attributeNull));
+    }
+
+
+    /**
+     * Compares two attributes and that they are equal.
+     */
+    public void testCompareAllEqual() {
+        Attribute attribute2 = new Attribute("sports", "Northeast",
+            "Computer Science");
+        assertTrue(attribute.compare(attribute2));
+    }
+
+
+    /**
+     * Compares two attributes and that they are NOT equal.
+     */
+    public void testCompareAllFalse() {
+        Attribute attribute2 = new Attribute("reading", "Southeast", "Other");
+        assertFalse(attribute.compare(attribute2));
+    }
+
+
+    /**
+     * Compares two attributes and that hobby is not equal.
+     */
+    public void testCompareNot1() {
+        Attribute attribute2 = new Attribute("reading", "Northeast",
+            "Computer Science");
+        assertTrue(attribute.compare(attribute2));
+    }
+
+
+    /**
+     * Compares two attributes and that hobby and major are not equal.
+     */
+    public void testCompareNot2() {
+        Attribute attribute2 = new Attribute("reading", "Northeast", "Other");
+        assertTrue(attribute.compare(attribute2));
+    }
+
+
+    /**
+     * Compares two attributes and that hobby and state are not equal.
+     */
+    public void testCompareNot3() {
+        Attribute attribute2 = new Attribute("reading", "Northeast",
+            "Computer Science");
+        assertTrue(attribute.compare(attribute2));
+    }
+
+
+    /**
+     * Compares two attributes and that state and majors are not equal.
+     */
+    public void testCompareNot4() {
+        Attribute attribute2 = new Attribute("sports", "Southeast", "Other");
+        assertTrue(attribute.compare(attribute2));
+    }
+
+
+    /**
+     * Compares two attributes and that state is not equal.
+     */
+    public void testCompareNot5() {
+        Attribute attribute2 = new Attribute("sports", "Southeast",
+            "Computer Science");
+        assertTrue(attribute.compare(attribute2));
+    }
+
+
+    /**
+     * Compares two attributes and that major is not equal
+     */
+    public void testCompareNot6() {
+        Attribute attribute2 = new Attribute("sports", "Southeast", "Other");
+        assertTrue(attribute.compare(attribute2));
+    }
+
+
+    /**
+     * Test that an Attribute cannot
+     * compared to another class, like object.
+     */
+    public void testCompareClass() {
+        Attribute attribute2 = new Attribute("sports", "southeast",
+            "Computer Science");
+        Object obj = new Object();
+        assertFalse(attribute2.compare(obj));
+    }
+
+
+    /**
+     * Tests that an Attribute cannot be compared to null.
+     */
+    public void testCompareNull() {
+        Attribute attributeNull = null;
+        assertFalse(attribute.compare(attributeNull));
+    }
 }
