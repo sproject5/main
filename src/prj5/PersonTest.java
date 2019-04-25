@@ -8,7 +8,7 @@
 package prj5;
 
 import student.TestCase;
-
+ 
 /**
  * Tests the Person class.
  *
@@ -21,7 +21,7 @@ public class PersonTest extends TestCase {
     private SongList<Song> list;
     private Attribute attribute;
 
- 
+
     /**
      * Sets up the test class.
      */
@@ -41,79 +41,10 @@ public class PersonTest extends TestCase {
 
 
     /**
-     * Tests that the different types of enums are correctly given.
-     */
-    public void testGetEnums() {
-        Person person2 = new Person(list, "art", "Outside of United States",
-            "Math or CMDA", 0);
-        assertEquals(HobbyEnum.ART, person2.getHobby());
-        assertEquals(StateEnum.OUTSIDE_THE_US, person2.getState());
-        assertEquals(MajorEnum.MATH_OR_CMDA, person2.getMajor());
-    }
-
-
-    /**
-     * Tests that the different types of enums are correctly given.
-     */
-    public void testGetEnums2() {
-        Person person2 = new Person(list, "reading", "Southeast", "Other", 0);
-        assertEquals(HobbyEnum.READ, person2.getHobby());
-        assertEquals(StateEnum.SOUTHEAST_US, person2.getState());
-        assertEquals(MajorEnum.OTHER, person2.getMajor());
-    }
-
-
-    /**
-     * Tests that the different types of enums are correctly given.
-     */
-    public void testGetEnums3() {
-        Person person2 = new Person(list, "music",
-            "United States (other than Southeast or Northwest)",
-            "Other Engineering", 0);
-        assertEquals(HobbyEnum.MUSIC, person2.getHobby());
-        assertEquals(StateEnum.THE_REST_OF_US, person2.getState());
-        assertEquals(MajorEnum.OTHER_ENGE, person2.getMajor());
-    }
-
-
-    /**
-     * Tests that the different types of enums are null.
-     */
-    public void testGetEnumsNull() {
-        Person person2 = new Person(list, "null", "error", "test", 0);
-        assertNull(person2.getHobby());
-        assertNull(person2.getState());
-        assertNull(person2.getMajor());
-    }
-
-
-    /**
-     * Tests that a person's hobby is incorrect and then
-     * kicks out to the default case, which is null.
-     */
-    public void testGetHobbyNull() {
-        Person personNull = new Person(list, "Null", "Northeast",
-            "Computer Science", 0);
-        assertNull(personNull.getHobby());
-    }
-
-
-    /**
      * Tests that a person's state is correctly given.
      */
     public void testGetState() {
         assertEquals(StateEnum.NORTHEAST_US, person.getState());
-    }
-
-
-    /**
-     * Tests that a person's state is incorrect and then
-     * kicks out to the default case, which is null.
-     */
-    public void testGetStateNull() {
-        Person personNull = new Person(list, "sports", "Error",
-            "Computer Science", 0);
-        assertNull(personNull.getState());
     }
 
 
@@ -125,16 +56,6 @@ public class PersonTest extends TestCase {
     }
 
 
-    /**
-     * Tests that a person's major is incorrect and then
-     * kicks out to the default case, which is null.
-     */
-    public void testGetMajorNull() {
-        Person personNull = new Person(list, "sports", "Northeast", "Error", 0);
-        assertNull(personNull.getMajor());
-    }
-
- 
     /**
      * Tests that the index of a person is correctly given.
      */
@@ -150,14 +71,15 @@ public class PersonTest extends TestCase {
         assertEquals(list, person.getSongList());
     }
 
+
     /**
      * Tests that the person's attributes are correctly given.
      */
-    public void testGetAttribute()
-    {
+    public void testGetAttribute() {
         assertEquals(attribute, person.getAttribute());
     }
-  
+
+
     /**
      * Tests the person's toString method
      */
