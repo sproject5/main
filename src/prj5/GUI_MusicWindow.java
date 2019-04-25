@@ -83,6 +83,7 @@ public class GUI_MusicWindow {
         window.addButton(representRegion, WindowSide.SOUTH);
 
         quit = new Button("Quit");
+        quit.onClick(this, "clickedQuit");
         window.addButton(quit, WindowSide.SOUTH);
 
         int glyph_X = 50;
@@ -158,7 +159,7 @@ public class GUI_MusicWindow {
         this.window.addShape(bottom);
         this.window.addShape(left);
         this.window.addShape(right);
-
+ 
         // This places the Legend
         this.window.addShape(majorLegend);
         this.window.addShape(major1);
@@ -251,6 +252,14 @@ public class GUI_MusicWindow {
             }
         }
 
+    }
+
+    /**
+     * Holds the behavior of the quitButton.
+     * Exits the program when clicked.
+     */
+    public void clickedQuit(Button quitButton) {
+        System.exit(0);
     }
 
 }
