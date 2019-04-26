@@ -11,6 +11,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.text.ParseException;
 import java.util.Scanner;
+import CS2114.Button;
 
 /**
  * 
@@ -35,12 +36,14 @@ public class SongReader {
         thisSongListFileName = songListFileName;
         songList = this.readSongFile(songListFileName);
         person = this.readPersonFile(surveyFileName);
-        GUI_MusicWindow window = new GUI_MusicWindow(new SurveySorter(person, songList, personListSize));
+        GUI_MusicWindow window = new GUI_MusicWindow(new SurveySorter(person, songList, personListSize), new Button());
     }
 
     /**
+     * Reads in the songList file
+     * @param fileName  the file being read from
+     * @return a list of the songs from the file after being parsed
      * @throws FileNotFoundException
-     * 
      * @throws ParseException
      */
     private SongList<Song> readSongFile(String fileName) throws FileNotFoundException, ParseException
@@ -69,9 +72,10 @@ public class SongReader {
     }
 
     /**
+     * Reads in the person file
+     * @param fileName  the file being read from
+     * @return an array of the person file after being parsed
      * @throws FileNotFoundException
-     * 
-     * 
      */
     private Person[] readPersonFile(String fileName) throws FileNotFoundException, ParseException
     {

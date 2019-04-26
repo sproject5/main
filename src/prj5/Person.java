@@ -105,6 +105,10 @@ public class Person {
         return songList;
     }
 
+    /**
+     * Gets the attributes of the person
+     * @return the person's attributes
+     */
     public Attribute getAttribute()
     {
         return this.attributes;
@@ -116,8 +120,8 @@ public class Person {
      * @return the string content of this person
      */
     public String toString() {
-        return index + "; Hobby: " + hobby + "; Major: " + major + "; State: "
-            + state;
+        return index + "; Hobby: " + getHobby() + "; Major: " + getMajor() +
+            "; State: " + getState();
     }
 
 }

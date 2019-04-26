@@ -1,16 +1,35 @@
+// Virginia Tech Honor Code Pledge:
+//
+// As a Hokie, I will conduct myself with honor and integrity at all times.
+// I will not lie, cheat, or steal, nor will I accept the actions of those who
+// do.
+// -- cmangin, drewp24
+
 package prj5;
 
-public class Attribute 
-{
+/**
+ * This class holds the attributes of a person.
+ *
+ * @author Drew Pompeii (drewp24)
+ * @version 04/17/2019
+ */
+public class Attribute {
     private HobbyEnum hobby;
     private MajorEnum major;
     private StateEnum state;
 
-    public Attribute(
-        String thisHobby,
-        String thisState,
-        String thisMajor)
-    {
+
+    /**
+     * This is the constructor for the Attribute class.
+     * 
+     * @param thisHobby
+     *            the person's hobby
+     * @param thisState
+     *            the person's state
+     * @param thisMajor
+     *            the person's major
+     */
+    public Attribute(String thisHobby, String thisState, String thisMajor) {
         switch (thisHobby) {
             case "reading":
                 hobby = HobbyEnum.READ;
@@ -97,30 +116,43 @@ public class Attribute
         return state;
     }
 
-    public boolean equals(Object obj)
-    {
-        if (obj == null || obj.getClass() != this.getClass())
-        {
+
+    /**
+     * Checks equality between two different attributes.
+     * 
+     * @param obj
+     *            the object being passed as an attribute.
+     * @return true if the attributes are equal,
+     *         false in all other cases.
+     */
+    public boolean equals(Object obj) {
+        if (obj == null || obj.getClass() != this.getClass()) {
             return false;
         }
-        Attribute others = (Attribute) obj;
+        Attribute others = (Attribute)obj;
 
-        return this.state == others.getState() 
-            && this.major == others.getMajor() 
-            && this.hobby == others.getHobby(); 
+        return this.state == others.getState() && this.major == others
+            .getMajor() && this.hobby == others.getHobby();
     }
 
-    public boolean compare(Object obj)
-    {
-        if (obj == null || obj.getClass() != this.getClass())
-        {
+
+    /**
+     * Compares two different attributes.
+     * 
+     * @param obj
+     *            the object being compared to as an attribute.
+     * 
+     * @return true if the compared attributes are equal,
+     *         false in all other cases.
+     */
+    public boolean compare(Object obj) {
+        if (obj == null || obj.getClass() != this.getClass()) {
             return false;
         }
-        Attribute others = (Attribute) obj;
+        Attribute others = (Attribute)obj;
 
-        return this.state == others.getState() 
-            || this.major == others.getMajor() 
-            || this.hobby == others.getHobby(); 
+        return this.state == others.getState() || this.major == others
+            .getMajor() || this.hobby == others.getHobby();
     }
 
 }

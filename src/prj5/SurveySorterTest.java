@@ -106,14 +106,14 @@ public class SurveySorterTest extends TestCase
          * reader.getPersonList()[5].getSongList().get(4).getLiked());
          */
         
-        assertEquals(0, surveySorter.dataOf(name, HobbyEnum.READ, true));
-        assertEquals(0, surveySorter.dataOf(name, HobbyEnum.SPORTS, true));
-        assertEquals(0, surveySorter.dataOf(name, HobbyEnum.MUSIC, true));
+        assertEquals(0, surveySorter.dataOf(name, "reading", true));
+        assertEquals(0, surveySorter.dataOf(name, "sports", true));
+        assertEquals(0, surveySorter.dataOf(name, "music", true));
 
         
-        assertEquals(0, surveySorter.dataOf(name, HobbyEnum.READ, false), 0.1);
-        assertEquals(0, surveySorter.dataOf(name, HobbyEnum.SPORTS, false), 0.5);
-        assertEquals(0, surveySorter.dataOf(name, HobbyEnum.MUSIC , false), 0.1);
+        assertEquals(0, surveySorter.dataOf(name, "reading", false), 0.1);
+        assertEquals(0, surveySorter.dataOf(name, "sports", false), 0.5);
+        assertEquals(0, surveySorter.dataOf(name, "music" , false), 0.1);
     }
 
     /**
@@ -143,16 +143,15 @@ public class SurveySorterTest extends TestCase
         
         name = "Tik Tok";
         
-        assertEquals(0, surveySorter.dataOf(name, HobbyEnum.READ, true), 1);
-        assertEquals(0, surveySorter.dataOf(name, HobbyEnum.ART, true), 1);
-        assertEquals(0, surveySorter.dataOf(name, HobbyEnum.SPORTS, true), 1);
-        assertEquals(0, surveySorter.dataOf(name, HobbyEnum.MUSIC, true), 1);
-
+        assertEquals(0, surveySorter.dataOf(name, "reading", true), 1);
+        assertEquals(0, surveySorter.dataOf(name, "art", true), 1);
+        assertEquals(0, surveySorter.dataOf(name, "sports", true), 1);
+        assertEquals(0, surveySorter.dataOf(name, "music", true), 1);
         
-        assertEquals(0, surveySorter.dataOf(name, HobbyEnum.READ, false), 1);
-        assertEquals(0, surveySorter.dataOf(name, HobbyEnum.ART, false), 1);
-        assertEquals(0, surveySorter.dataOf(name, HobbyEnum.SPORTS, false), 1);
-        assertEquals(0, surveySorter.dataOf(name, HobbyEnum.MUSIC , false), 1);
+        assertEquals(0, surveySorter.dataOf(name, "reading", false), 1);
+        assertEquals(0, surveySorter.dataOf(name, "art", false), 1);
+        assertEquals(0, surveySorter.dataOf(name, "sports", false), 1);
+        assertEquals(0, surveySorter.dataOf(name, "music" , false), 1);
 
     }
 
@@ -166,15 +165,15 @@ public class SurveySorterTest extends TestCase
         SongReader reader = new SongReader("SongListTest1.csv", "MusicSurveyDataTest1.csv");
         SurveySorter surveySorter = new SurveySorter(reader.getPersonList(), reader.getSongList(), reader.getPersonListSize());
         String title = "All These Things I've Done";
-        System.out.println(surveySorter.numberOf(title, HobbyEnum.READ, true));
-        System.out.println(surveySorter.numberOf(title, HobbyEnum.ART, true));
-        System.out.println(surveySorter.numberOf(title, HobbyEnum.SPORTS, true));
-        System.out.println(surveySorter.numberOf(title, HobbyEnum.MUSIC, true));
+        System.out.println(surveySorter.numberOf(title, "reading", true));
+        System.out.println(surveySorter.numberOf(title, "art", true));
+        System.out.println(surveySorter.numberOf(title, "sports", true));
+        System.out.println(surveySorter.numberOf(title, "music", true));
         
-        System.out.println(surveySorter.numberOf(title, HobbyEnum.READ, false));
-        System.out.println(surveySorter.numberOf(title, HobbyEnum.ART, false));
-        System.out.println(surveySorter.numberOf(title, HobbyEnum.SPORTS, false));
-        System.out.println(surveySorter.numberOf(title, HobbyEnum.MUSIC, false));
+        System.out.println(surveySorter.numberOf(title, "reading", false));
+        System.out.println(surveySorter.numberOf(title, "art", false));
+        System.out.println(surveySorter.numberOf(title, "sports", false));
+        System.out.println(surveySorter.numberOf(title, "music", false));
         assertNull(null);
     }
 }
