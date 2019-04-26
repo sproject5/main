@@ -56,9 +56,11 @@ public class GUI_MusicWindow {
         window = new Window("Project 5");
 
         prev = new Button(" <- Prev");
+        prev.onClick(this, "clickedPrevious");
         window.addButton(prev, WindowSide.NORTH);
 
         sortByArtistName = new Button("Sort by Artist Name");
+        sortByArtistName.onClick(this, "clickedSortByArtistName");
         window.addButton(sortByArtistName, WindowSide.NORTH);
 
         sortBySongTitle = new Button("Sort by Song Title");
@@ -66,6 +68,7 @@ public class GUI_MusicWindow {
         window.addButton(sortBySongTitle, WindowSide.NORTH);
 
         sortByReleaseYear = new Button("Sort by Release Year");
+        sortByReleaseYear.onClick(this, "clickedSortByReleaseYear");
         window.addButton(sortByReleaseYear, WindowSide.NORTH);
 
         sortByGenre = new Button("Sort by Genre");
@@ -73,15 +76,19 @@ public class GUI_MusicWindow {
         window.addButton(sortByGenre, WindowSide.NORTH);
 
         next = new Button("Next ->");
+        next.onClick(this, "clickedNext");
         window.addButton(next, WindowSide.NORTH);
 
         representHobby = new Button("Represent Hobby");
+        representHobby.onClick(this, "clickedRepresentHobby");
         window.addButton(representHobby, WindowSide.SOUTH);
 
         representMajor = new Button("Represent Major");
+        representMajor.onClick(this, "clickedRepresentMajor");
         window.addButton(representMajor, WindowSide.SOUTH);
 
         representRegion = new Button("Represent Region");
+        representRegion.onClick(this, "clickedRepresentRegion");
         window.addButton(representRegion, WindowSide.SOUTH);
 
         quit = new Button("Quit");
@@ -297,7 +304,9 @@ public class GUI_MusicWindow {
     /**
      * Holds the behavior of the quitButton.
      * Exits the program when clicked.
-     * @param quitButton  the button to be clicked to quit the window
+     * 
+     * @param quitButton
+     *            the button to be clicked to quit the window
      */
     public void clickedQuit(Button quitButton) {
         System.exit(0);
