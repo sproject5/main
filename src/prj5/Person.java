@@ -105,6 +105,10 @@ public class Person {
         return songList;
     }
 
+    /**
+     * Gets the attributes of the person
+     * @return the person's attributes
+     */
     public Attribute getAttribute()
     {
         return this.attributes;
