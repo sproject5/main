@@ -56,70 +56,62 @@ public class GUI_MusicWindow {
         window = new Window("Project 5");
 
         prev = new Button(" <- Prev");
-        prev.onClick(this, "clickedPrevious");
         window.addButton(prev, WindowSide.NORTH);
 
         sortByArtistName = new Button("Sort by Artist Name");
-        sortByArtistName.onClick(this, "clickedSortByArtistName");
         window.addButton(sortByArtistName, WindowSide.NORTH);
 
         sortBySongTitle = new Button("Sort by Song Title");
-        sortBySongTitle.onClick(this, "clickedSortBySongTitle");
         window.addButton(sortBySongTitle, WindowSide.NORTH);
 
         sortByReleaseYear = new Button("Sort by Release Year");
-        sortByReleaseYear.onClick(this, "clickedSortByReleaseYear");
         window.addButton(sortByReleaseYear, WindowSide.NORTH);
 
         sortByGenre = new Button("Sort by Genre");
-        sortByGenre.onClick(this, "clickedSortByGenre");
         window.addButton(sortByGenre, WindowSide.NORTH);
 
         next = new Button("Next ->");
-        next.onClick(this, "clickedNext");
         window.addButton(next, WindowSide.NORTH);
 
         representHobby = new Button("Represent Hobby");
-        representHobby.onClick(this, "clickedRepresentHobby");
         window.addButton(representHobby, WindowSide.SOUTH);
 
         representMajor = new Button("Represent Major");
-        representMajor.onClick(this, "clickedRepresentMajor");
         window.addButton(representMajor, WindowSide.SOUTH);
 
         representRegion = new Button("Represent Region");
-        representRegion.onClick(this, "clickedRepresentRegion");
         window.addButton(representRegion, WindowSide.SOUTH);
 
         quit = new Button("Quit");
-        quit.onClick(this, "clickedQuit");
         window.addButton(quit, WindowSide.SOUTH);
 
         int glyph_X = 50;
-        int glyph_Y = 50;
+        int glyph_Y = 60;
+        int vertWidth = 5;
+        int vertLength = 40;
+        int horWidth = 10;
 
         // This creates the practice glyph
-        Shape vertical = new Shape(glyph_X, glyph_Y + 10, 10, 60, Color.BLACK);
-        Shape horizontal1 = new Shape(glyph_X - 25, glyph_Y + 20, 25, 10,
+        Shape vertical = new Shape(glyph_X, glyph_Y, 5, 40, Color.BLACK);
+        Shape horizontal1 = new Shape(glyph_X - 25, glyph_Y, 25, 10,
             Color.PINK);
-        Shape horizontal2 = new Shape(glyph_X - 25, glyph_Y + 30, 25, 10,
+        Shape horizontal2 = new Shape(glyph_X - 25, glyph_Y + 10, 25, 10,
             Color.BLUE);
-        Shape horizontal3 = new Shape(glyph_X - 25, glyph_Y + 40, 25, 10,
+        Shape horizontal3 = new Shape(glyph_X - 25, glyph_Y + 20, 25, 10,
             Color.YELLOW);
-        Shape horizontal4 = new Shape(glyph_X - 25, glyph_Y + 50, 25, 10,
+        Shape horizontal4 = new Shape(glyph_X - 25, glyph_Y + 30, 25, 10,
             Color.GREEN);
-        Shape horizontal5 = new Shape(glyph_X + 10, glyph_Y + 20, 25, 10,
-            Color.PINK);
-        Shape horizontal6 = new Shape(glyph_X + 10, glyph_Y + 30, 25, 10,
+        Shape horizontal5 = new Shape(glyph_X + 5, glyph_Y, 25, 10, Color.PINK);
+        Shape horizontal6 = new Shape(glyph_X + 5, glyph_Y + 10, 25, 10,
             Color.BLUE);
-        Shape horizontal7 = new Shape(glyph_X + 10, glyph_Y + 40, 25, 10,
+        Shape horizontal7 = new Shape(glyph_X + 5, glyph_Y + 20, 25, 10,
             Color.YELLOW);
-        Shape horizontal8 = new Shape(glyph_X + 10, glyph_Y + 50, 25, 10,
+        Shape horizontal8 = new Shape(glyph_X + 5, glyph_Y + 30, 25, 10,
             Color.GREEN);
-        TextShape title = new TextShape(glyph_X - 30, glyph_Y - 30,
+        TextShape title = new TextShape(glyph_X - 35, glyph_Y - 40,
             "Cizza Pizza", Color.BLACK);
         title.setBackgroundColor(Color.WHITE);
-        TextShape artist = new TextShape(glyph_Y - 20, glyph_Y - 13, "by Crew",
+        TextShape artist = new TextShape(glyph_Y - 25, glyph_Y - 23, "by Crew",
             Color.BLACK);
         artist.setBackgroundColor(Color.WHITE);
 
@@ -179,23 +171,22 @@ public class GUI_MusicWindow {
         this.window.addShape(heard);
         this.window.addShape(verticalLegend);
         this.window.addShape(liked);
-
     }
 
 
     /**
      * Takes the survey input and generates the output based on hobby sorted
-     * based on title and genre of the song
+     * based
+     * on title and genre of the song
      * 
-     * @param input  the survey input to be generated and used to sort
-     * @param button the button to be clicked for the methods
+     * @param input
      */
-    public GUI_MusicWindow(SurveySorter input, Button button) {
+    public GUI_MusicWindow(SurveySorter input) {
         this();
         survey = input;
         // System.out.println( survey.getSongList().toString());
-        this.clickedSortByGenre(button);
-        this.clickedSortBySongTitle(button);
+        this.clickedSortByGenre();
+        this.clickedSortBySongTitle();
 
     }
 
@@ -203,8 +194,10 @@ public class GUI_MusicWindow {
     /**
      * When clicked it will sort all the songs by artist name
      * in alphabetical order
-     * @param button  the button to be clicked to
-     *                sort the songs by artist name
+     * 
+     * @param button
+     *            the button to be clicked to
+     *            sort the songs by artist name
      */
     public void clickedSortByArtistName(Button button) {
 
@@ -212,12 +205,19 @@ public class GUI_MusicWindow {
 
 
     /**
-     * When clicked it will sort all the songs by song title
-     * in alphabetical order
-     * @param button  the button to be clicked to
-     *                sort the songs by song title
+     * When clicked it will sort all the songs by it's release year
+     * sorting from oldest to newest
+     * 
+     * @param button
+     *            the button to be clicked to
+     *            sort the songs by release year
      */
-    public void clickedSortBySongTitle(Button button) {
+    public void clickedSortByReleaseYear(Button button) {
+
+    }
+
+
+    public void clickedSortBySongTitle() {
         SongList songList = survey.getSongList();
         DLList<String> sortedList = songList.sortBySongTitle();
 
@@ -243,28 +243,10 @@ public class GUI_MusicWindow {
                 .toStringTest() + heard + like);
 
         }
-
     }
 
 
-    /**
-     * When clicked it will sort all the songs by it's release year
-     * sorting from oldest to newest
-     * @param button  the button to be clicked to
-     *                sort the songs by release year
-     */
-    public void clickedSortByReleaseYear(Button button) {
-
-    }
-
-
-    /**
-     * When clicked it will sort all the songs by genre
-     * in alphabetical order
-     * @param button  the button to be clicked to
-     *                sort the songs by genre
-     */
-    public void clickedSortByGenre(Button button) {
+    public void clickedSortByGenre() {
         SongList songList = survey.getSongList();
         DLList<String> sortedList = songList.sortByGenre();
         for (int i = 0; i < sortedList.size(); i++) {
@@ -296,31 +278,40 @@ public class GUI_MusicWindow {
 
     }
 
+
     /**
      * When clicked it will show the statistics of the songs
      * in correlation to the hobbies people said was their favorite
-     * @param button  the button to be clicked to show the stats
-     *                of the songs of the people's favorite hobbies
+     * 
+     * @param button
+     *            the button to be clicked to show the stats
+     *            of the songs of the people's favorite hobbies
      */
     public void clickedRepresentHobby(Button button) {
 
     }
 
+
     /**
      * When clicked it will show the statistics of the songs
      * in correlation to people's majors
-     * @param button  the button to be clicked to show the stats
-     *                of the songs of the people's majors
+     * 
+     * @param button
+     *            the button to be clicked to show the stats
+     *            of the songs of the people's majors
      */
     public void clickedRepresentMajor(Button button) {
 
     }
 
+
     /**
      * When clicked it will show the statistics of the songs
      * in correlation to where people reside
-     * @param button  the button to be clicked to show the stats
-     *                of the songs of where people reside
+     * 
+     * @param button
+     *            the button to be clicked to show the stats
+     *            of the songs of where people reside
      */
     public void clickedRepresentRegion(Button button) {
 
