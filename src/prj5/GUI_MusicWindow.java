@@ -62,12 +62,14 @@ public class GUI_MusicWindow {
         window.addButton(sortByArtistName, WindowSide.NORTH);
 
         sortBySongTitle = new Button("Sort by Song Title");
+        sortBySongTitle.onClick(this, "clickedSortBySongTitle");
         window.addButton(sortBySongTitle, WindowSide.NORTH);
 
         sortByReleaseYear = new Button("Sort by Release Year");
         window.addButton(sortByReleaseYear, WindowSide.NORTH);
 
         sortByGenre = new Button("Sort by Genre");
+        sortByGenre.onClick(this, "clickedSortByGenre");
         window.addButton(sortByGenre, WindowSide.NORTH);
 
         next = new Button("Next ->");
@@ -159,7 +161,7 @@ public class GUI_MusicWindow {
         this.window.addShape(bottom);
         this.window.addShape(left);
         this.window.addShape(right);
- 
+
         // This places the Legend
         this.window.addShape(majorLegend);
         this.window.addShape(major1);
@@ -176,22 +178,21 @@ public class GUI_MusicWindow {
 
     /**
      * Takes the survey input and generates the output based on hobby sorted
-     * based
-     * on title and genre of the song
+     * based on title and genre of the song
      * 
      * @param input
      */
-    public GUI_MusicWindow(SurveySorter input) {
+    public GUI_MusicWindow(SurveySorter input, Button button) {
         this();
         survey = input;
         // System.out.println( survey.getSongList().toString());
-        this.clickedSortByGenre();
-        this.clickedSortBySongTitle();
+        this.clickedSortByGenre(button);
+        this.clickedSortBySongTitle(button);
 
     }
 
 
-    public void clickedSortBySongTitle() {
+    public void clickedSortBySongTitle(Button button) {
         SongList songList = survey.getSongList();
         DLList<String> sortedList = songList.sortBySongTitle();
 
@@ -201,18 +202,17 @@ public class GUI_MusicWindow {
             DecimalFormat df = new DecimalFormat("0");
 
             String heard = "\nheard \n" + "reading" + df.format(survey.dataOf(
-                songName, "reading", true)) + " art" + df.format(survey
-                    .dataOf(songName, "art", true)) + " sports" + df
-                        .format(survey.dataOf(songName, "sports", true))
-                + " music" + df.format(survey.dataOf(songName, "music",
-                    true));
+                songName, "reading", true)) + " art" + df.format(survey.dataOf(
+                    songName, "art", true)) + " sports" + df.format(survey
+                        .dataOf(songName, "sports", true)) + " music" + df
+                            .format(survey.dataOf(songName, "music", true));
 
             String like = "\nlikes \n" + "reading" + df.format(survey.dataOf(
-                songName, "reading", false)) + " art" + df.format(survey
-                    .dataOf(songName, "art", false)) + " sports" + df
-                        .format(survey.dataOf(songName, "sports",
-                            false)) + " music" + df.format(survey.dataOf(
-                                songName, "music", false)) + " \n";
+                songName, "reading", false)) + " art" + df.format(survey.dataOf(
+                    songName, "art", false)) + " sports" + df.format(survey
+                        .dataOf(songName, "sports", false)) + " music" + df
+                            .format(survey.dataOf(songName, "music", false))
+                + " \n";
 
             System.out.println(survey.getSongInLowerCase(songName, songList)
                 .toStringTest() + heard + like);
@@ -222,7 +222,7 @@ public class GUI_MusicWindow {
     }
 
 
-    public void clickedSortByGenre() {
+    public void clickedSortByGenre(Button button) {
         SongList songList = survey.getSongList();
         DLList<String> sortedList = songList.sortByGenre();
         for (int i = 0; i < sortedList.size(); i++) {
@@ -234,18 +234,18 @@ public class GUI_MusicWindow {
                 String songName = temp.getSongTitle().toLowerCase();
                 DecimalFormat df = new DecimalFormat("0");
                 String heard = "\nheard \n" + "reading" + df.format(survey
-                    .dataOf(songName, "reading", true)) + " art" + df
-                        .format(survey.dataOf(songName, "art", true))
-                    + " sports" + df.format(survey.dataOf(songName,
-                        "sports", true)) + " music" + df.format(survey
-                            .dataOf(songName, "music", true));
+                    .dataOf(songName, "reading", true)) + " art" + df.format(
+                        survey.dataOf(songName, "art", true)) + " sports" + df
+                            .format(survey.dataOf(songName, "sports", true))
+                    + " music" + df.format(survey.dataOf(songName, "music",
+                        true));
 
                 String like = "\nlikes \n" + "reading" + df.format(survey
-                    .dataOf(songName, "reading", false)) + " art" + df
-                        .format(survey.dataOf(songName, "art", false))
-                    + " sports" + df.format(survey.dataOf(songName,
-                        "sports", false)) + " music" + df.format(survey
-                            .dataOf(songName, "music", false)) + " \n";
+                    .dataOf(songName, "reading", false)) + " art" + df.format(
+                        survey.dataOf(songName, "art", false)) + " sports" + df
+                            .format(survey.dataOf(songName, "sports", false))
+                    + " music" + df.format(survey.dataOf(songName, "music",
+                        false)) + " \n";
                 System.out.println(survey.getSongInLowerCase(songName, songList)
                     .toStringTest() + heard + like);
 
@@ -253,6 +253,7 @@ public class GUI_MusicWindow {
         }
 
     }
+
 
     /**
      * Holds the behavior of the quitButton.
