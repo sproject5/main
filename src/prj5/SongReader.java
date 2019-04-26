@@ -11,6 +11,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.text.ParseException;
 import java.util.Scanner;
+import CS2114.Button;
 
 /**
  * 
@@ -35,7 +36,7 @@ public class SongReader {
         thisSongListFileName = songListFileName;
         songList = this.readSongFile(songListFileName);
         person = this.readPersonFile(surveyFileName);
-        GUI_MusicWindow window = new GUI_MusicWindow(new SurveySorter(person, songList, personListSize));
+        GUI_MusicWindow window = new GUI_MusicWindow(new SurveySorter(person, songList, personListSize), new Button());
     }
 
     /**
