@@ -192,6 +192,11 @@ public class GUI_MusicWindow {
     }
 
 
+    public void clickedSortByArtistName() {
+
+    }
+
+
     public void clickedSortBySongTitle(Button button) {
         SongList songList = survey.getSongList();
         DLList<String> sortedList = songList.sortBySongTitle();
@@ -218,6 +223,11 @@ public class GUI_MusicWindow {
                 .toStringTest() + heard + like);
 
         }
+
+    }
+
+
+    public void clickedSortByReleaseYear() {
 
     }
 
@@ -255,12 +265,52 @@ public class GUI_MusicWindow {
     }
 
 
+    public void clickedRepresentHobby() {
+
+    }
+
+
+    public void clickedRepresentMajor() {
+
+    }
+
+
+    public void clickedRepresentRegion() {
+
+    }
+
+
     /**
      * Holds the behavior of the quitButton.
      * Exits the program when clicked.
      */
     public void clickedQuit(Button quitButton) {
         System.exit(0);
+    }
+
+
+    /**
+     * Shows the previous data on the GUI window.
+     * This button is disabled if its the first data displayed.
+     * 
+     * @param button
+     *            the previous button
+     */
+    public void clickedPrevious(Button button) {
+
+    }
+
+
+    /**
+     * Shows the next data on the GUI window.
+     * This button is disabled if there's
+     * no more data to be displayed.
+     * 
+     * @param button
+     *            the next button
+     */
+    public void clickedNext(Button button) {
+
     }
 
 }
