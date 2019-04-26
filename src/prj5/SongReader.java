@@ -40,8 +40,10 @@ public class SongReader {
     }
 
     /**
+     * Reads in the songList file
+     * @param fileName  the file being read from
+     * @return a list of the songs from the file after being parsed
      * @throws FileNotFoundException
-     * 
      * @throws ParseException
      */
     private SongList<Song> readSongFile(String fileName) throws FileNotFoundException, ParseException
@@ -70,9 +72,10 @@ public class SongReader {
     }
 
     /**
+     * Reads in the person file
+     * @param fileName  the file being read from
+     * @return an array of the person file after being parsed
      * @throws FileNotFoundException
-     * 
-     * 
      */
     private Person[] readPersonFile(String fileName) throws FileNotFoundException, ParseException
     {
