@@ -9,7 +9,6 @@ package prj5;
 
 import java.io.FileNotFoundException;
 import java.text.ParseException;
-//import javax.print.attribute.standard.OutputDeviceAssigned;
 
 /**
  * @author cmangin

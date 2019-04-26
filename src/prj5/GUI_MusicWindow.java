@@ -180,13 +180,12 @@ public class GUI_MusicWindow {
      * 
      * @param input
      */
-    public GUI_MusicWindow(SurveySorter input) {
+    public GUI_MusicWindow(SurveySorter input) 
+    {
         this();
         survey = input;
-        // System.out.println( survey.getSongList().toString());
         this.clickedSortByGenre();
         this.clickedSortBySongTitle();
-
     }
 
 
