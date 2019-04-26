@@ -45,6 +45,7 @@ public class GUI_MusicWindow {
 
     private SurveySorter survey;
 
+    private final String[] Attributes;
 
     /**
      * This is the constructor for the MusicWindow
@@ -52,6 +53,11 @@ public class GUI_MusicWindow {
      * and sort songs based on certain information
      */
     public GUI_MusicWindow() {
+
+        Attributes = new String[]{"reading", "art", "music", "sports",
+        "Computer Science", "Math or CMDA", "Other", "Other Engineering",
+        "Northeast", "Outside of United States", "Southeast", "United States (other than Southeast or Northwest)"};
+
 
         window = new Window("Project 5");
 
@@ -359,8 +365,79 @@ public class GUI_MusicWindow {
      * @param button
      *            the next button
      */
-    public void clickedNext(Button button) {
+    public void clickedNext(Button button) 
+    {
 
     }
+    
+    public void buildShape(String title, String attributesTypes, int index)
+    {
+        int glyph_X = index % 3 * 120;
+        int glyph_Y =  index / 3 * 120;
+        
+        int stringIndex = 0;
+        if (attributesTypes == "Major")
+        {
+            stringIndex = 4;
+        }
+        else if ( attributesTypes == "State")
+        {
+            stringIndex = 8;
+        }
 
+
+
+        Shape vertical = new Shape(glyph_X, glyph_Y + 10, 5, 60, Color.BLACK);
+
+        Shape horizontal1 = new Shape(glyph_X - 25, glyph_Y + 20, 
+            survey.dataOf(title, Attributes[0+stringIndex], true), 10,
+            Color.PINK);
+
+        Shape horizontal2 = new Shape(glyph_X - 25, glyph_Y + 30, 
+            survey.dataOf(title, Attributes[1+stringIndex], true), 10,
+            Color.BLUE);
+        Shape horizontal3 = new Shape(glyph_X - 25, glyph_Y + 40,
+            survey.dataOf(title, Attributes[2+stringIndex], true), 10,
+            Color.YELLOW);
+        Shape horizontal4 = new Shape(glyph_X - 25, glyph_Y + 50,
+            survey.dataOf(title, Attributes[3+stringIndex], true), 10,
+            Color.GREEN);
+
+        Shape horizontal5 = new Shape(glyph_X + 10, glyph_Y + 20,
+            survey.dataOf(title, Attributes[0+stringIndex], false), 10,
+            Color.PINK);
+        Shape horizontal6 = new Shape(glyph_X + 10, glyph_Y + 30, 
+            survey.dataOf(title, Attributes[1+stringIndex], false), 10,
+            Color.BLUE);
+        Shape horizontal7 = new Shape(glyph_X + 10, glyph_Y + 40,
+            survey.dataOf(title, Attributes[2+stringIndex], false), 10, 
+            Color.YELLOW);
+        Shape horizontal8 = new Shape(glyph_X + 10, glyph_Y + 50,
+            survey.dataOf(title, Attributes[3+stringIndex], false), 10,
+            Color.GREEN);
+
+        TextShape textshape = new TextShape(glyph_X - 30, glyph_Y - 30,
+            title, Color.BLACK);
+        textshape.setBackgroundColor(Color.WHITE);
+        TextShape artist = new TextShape(glyph_Y - 20, glyph_Y - 13, "by Crew",
+            Color.BLACK);
+        artist.setBackgroundColor(Color.WHITE);
+
+
+
+                // this places the practice glyph
+                this.window.addShape(vertical);
+                this.window.addShape(horizontal1);
+                this.window.addShape(horizontal2);
+                this.window.addShape(horizontal3);
+                this.window.addShape(horizontal4);
+                this.window.addShape(horizontal5);
+                this.window.addShape(horizontal6);
+                this.window.addShape(horizontal7);
+                this.window.addShape(horizontal8);
+                this.window.addShape(textshape);
+                this.window.addShape(artist);
+    }
+
+     
 }

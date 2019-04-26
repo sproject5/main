@@ -47,7 +47,6 @@ public class SurveySorter {
         person = inputPerson;
         songList = inputSongList;
         personListSize = otherPersonListSize;
-        //size = 0;
     }
 
 
