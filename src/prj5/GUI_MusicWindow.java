@@ -181,6 +181,7 @@ public class GUI_MusicWindow {
      * based on title and genre of the song
      * 
      * @param input
+     * @param button
      */
     public GUI_MusicWindow(SurveySorter input, Button button) {
         this();
@@ -192,11 +193,18 @@ public class GUI_MusicWindow {
     }
 
 
-    public void clickedSortByArtistName() {
+    /**
+     * 
+     */
+    public void clickedSortByArtistName(Button button) {
 
     }
 
 
+    /**
+     * 
+     * @param button
+     */
     public void clickedSortBySongTitle(Button button) {
         SongList songList = survey.getSongList();
         DLList<String> sortedList = songList.sortBySongTitle();
@@ -227,7 +235,10 @@ public class GUI_MusicWindow {
     }
 
 
-    public void clickedSortByReleaseYear() {
+    /**
+     * 
+     */
+    public void clickedSortByReleaseYear(Button button) {
 
     }
 
@@ -265,17 +276,20 @@ public class GUI_MusicWindow {
     }
 
 
-    public void clickedRepresentHobby() {
+    /**
+     * 
+     */
+    public void clickedRepresentHobby(Button button) {
 
     }
 
 
-    public void clickedRepresentMajor() {
+    public void clickedRepresentMajor(Button button) {
 
     }
 
 
-    public void clickedRepresentRegion() {
+    public void clickedRepresentRegion(Button button) {
 
     }
 
@@ -283,6 +297,7 @@ public class GUI_MusicWindow {
     /**
      * Holds the behavior of the quitButton.
      * Exits the program when clicked.
+     * @param quitButton  the button to be clicked to quit the window
      */
     public void clickedQuit(Button quitButton) {
         System.exit(0);
