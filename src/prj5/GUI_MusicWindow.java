@@ -187,8 +187,8 @@ public class GUI_MusicWindow {
      * Takes the survey input and generates the output based on hobby sorted
      * based on title and genre of the song
      * 
-     * @param input
-     * @param button
+     * @param input  the survey input to be generated and used to sort
+     * @param button the button to be clicked for the methods
      */
     public GUI_MusicWindow(SurveySorter input, Button button) {
         this();
@@ -201,7 +201,10 @@ public class GUI_MusicWindow {
 
 
     /**
-     * 
+     * When clicked it will sort all the songs by artist name
+     * in alphabetical order
+     * @param button  the button to be clicked to
+     *                sort the songs by artist name
      */
     public void clickedSortByArtistName(Button button) {
 
@@ -209,8 +212,10 @@ public class GUI_MusicWindow {
 
 
     /**
-     * 
-     * @param button
+     * When clicked it will sort all the songs by song title
+     * in alphabetical order
+     * @param button  the button to be clicked to
+     *                sort the songs by song title
      */
     public void clickedSortBySongTitle(Button button) {
         SongList songList = survey.getSongList();
@@ -243,13 +248,22 @@ public class GUI_MusicWindow {
 
 
     /**
-     * 
+     * When clicked it will sort all the songs by it's release year
+     * sorting from oldest to newest
+     * @param button  the button to be clicked to
+     *                sort the songs by release year
      */
     public void clickedSortByReleaseYear(Button button) {
 
     }
 
 
+    /**
+     * When clicked it will sort all the songs by genre
+     * in alphabetical order
+     * @param button  the button to be clicked to
+     *                sort the songs by genre
+     */
     public void clickedSortByGenre(Button button) {
         SongList songList = survey.getSongList();
         DLList<String> sortedList = songList.sortByGenre();
@@ -282,20 +296,32 @@ public class GUI_MusicWindow {
 
     }
 
-
     /**
-     * 
+     * When clicked it will show the statistics of the songs
+     * in correlation to the hobbies people said was their favorite
+     * @param button  the button to be clicked to show the stats
+     *                of the songs of the people's favorite hobbies
      */
     public void clickedRepresentHobby(Button button) {
 
     }
 
-
+    /**
+     * When clicked it will show the statistics of the songs
+     * in correlation to people's majors
+     * @param button  the button to be clicked to show the stats
+     *                of the songs of the people's majors
+     */
     public void clickedRepresentMajor(Button button) {
 
     }
 
-
+    /**
+     * When clicked it will show the statistics of the songs
+     * in correlation to where people reside
+     * @param button  the button to be clicked to show the stats
+     *                of the songs of where people reside
+     */
     public void clickedRepresentRegion(Button button) {
 
     }
