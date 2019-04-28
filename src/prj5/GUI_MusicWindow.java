@@ -396,7 +396,7 @@ public class GUI_MusicWindow {
 
         Song curSong = currentSongList.getSongInLowerCase(title.toLowerCase());
         title = title.toLowerCase();
-        int glyph_X = index % 3 * 240 + 110;
+        int glyph_X = index % 3 * 240 + 130;
         int glyph_Y =  index / 3 * 90 + 40;
         
         int stringIndex = 0;
