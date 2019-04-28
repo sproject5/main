@@ -25,18 +25,23 @@ public class Input {
     /**
      * This method creates the window
      * @param args
+     * @throws ParseException 
+     * @throws FileNotFoundException 
      */
-    public static void main(String[] args)
+    public static void main(String[] args) throws FileNotFoundException, ParseException
     {
         //System.out.println(args.length);
-        try {
-            SongReader reader = new SongReader(args[1],args[0]);
-        }
-        catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        catch (ParseException e) {
-            e.printStackTrace();
-        }
+        SongReader reader = new SongReader("SongList2018.csv",  "MusicSurveyData2018.csv");
+        /*
+         * try {
+         * SongReader reader = new SongReader(args[1],args[0]);
+         * }
+         * catch (FileNotFoundException e) {
+         * e.printStackTrace();
+         * }
+         * catch (ParseException e) {
+         * e.printStackTrace();
+         * }
+         */
     }
 }

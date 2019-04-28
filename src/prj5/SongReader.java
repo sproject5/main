@@ -36,7 +36,7 @@ public class SongReader {
         thisSongListFileName = songListFileName;
         songList = this.readSongFile(songListFileName);
         person = this.readPersonFile(surveyFileName);
-        GUI_MusicWindow window = new GUI_MusicWindow(new SurveySorter(person, songList, personListSize), new Button());
+        GUI_MusicWindow window = new GUI_MusicWindow(new SurveySorter(person, songList, personListSize));
     }
 
     /**

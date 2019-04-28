@@ -91,92 +91,15 @@ public class GUI_MusicWindow {
         quit = new Button("Quit");
         window.addButton(quit, WindowSide.SOUTH);
 
-        int glyph_X = 50;
-        int glyph_Y = 60;
         int vertWidth = 5;
         int vertLength = 40;
         int horWidth = 10;
 
-        // This creates the practice glyph
-        Shape vertical = new Shape(glyph_X, glyph_Y, 5, 40, Color.BLACK);
-        Shape horizontal1 = new Shape(glyph_X - 25, glyph_Y, 25, 10,
-            Color.PINK);
-        Shape horizontal2 = new Shape(glyph_X - 25, glyph_Y + 10, 25, 10,
-            Color.BLUE);
-        Shape horizontal3 = new Shape(glyph_X - 25, glyph_Y + 20, 25, 10,
-            Color.YELLOW);
-        Shape horizontal4 = new Shape(glyph_X - 25, glyph_Y + 30, 25, 10,
-            Color.GREEN);
-        Shape horizontal5 = new Shape(glyph_X + 5, glyph_Y, 25, 10, Color.PINK);
-        Shape horizontal6 = new Shape(glyph_X + 5, glyph_Y + 10, 25, 10,
-            Color.BLUE);
-        Shape horizontal7 = new Shape(glyph_X + 5, glyph_Y + 20, 25, 10,
-            Color.YELLOW);
-        Shape horizontal8 = new Shape(glyph_X + 5, glyph_Y + 30, 25, 10,
-            Color.GREEN);
-        TextShape title = new TextShape(glyph_X - 35, glyph_Y - 40,
-            "Cizza Pizza", Color.BLACK);
-        title.setBackgroundColor(Color.WHITE);
-        TextShape artist = new TextShape(glyph_Y - 25, glyph_Y - 23, "by Crew",
-            Color.BLACK);
-        artist.setBackgroundColor(Color.WHITE);
 
-        // this places the practice glyph
-        this.window.addShape(vertical);
-        this.window.addShape(horizontal1);
-        this.window.addShape(horizontal2);
-        this.window.addShape(horizontal3);
-        this.window.addShape(horizontal4);
-        this.window.addShape(horizontal5);
-        this.window.addShape(horizontal6);
-        this.window.addShape(horizontal7);
-        this.window.addShape(horizontal8);
-        this.window.addShape(title);
-        this.window.addShape(artist);
 
-        // This creates the Legend
-        TextShape majorLegend = new TextShape(600, 140, "Major Legend",
-            Color.BLACK);
-        majorLegend.setBackgroundColor(Color.WHITE);
-        TextShape major1 = new TextShape(600, 160, "Comp Sci", Color.PINK);
-        major1.setBackgroundColor(Color.WHITE);
-        TextShape major2 = new TextShape(600, 180, "Other Eng", Color.BLUE);
-        major2.setBackgroundColor(Color.WHITE);
-        TextShape major3 = new TextShape(600, 200, "Math/CMDA", Color.YELLOW);
-        major3.setBackgroundColor(Color.WHITE);
-        TextShape major4 = new TextShape(600, 220, "Other", Color.GREEN);
-        major4.setBackgroundColor(Color.WHITE);
+        this.legendBuild();
 
-        TextShape songTitle = new TextShape(615, 240, "Song Title",
-            Color.BLACK);
-        songTitle.setBackgroundColor(Color.WHITE);
-        TextShape heard = new TextShape(600, 270, "Heard", Color.BLACK);
-        heard.setBackgroundColor(Color.WHITE);
-        Shape verticalLegend = new Shape(650, 260, 5, 40, Color.BLACK);
-        TextShape liked = new TextShape(660, 270, "Likes", Color.BLACK);
-        liked.setBackgroundColor(Color.WHITE);
-
-        // rectangle
-        Shape top = new Shape(580, 135, 130, 5, Color.BLACK);
-        Shape bottom = new Shape(580, 305, 130, 5, Color.BLACK);
-        Shape left = new Shape(580, 135, 5, 170, Color.BLACK);
-        Shape right = new Shape(710, 135, 5, 175, Color.BLACK);
-
-        this.window.addShape(top);
-        this.window.addShape(bottom);
-        this.window.addShape(left);
-        this.window.addShape(right);
-
-        // This places the Legend
-        this.window.addShape(majorLegend);
-        this.window.addShape(major1);
-        this.window.addShape(major2);
-        this.window.addShape(major3);
-        this.window.addShape(major4);
-        this.window.addShape(songTitle);
-        this.window.addShape(heard);
-        this.window.addShape(verticalLegend);
-        this.window.addShape(liked);
+        
     }
 
 
@@ -190,9 +113,24 @@ public class GUI_MusicWindow {
     public GUI_MusicWindow(SurveySorter input) {
         this();
         survey = input;
-        // System.out.println( survey.getSongList().toString());
-        this.clickedSortByGenre();
-        this.clickedSortBySongTitle();
+
+        buildShape("Can You Feel the Love Tonight", "Hobby", 0);
+        buildShape("Can You Feel the Love Tonight", "Hobby", 1);
+        buildShape("Can You Feel the Love Tonight", "Hobby", 2);
+
+        buildShape("Can You Feel the Love Tonight", "Hobby", 3);
+        buildShape("Can You Feel the Love Tonight", "Hobby", 4);
+        buildShape("Can You Feel the Love Tonight", "Hobby", 5);
+
+        buildShape("Can You Feel the Love Tonight", "Hobby", 6);
+        buildShape("Can You Feel the Love Tonight", "Hobby", 7);
+        buildShape("Can You Feel the Love Tonight", "Hobby", 8);
+        //buildShape("Can You Feel the Love Tonight", "Hobby", 6);
+
+
+        //System.out.println( survey.getSongList().toString());
+        //this.clickedSortByGenre();
+        //this.clickedSortBySongTitle();
 
     }
 
@@ -229,6 +167,9 @@ public class GUI_MusicWindow {
 
         for (int i = 0; i < sortedList.size(); i++) {
             String songName = sortedList.get(i);
+
+
+
             // System.out.println(songName);
             DecimalFormat df = new DecimalFormat("0");
 
@@ -245,14 +186,15 @@ public class GUI_MusicWindow {
                             .format(survey.dataOf(songName, "music", false))
                 + " \n";
 
-            System.out.println(survey.getSongInLowerCase(songName, songList)
-                .toStringTest() + heard + like);
+            //System.out.println(survey.getSongInLowerCase(songName, songList)
+            //    .toStringTest() + heard + like);
 
         }
     }
 
 
-    public void clickedSortByGenre() {
+    public void clickedSortByGenre() 
+    {
         SongList songList = survey.getSongList();
         DLList<String> sortedList = songList.sortByGenre();
         for (int i = 0; i < sortedList.size(); i++) {
@@ -363,8 +305,9 @@ public class GUI_MusicWindow {
     
     public void buildShape(String title, String attributesTypes, int index)
     {
-        int glyph_X = index % 3 * 120;
-        int glyph_Y =  index / 3 * 120;
+        title = title.toLowerCase();
+        int glyph_X = index % 3 * 240 + 110;
+        int glyph_Y =  index / 3 * 90 + 40;
         
         int stringIndex = 0;
         if (attributesTypes == "Major")
@@ -376,59 +319,87 @@ public class GUI_MusicWindow {
             stringIndex = 8;
         }
 
+        Shape vertical = new Shape(glyph_X, glyph_Y + 5, 5, 50, Color.BLACK);
+        
+        this.window.addShape(vertical);
 
+        for (int i = 0; i < 4; i++)
+        {
+            int width = (int)(survey.dataOf(title, Attributes[i+stringIndex], true) * 0.7);
+            Shape horizontal = new Shape(glyph_X - width, glyph_Y + 10*(i+1), 
+            width, 10, new Color(60, 60*i, 230));
+            this.window.addShape(horizontal);
+        }
 
-        Shape vertical = new Shape(glyph_X, glyph_Y + 10, 5, 60, Color.BLACK);
+        for (int i = 0; i < 4; i++)
+        {
+            int width = (int)(survey.dataOf(title, Attributes[i+stringIndex], false) * 0.7);
+            Shape horizontal = new Shape(glyph_X, glyph_Y + 10*(i+1), 
+            width, 10, new Color(60, 60*i, 230));
+            this.window.addShape(horizontal);
+        }
 
-        Shape horizontal1 = new Shape(glyph_X - 25, glyph_Y + 20, 
-            survey.dataOf(title, Attributes[0+stringIndex], true), 10,
-            Color.PINK);
-
-        Shape horizontal2 = new Shape(glyph_X - 25, glyph_Y + 30, 
-            survey.dataOf(title, Attributes[1+stringIndex], true), 10,
-            Color.BLUE);
-        Shape horizontal3 = new Shape(glyph_X - 25, glyph_Y + 40,
-            survey.dataOf(title, Attributes[2+stringIndex], true), 10,
-            Color.YELLOW);
-        Shape horizontal4 = new Shape(glyph_X - 25, glyph_Y + 50,
-            survey.dataOf(title, Attributes[3+stringIndex], true), 10,
-            Color.GREEN);
-
-        Shape horizontal5 = new Shape(glyph_X + 10, glyph_Y + 20,
-            survey.dataOf(title, Attributes[0+stringIndex], false), 10,
-            Color.PINK);
-        Shape horizontal6 = new Shape(glyph_X + 10, glyph_Y + 30, 
-            survey.dataOf(title, Attributes[1+stringIndex], false), 10,
-            Color.BLUE);
-        Shape horizontal7 = new Shape(glyph_X + 10, glyph_Y + 40,
-            survey.dataOf(title, Attributes[2+stringIndex], false), 10, 
-            Color.YELLOW);
-        Shape horizontal8 = new Shape(glyph_X + 10, glyph_Y + 50,
-            survey.dataOf(title, Attributes[3+stringIndex], false), 10,
-            Color.GREEN);
-
-        TextShape textshape = new TextShape(glyph_X - 30, glyph_Y - 30,
-            title, Color.BLACK);
+        TextShape textshape = new TextShape(glyph_X - 100, glyph_Y - 25,
+            title.toUpperCase(), Color.BLACK);
         textshape.setBackgroundColor(Color.WHITE);
-        TextShape artist = new TextShape(glyph_Y - 20, glyph_Y - 13, "by Crew",
+        TextShape artist = new TextShape(glyph_X - 20, glyph_Y - 10, "by Crew",
             Color.BLACK);
         artist.setBackgroundColor(Color.WHITE);
 
-
-
-                // this places the practice glyph
-                this.window.addShape(vertical);
-                this.window.addShape(horizontal1);
-                this.window.addShape(horizontal2);
-                this.window.addShape(horizontal3);
-                this.window.addShape(horizontal4);
-                this.window.addShape(horizontal5);
-                this.window.addShape(horizontal6);
-                this.window.addShape(horizontal7);
-                this.window.addShape(horizontal8);
+                
                 this.window.addShape(textshape);
                 this.window.addShape(artist);
     }
 
+    public void legendBuild()
+    {
+        int xposition = 745;
+        int yposition = 140;
+        // This creates the Legend
+        TextShape majorLegend = new TextShape(xposition, yposition, "Major Legend",
+            Color.BLACK);
+        majorLegend.setBackgroundColor(Color.WHITE);
+        TextShape major1 = new TextShape(xposition + 5, yposition + 20, "Comp Sci", new Color(60, 0, 230));
+        major1.setBackgroundColor(Color.WHITE);
+        TextShape major2 = new TextShape(xposition+ 5, yposition + 40, "Other Eng", new Color(60, 60, 230));
+        major2.setBackgroundColor(Color.WHITE);
+        TextShape major3 = new TextShape(xposition+ 5, yposition + 60, "Math/CMDA", new Color(60, 120, 230));
+        major3.setBackgroundColor(Color.WHITE);
+        TextShape major4 = new TextShape(xposition+ 5, yposition + 80, "Other", new Color(60, 180, 230));
+        major4.setBackgroundColor(Color.WHITE);
+
+        TextShape songTitle = new TextShape(xposition + 15, 240, "Song Title",
+            Color.BLACK);
+        songTitle.setBackgroundColor(Color.WHITE);
+        TextShape heard = new TextShape(xposition, 270, "Heard", Color.BLACK);
+        heard.setBackgroundColor(Color.WHITE);
+        Shape verticalLegend = new Shape(xposition + 50, 260, 5, 40, Color.BLACK);
+        TextShape liked = new TextShape(xposition + 60, 270, "Likes", Color.BLACK);
+        liked.setBackgroundColor(Color.WHITE);
+
+        // rectangle
+        Shape top = new Shape(xposition - 13, 135, 130, 5, Color.BLACK);
+        Shape bottom = new Shape(xposition - 13, 305, 130, 5, Color.BLACK);
+        Shape left = new Shape(xposition - 13, 135, 5, 170, Color.BLACK);
+        Shape right = new Shape(xposition +110, 135, 5, 175, Color.BLACK);
+
+        this.window.addShape(top);
+        this.window.addShape(bottom);
+        this.window.addShape(left);
+        this.window.addShape(right);
+
+        // This places the Legend
+        this.window.addShape(majorLegend);
+        this.window.addShape(major1);
+        this.window.addShape(major2);
+        this.window.addShape(major3);
+        this.window.addShape(major4);
+        this.window.addShape(songTitle);
+        this.window.addShape(heard);
+        this.window.addShape(verticalLegend);
+        this.window.addShape(liked);
+
+
+    }
      
 }

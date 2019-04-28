@@ -390,6 +390,15 @@ public class DLList<E> implements Iterable {
 
         }
 
+        /**
+         * Checks if there are more elements in the list
+         * 
+         * @return true if there are more elements in the list
+         */
+        public boolean hasPrevious()
+        {
+            return node.previous() != head;
+        }
 
         /**
          * Checks if there are more elements in the list
@@ -417,6 +426,26 @@ public class DLList<E> implements Iterable {
             else {
                 bool = true;
                 node = node.next;
+                return node.getData();
+            }
+
+        }
+
+
+        /**
+         * Gets the next value in the list
+         *
+         * @return the next value
+         * @throws NoSuchElementException
+         *             if there are no nodes left in the list
+         */
+        public E previous() {
+            if (!this.hasPrevious()) {
+                throw new NoSuchElementException();
+            }
+            else {
+                bool = true;
+                node = node.previous;
                 return node.getData();
             }
 
