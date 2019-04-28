@@ -103,8 +103,8 @@ public class GUI_MusicWindow {
 
 
         //System.out.println( survey.getSongList().toString());
-        //this.clickedSortByGenre();
-        //this.clickedSortBySongTitle();
+        this.clickedSortByGenreTest();
+        this.clickedSortBySongTitleTest();
     }
 
 
@@ -166,13 +166,11 @@ public class GUI_MusicWindow {
     }
 
 
-    /*
-    public void clickedSortBySongTitle() {
-        SongList songList = survey.getSongList();
-        DLList<String> sortedList = songList.sortBySongTitle();
 
-        for (int i = 0; i < sortedList.size(); i++) {
-            String songName = sortedList.get(i);
+    public void clickedSortBySongTitleTest() {
+        SongList<Song> songList = initialSongList.getSortedByTitle();
+        for (int i = 0; i < songList.size(); i++) {
+            String songName = songList.get(i).getSongTitle().toLowerCase();
 
 
 
@@ -192,12 +190,12 @@ public class GUI_MusicWindow {
                             .format(survey.dataOf(songName, "music", false))
                 + " \n";
 
-            //System.out.println(survey.getSongInLowerCase(songName, songList)
-            //    .toStringTest() + heard + like);
+            System.out.println(survey.getSongInLowerCase(songName, songList)
+                .toStringTest() + heard + like);
 
         }
     }
-        */
+        
 
     public void clickedSortByGenre(Button button) 
     {
@@ -254,19 +252,19 @@ public class GUI_MusicWindow {
         }
     }
 
-    /*
-    public void clickedSortByGenre() 
-    {
-        SongList songList = survey.getSongList();
-        DLList<String> sortedList = songList.sortByGenre();
 
-        for (int i = 0; i < sortedList.size(); i++) {
+    public void clickedSortByGenreTest() 
+    {
+        SongList songList = initialSongList.getSortedByGenre();
+
+        /*for (int i = 0; i < sortedList.size(); i++) {
             String genre = sortedList.get(i);
             SongList<Song> tempSongList = survey.getSongByGenre(genre,
-                songList);
+                songList);*/
             
-                for (int j = 0; j < tempSongList.size(); j++) {
-                Song temp = tempSongList.get(j);
+                for (int j = 0; j < songList.size(); j++) 
+                {
+                Song temp = (Song) songList.get(j);
                 String songName = temp.getSongTitle().toLowerCase();
                 DecimalFormat df = new DecimalFormat("0");
                 String heard = "\nheard \n" + "reading" + df.format(survey
@@ -286,9 +284,9 @@ public class GUI_MusicWindow {
                     .toStringTest() + heard + like);
 
             }
-        }
+        
 
-    }*/
+    }
 
 
     /**

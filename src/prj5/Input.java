@@ -31,17 +31,17 @@ public class Input {
     public static void main(String[] args) throws FileNotFoundException, ParseException
     {
         //System.out.println(args.length);
-        SongReader reader = new SongReader("SongList2018.csv",  "MusicSurveyData2018.csv");
-        /*
-         * try {
-         * SongReader reader = new SongReader(args[1],args[0]);
-         * }
-         * catch (FileNotFoundException e) {
-         * e.printStackTrace();
-         * }
-         * catch (ParseException e) {
-         * e.printStackTrace();
-         * }
-         */
+        //SongReader reader = new SongReader("SongList2018.csv",  "MusicSurveyData2018.csv");
+        
+          try {
+          SongReader reader = new SongReader(args[1],args[0]);
+          }
+          catch (FileNotFoundException e) {
+          e.printStackTrace();
+          }
+          catch (ParseException e) {
+          e.printStackTrace();
+          }
+         
     }
 }
