@@ -72,6 +72,27 @@ public class SongList<E> extends DLList<E> {
         return alphabeticalOrder(artistList);
     }
 
+    /**
+     * 
+     * @return
+     */
+    public SongList<E> getSortedByArtistName()
+    {
+        DLList<String> sortedList = this.sortByArtistName();
+        SongList<E> newSongList = new SongList<E>();
+        for (int i = 0; i < sortedList.size(); i++) 
+        {
+            String name = sortedList.get(i);
+            for (int k = 0; k < this.size(); k++) 
+            {
+                if (((Song) this.get(k)).getArtistName().equals(name)) 
+                {
+                    newSongList.add(this.get(k));
+                }
+            }
+        }
+        return newSongList;
+    }
 
     /**
      * This method will sort a list of song titles alphabetically
@@ -89,6 +110,27 @@ public class SongList<E> extends DLList<E> {
         DLList<String> newTitleList = alphabeticalOrder(titleList);
         return alphabeticalOrder(newTitleList);
     }
+    /**
+     * 
+     * @return
+     */
+    public SongList<E> getSortedByTitle()
+    {
+        DLList<String> sortedList = this.sortBySongTitle();
+        SongList<E> newSongList = new SongList<E>();
+        for (int i = 0; i < sortedList.size(); i++) 
+        {
+            String title = sortedList.get(i);
+            for (int k = 0; k < this.size(); k++) 
+            {
+                if (((Song) this.get(k)).getSongTitle().toLowerCase().equals(title.toLowerCase())) 
+                {
+                    newSongList.add(this.get(k));
+                }
+            }
+        }
+        return newSongList;
+    }
 
 
     /**
@@ -100,8 +142,9 @@ public class SongList<E> extends DLList<E> {
      */
     public DLList<Integer> sortByReleaseYear() {
         DLList<Integer> yearList = new DLList<Integer>();
-        // System.out.println(this.size());
-        for (int x = 0; x < this.size(); x++) {
+
+        for (int x = 0; x < this.size(); x++) 
+        {
             yearList.add(((Song)this.get(x)).getDate());
         }
 
@@ -119,7 +162,29 @@ public class SongList<E> extends DLList<E> {
         }
         return yearList;
     }
+    /**
+     * 
+     * @return
+     */
+    public SongList<E> getSortedByYear()
+    {
+        DLList<Integer> sortedList = this.sortByReleaseYear();
+        SongList<E> newSongList = new SongList<E>();
+        for (int i = 0; i < sortedList.size(); i++) 
+        {
 
+            int year = sortedList.get(i);
+            //System.out.println(year);
+            for (int k = 0; k < this.size(); k++) 
+            {
+                if (((Song) this.get(k)).getDate() == year) 
+                {
+                    newSongList.add(this.get(k));
+                }
+            }
+        }
+        return newSongList;
+    }
 
     /**
      * This method will sort a a list of genres alphabetically
@@ -148,7 +213,27 @@ public class SongList<E> extends DLList<E> {
         }
         return genreList;
     }
-
+    /**
+     * 
+     * @return
+     */
+    public SongList<E> getSortedByGenre()
+    {
+        DLList<String> sortedList = this.sortByGenre();
+        SongList<E> newSongList = new SongList<E>();
+        for (int i = 0; i < sortedList.size(); i++) 
+        {
+            String genre = sortedList.get(i);
+            for (int k = 0; k < this.size(); k++) 
+            {
+                if (((Song) this.get(k)).getGenre().equals(genre)) 
+                {
+                    newSongList.add(this.get(k));
+                }
+            }
+        }
+        return newSongList;
+    }
 
     /**
      * increment Heard
@@ -208,27 +293,6 @@ public class SongList<E> extends DLList<E> {
         song.likedIsNo();
         this.add(index, (E)song);
     }
-
-
-//    /**
-//     * Gets the song
-//     * 
-//     * @param title
-//     *            the title of the returning song
-//     * @return the song searched for
-//     */
-//    public Song getSong(String title) {
-//        Song targetSong = null;
-//        for (int k = 0; k < this.size(); k++) {
-//            // System.out.println(curSongList.get(k).getSongTitle());
-//            if (((Song)this.get(k)).getSongTitle().equals(title)) {
-//                // System.out.println(title);
-//                targetSong = (Song)this.get(k);
-//            }
-//        }
-//
-//        return targetSong;
-//    }
 
 
     /**

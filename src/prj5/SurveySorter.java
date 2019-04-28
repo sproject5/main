@@ -177,7 +177,7 @@ public class SurveySorter {
      * @return
      *         the target song
      */
-    public SongList<Song> getSongByGenre(
+    /*public SongList<Song> getSongByGenre(
         String genre,
         SongList<Song> curSongList) {
         SongList<Song> targetSong = new SongList<Song>();
@@ -189,8 +189,34 @@ public class SurveySorter {
             }
         }
         return targetSong;
-    }
+    }*/
 
+
+    /**
+     * This method returns the song list by genre
+     * 
+     * @param year
+     *            the year of the song
+     * @param curSongList
+     *            the current songlist
+     * @return
+     *         the target song
+     */
+    /*
+    public SongList<Song> getSongByYear(
+        int year,
+        SongList<Song> curSongList) {
+        SongList<Song> targetSong = new SongList<Song>();
+        for (int k = 0; k < curSongList.size(); k++) 
+        {
+            if (curSongList.get(k).getDate() == year) 
+            {
+                targetSong.add(curSongList.get(k));
+            }
+        }
+        return targetSong;
+    }
+    */
 
     /**
      * This method gets the song list
