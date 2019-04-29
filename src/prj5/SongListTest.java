@@ -56,6 +56,14 @@ public class SongListTest extends student.TestCase
     }
     
     /**
+     * Test the getSortedByArtistName method
+     */
+    public void testGetSortedByArtistName()
+    {
+        assertEquals(songList.getSortedByArtistName().get(0), conner);
+    }
+    
+    /**
      * Test the sortBySongTitle method
      */
     public void testSortBySongTitle()
@@ -68,6 +76,14 @@ public class SongListTest extends student.TestCase
     }
     
     /**
+     * Test the getSortedByTitle method
+     */
+    public void testGetSortedByTitle()
+    {
+        assertEquals(songList.getSortedByTitle().get(0), drew);
+    }
+    
+    /**
      * Test the sortByReleaseYear method
      */
     public void testSortByReleaseYear()
@@ -77,8 +93,14 @@ public class SongListTest extends student.TestCase
         assertTrue(yearList.get(1).equals(ruba.getDate()));
         assertTrue(yearList.get(2).equals(drew.getDate()));
         assertTrue(yearList.get(3).equals(conner.getDate()));
-        
-        
+    }
+    
+    /**
+     * Test the getSortedByYear method
+     */
+    public void testGetSortedByYear()
+    {
+        assertEquals(songList.getSortedByYear().get(0), marx);
     }
     
     /**
@@ -91,6 +113,14 @@ public class SongListTest extends student.TestCase
         assertEquals(genreList.get(1), ruba.getGenre());
         assertEquals(genreList.get(2), marx.getGenre());
         assertEquals(genreList.get(3), drew.getGenre());
+    }
+    
+    /**
+     * Test the getSortedByGenre method
+     */
+    public void testGetSortedByGenre()
+    {
+        assertEquals(songList.getSortedByGenre().get(0), conner);
     }
     
     /**
