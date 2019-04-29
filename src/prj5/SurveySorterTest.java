@@ -174,6 +174,7 @@ public class SurveySorterTest extends TestCase
         System.out.println(surveySorter.numberOf(title, "art", false));
         System.out.println(surveySorter.numberOf(title, "sports", false));
         System.out.println(surveySorter.numberOf(title, "music", false));
-        assertNull(null);
+        SongReader readNull = null;
+        assertNull(readNull);
     }
 }
