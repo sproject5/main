@@ -30,10 +30,10 @@ public class SongListTest extends student.TestCase
     public void setUp()
     {
         songList = new SongList<Song>();
-        marx = new Song("Marx Wang", "rockstar marx", "Rock", 1971);
-        conner = new Song("Conner Mangin", "conner yay", "Country", 2004);
-        ruba = new Song("Ruba Shawkat", "cove song", "EDM", 1995);
-        drew = new Song("Drew Pompeii", "cizza pizza", "Rock", 1995);
+        marx = new Song("marx wang", "rockstar marx", "Rock", 1971);
+        conner = new Song("conner mangin", "conner yay", "Country", 2004);
+        ruba = new Song("ruba shawkat", "cove song", "EDM", 1995);
+        drew = new Song("drew pompeii", "cizza pizza", "Rock", 1995);
         
         songList.add(marx);
         songList.add(conner);
