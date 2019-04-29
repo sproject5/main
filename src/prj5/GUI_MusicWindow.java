@@ -460,7 +460,7 @@ public class GUI_MusicWindow {
         Shape top = new Shape(xposition - 13, 135, 130, 5, Color.BLACK);
         Shape bottom = new Shape(xposition - 13, 305, 130, 5, Color.BLACK);
         Shape left = new Shape(xposition - 13, 135, 5, 175, Color.BLACK);
-        Shape right = new Shape(xposition + 110, 135, 5, 175, Color.BLACK);
+        Shape right = new Shape(xposition + 115, 135, 5, 175, Color.BLACK);
 
         this.window.addShape(top);
         this.window.addShape(bottom);
