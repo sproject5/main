@@ -141,8 +141,6 @@ public class GUI_MusicWindow {
         currSortedType = "Title";
         pageNumber = 0;
         this.updateGlyph(currSortedType, representKey);
-
-
     }
 
 
@@ -205,29 +203,6 @@ public class GUI_MusicWindow {
         pageNumber = 0;
         this.updateGlyph(currSortedType, representKey);
 
-        /*
-        for (int j = 0; j < currentSongList.size(); j++) {
-            Song temp = currentSongList.get(j);
-            String songName = temp.getSongTitle().toLowerCase();
-            DecimalFormat df = new DecimalFormat("0");
-            String heard = "\nheard \n" + "reading" + df.format(survey
-                .dataOf(songName, "reading", true)) + " art" + df.format(
-                    survey.dataOf(songName, "art", true)) + " sports" + df
-                        .format(survey.dataOf(songName, "sports", true))
-                + " music" + df.format(survey.dataOf(songName, "music",
-                    true));
-
-            String like = "\nlikes \n" + "reading" + df.format(survey
-                .dataOf(songName, "reading", false)) + " art" + df.format(
-                    survey.dataOf(songName, "art", false)) + " sports" + df
-                        .format(survey.dataOf(songName, "sports", false))
-                + " music" + df.format(survey.dataOf(songName, "music",
-                    false)) + " \n";
-            System.out.println(survey.getSongInLowerCase(songName, currentSongList)
-                .toStringTest() + heard + like);
-
-        }
-        */
     }
 
     public void updateGlyph(String sortedType, String representKey)
@@ -242,8 +217,6 @@ public class GUI_MusicWindow {
                 String songTitle = Iter.next().getSongTitle();
                 if (i >= 9*pageNumber)
                 {
-                    
-                    //System.out.println(songTitle);
                     this.buildShape(songTitle, representKey, sortedType, i%9);
                 }
                 i++;

@@ -85,7 +85,9 @@ public class SongList<E> extends DLList<E> {
             String name = sortedList.get(i);
             for (int k = 0; k < this.size(); k++) 
             {
-                if (((Song) this.get(k)).getArtistName().equals(name)) 
+                Song tempSong = ((Song) this.get(k));
+                if (tempSong.getArtistName().equals(name)
+                    && !newSongList.contains((E)tempSong)) 
                 {
                     newSongList.add(this.get(k));
                 }
@@ -123,7 +125,9 @@ public class SongList<E> extends DLList<E> {
             String title = sortedList.get(i);
             for (int k = 0; k < this.size(); k++) 
             {
-                if (((Song) this.get(k)).getSongTitle().toLowerCase().equals(title.toLowerCase())) 
+                Song tempSong = ((Song) this.get(k));
+                if (tempSong.getSongTitle().toLowerCase().equals(title.toLowerCase())
+                    && !newSongList.contains((E)tempSong)) 
                 {
                     newSongList.add(this.get(k));
                 }
@@ -177,7 +181,9 @@ public class SongList<E> extends DLList<E> {
             //System.out.println(year);
             for (int k = 0; k < this.size(); k++) 
             {
-                if (((Song) this.get(k)).getDate() == year) 
+                Song tempSong = ((Song) this.get(k));
+                if (tempSong.getDate() == year
+                    && !newSongList.contains((E)tempSong) )
                 {
                     newSongList.add(this.get(k));
                 }
@@ -225,8 +231,10 @@ public class SongList<E> extends DLList<E> {
         {
             String genre = sortedList.get(i);
             for (int k = 0; k < this.size(); k++) 
-            {
-                if (((Song) this.get(k)).getGenre().equals(genre)) 
+            {   
+                Song tempSong = ((Song) this.get(k));
+                if (tempSong.getGenre().equals(genre) 
+                    && !newSongList.contains((E)tempSong)) 
                 {
                     newSongList.add(this.get(k));
                 }
