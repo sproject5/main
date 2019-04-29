@@ -14,7 +14,6 @@ import java.awt.Color;
 import java.awt.Rectangle;
 import java.text.DecimalFormat;
 import java.util.Iterator;
-
 import CS2114.Button;
 import CS2114.Shape;
 import CS2114.TextShape;
@@ -54,6 +53,8 @@ public class GUI_MusicWindow {
     private SongList<Song> currentSongList;
     private String representKey;
     private String currSortedType;
+
+
     /**
      * This is the constructor for the MusicWindow
      * Allows users to interact with song statistics
@@ -61,10 +62,11 @@ public class GUI_MusicWindow {
      */
     public GUI_MusicWindow() {
 
-        Attributes = new String[]{"reading", "art", "music", "sports",
-        "Computer Science", "Math or CMDA", "Other", "Other Engineering",
-        "Northeast", "Outside of United States", "Southeast", "United States (other than Southeast or Northwest)"};
-        
+        Attributes = new String[] { "reading", "art", "music", "sports",
+            "Computer Science", "Math or CMDA", "Other", "Other Engineering",
+            "Northeast", "Outside of United States", "Southeast",
+            "United States (other than Southeast or Northwest)" };
+
         window = new Window("Project 5");
         orderInit = false;
     }
@@ -101,8 +103,7 @@ public class GUI_MusicWindow {
         next.onClick(this, "clickedNext");
         quit.onClick(this, "clickedQuit");
 
-
-        //System.out.println( survey.getSongList().toString());
+        // System.out.println( survey.getSongList().toString());
         this.clickedSortByGenreTest();
         this.clickedSortBySongTitleTest();
     }
@@ -116,8 +117,7 @@ public class GUI_MusicWindow {
      *            the button to be clicked to
      *            sort the songs by artist name
      */
-    public void clickedSortByArtistName(Button button) 
-    {
+    public void clickedSortByArtistName(Button button) {
         currentSongList = initialSongList.getSortedByArtistName();
         window.removeAllShapes();
         currSortedType = "ArtistName";
@@ -126,7 +126,8 @@ public class GUI_MusicWindow {
 
     }
 
-        /**
+
+    /**
      * When clicked it will sort all the songs by artist name
      * in alphabetical order
      * 
@@ -134,15 +135,13 @@ public class GUI_MusicWindow {
      *            the button to be clicked to
      *            sort the songs by artist name
      */
-    public void clickedSortByTitle(Button button) 
-    {
+    public void clickedSortByTitle(Button button) {
         currentSongList = initialSongList.getSortedByTitle();
         window.removeAllShapes();
         currSortedType = "Title";
         pageNumber = 0;
         this.updateGlyph(currSortedType, representKey);
     }
-
 
 
     /**
@@ -153,8 +152,7 @@ public class GUI_MusicWindow {
      *            the button to be clicked to
      *            sort the songs by release year
      */
-    public void clickedSortByReleaseYear(Button button) 
-    {
+    public void clickedSortByReleaseYear(Button button) {
         currentSongList = initialSongList.getSortedByYear();
         window.removeAllShapes();
         currSortedType = "Year";
@@ -164,13 +162,10 @@ public class GUI_MusicWindow {
     }
 
 
-
     public void clickedSortBySongTitleTest() {
         SongList<Song> songList = initialSongList.getSortedByTitle();
         for (int i = 0; i < songList.size(); i++) {
             String songName = songList.get(i).getSongTitle().toLowerCase();
-
-
 
             // System.out.println(songName);
             DecimalFormat df = new DecimalFormat("0");
@@ -193,10 +188,9 @@ public class GUI_MusicWindow {
 
         }
     }
-        
 
-    public void clickedSortByGenre(Button button) 
-    {
+
+    public void clickedSortByGenre(Button button) {
         currentSongList = initialSongList.getSortedByGenre();
         window.removeAllShapes();
         currSortedType = "Genre";
@@ -205,59 +199,55 @@ public class GUI_MusicWindow {
 
     }
 
-    public void updateGlyph(String sortedType, String representKey)
-    {
 
-        if (currentSongList != null && pageNumber >=0)
-        {
+    public void updateGlyph(String sortedType, String representKey) {
+
+        if (currentSongList != null && pageNumber >= 0) {
             Iterator<Song> Iter = currentSongList.iterator();
             int i = 0;
-            while(Iter.hasNext() && i < 9*(pageNumber + 1))
-            {
+            while (Iter.hasNext() && i < 9 * (pageNumber + 1)) {
                 String songTitle = Iter.next().getSongTitle();
-                if (i >= 9*pageNumber)
-                {
-                    this.buildShape(songTitle, representKey, sortedType, i%9);
+                if (i >= 9 * pageNumber) {
+                    this.buildShape(songTitle, representKey, sortedType, i % 9);
                 }
                 i++;
 
             }
         }
+        this.buildLegend(representKey);
     }
 
 
-    public void clickedSortByGenreTest() 
-    {
+    public void clickedSortByGenreTest() {
         SongList songList = initialSongList.getSortedByGenre();
 
-        /*for (int i = 0; i < sortedList.size(); i++) {
-            String genre = sortedList.get(i);
-            SongList<Song> tempSongList = survey.getSongByGenre(genre,
-                songList);*/
-            
-                for (int j = 0; j < songList.size(); j++) 
-                {
-                Song temp = (Song) songList.get(j);
-                String songName = temp.getSongTitle().toLowerCase();
-                DecimalFormat df = new DecimalFormat("0");
-                String heard = "\nheard \n" + "reading" + df.format(survey
-                    .dataOf(songName, "reading", true)) + " art" + df.format(
-                        survey.dataOf(songName, "art", true)) + " sports" + df
-                            .format(survey.dataOf(songName, "sports", true))
-                    + " music" + df.format(survey.dataOf(songName, "music",
-                        true));
+        /*
+         * for (int i = 0; i < sortedList.size(); i++) {
+         * String genre = sortedList.get(i);
+         * SongList<Song> tempSongList = survey.getSongByGenre(genre,
+         * songList);
+         */
 
-                String like = "\nlikes \n" + "reading" + df.format(survey
-                    .dataOf(songName, "reading", false)) + " art" + df.format(
-                        survey.dataOf(songName, "art", false)) + " sports" + df
-                            .format(survey.dataOf(songName, "sports", false))
-                    + " music" + df.format(survey.dataOf(songName, "music",
-                        false)) + " \n";
-                System.out.println(survey.getSongInLowerCase(songName, songList)
-                    .toStringTest() + heard + like);
+        for (int j = 0; j < songList.size(); j++) {
+            Song temp = (Song)songList.get(j);
+            String songName = temp.getSongTitle().toLowerCase();
+            DecimalFormat df = new DecimalFormat("0");
+            String heard = "\nheard \n" + "reading" + df.format(survey.dataOf(
+                songName, "reading", true)) + " art" + df.format(survey.dataOf(
+                    songName, "art", true)) + " sports" + df.format(survey
+                        .dataOf(songName, "sports", true)) + " music" + df
+                            .format(survey.dataOf(songName, "music", true));
 
-            }
-        
+            String like = "\nlikes \n" + "reading" + df.format(survey.dataOf(
+                songName, "reading", false)) + " art" + df.format(survey.dataOf(
+                    songName, "art", false)) + " sports" + df.format(survey
+                        .dataOf(songName, "sports", false)) + " music" + df
+                            .format(survey.dataOf(songName, "music", false))
+                + " \n";
+            System.out.println(survey.getSongInLowerCase(songName, songList)
+                .toStringTest() + heard + like);
+
+        }
 
     }
 
@@ -270,8 +260,7 @@ public class GUI_MusicWindow {
      *            the button to be clicked to show the stats
      *            of the songs of the people's favorite hobbies
      */
-    public void clickedRepresentHobby(Button button) 
-    {
+    public void clickedRepresentHobby(Button button) {
         representKey = "Hobby";
         window.removeAllShapes();
         this.updateGlyph(currSortedType, representKey);
@@ -286,8 +275,7 @@ public class GUI_MusicWindow {
      *            the button to be clicked to show the stats
      *            of the songs of the people's majors
      */
-    public void clickedRepresentMajor(Button button) 
-    {
+    public void clickedRepresentMajor(Button button) {
         representKey = "Major";
         window.removeAllShapes();
         this.updateGlyph(currSortedType, representKey);
@@ -302,8 +290,7 @@ public class GUI_MusicWindow {
      *            the button to be clicked to show the stats
      *            of the songs of where people reside
      */
-    public void clickedRepresentRegion(Button button) 
-    {
+    public void clickedRepresentRegion(Button button) {
         representKey = "State";
         window.removeAllShapes();
         this.updateGlyph(currSortedType, representKey);
@@ -317,10 +304,10 @@ public class GUI_MusicWindow {
      * @param quitButton
      *            the button to be clicked to quit the window
      */
-    public void clickedQuit(Button quitButton) 
-    {
+    public void clickedQuit(Button quitButton) {
         System.exit(0);
     }
+
 
     /**
      * Shows the previous data on the GUI window.
@@ -329,12 +316,10 @@ public class GUI_MusicWindow {
      * @param button
      *            the previous button
      */
-    public void clickedPrevious(Button button) 
-    {
+    public void clickedPrevious(Button button) {
         window.removeAllShapes();
 
-        if (currentSongList != null)
-        {
+        if (currentSongList != null && pageNumber > 0) {
             pageNumber--;
         }
         updateGlyph(currSortedType, representKey);
@@ -349,86 +334,81 @@ public class GUI_MusicWindow {
      * @param button
      *            the next button
      */
-    public void clickedNext(Button button) 
-    {
+    public void clickedNext(Button button) {
         window.removeAllShapes();
 
-        if (currentSongList != null)
-        {
+        if (currentSongList != null && pageNumber < currentSongList.size() / 9
+            - 1) {
             pageNumber++;
         }
         updateGlyph(currSortedType, representKey);
     }
 
-    
-    public void buildShape(String title, String attributesTypes, String sortedType , int index)
-    {
-        this.buildLegend(representKey);
+
+    public void buildShape(
+        String title,
+        String attributesTypes,
+        String sortedType,
+        int index) {
 
         Song curSong = currentSongList.getSongInLowerCase(title.toLowerCase());
         title = title.toLowerCase();
         int glyph_X = index % 3 * 240 + 130;
-        int glyph_Y =  index / 3 * 90 + 40;
-        
+        int glyph_Y = index / 3 * 90 + 40;
+
         int stringIndex = 0;
-        if (attributesTypes == "Major")
-        {
+        if (attributesTypes == "Major") {
             stringIndex = 4;
         }
-        else if ( attributesTypes == "State")
-        {
+        else if (attributesTypes == "State") {
             stringIndex = 8;
         }
 
         Shape vertical = new Shape(glyph_X, glyph_Y + 5, 5, 50, Color.BLACK);
-        
+
         this.window.addShape(vertical);
 
-        for (int i = 0; i < 4; i++)
-        {
-            int width = (int)(survey.dataOf(title, Attributes[i+stringIndex], true) * 0.7);
-            Shape horizontal = new Shape(glyph_X - width, glyph_Y + 10*(i+1), 
-            width, 10, new Color(60, 60*i, 230));
+        for (int i = 0; i < 4; i++) {
+            int width = (int)(survey.dataOf(title, Attributes[i + stringIndex],
+                true) * 0.7);
+            Shape horizontal = new Shape(glyph_X - width, glyph_Y + 10 * (i
+                + 1), width, 10, new Color(60, 60 * i, 230));
             this.window.addShape(horizontal);
         }
 
-        for (int i = 0; i < 4; i++)
-        {
-            int width = (int)(survey.dataOf(title, Attributes[i+stringIndex], false) * 0.7);
-            Shape horizontal = new Shape(glyph_X, glyph_Y + 10*(i+1), 
-            width, 10, new Color(60, 60*i, 230));
+        for (int i = 0; i < 4; i++) {
+            int width = (int)(survey.dataOf(title, Attributes[i + stringIndex],
+                false) * 0.7);
+            Shape horizontal = new Shape(glyph_X, glyph_Y + 10 * (i + 1), width,
+                10, new Color(60, 60 * i, 230));
             this.window.addShape(horizontal);
         }
 
-        TextShape textshape = new TextShape(glyph_X - 10, glyph_Y - 25,
-            title.toUpperCase(), Color.BLACK);
+        TextShape textshape = new TextShape(glyph_X - 10, glyph_Y - 25, title
+            .toUpperCase(), Color.BLACK);
         textshape.setBackgroundColor(Color.WHITE);
-        textshape.setX(glyph_X  - textshape.getWidth()/2);
+        textshape.setX(glyph_X - textshape.getWidth() / 2);
         this.window.addShape(textshape);
 
-        String label = "By " + curSong.getArtistName();;
-        if (sortedType.equals("Year"))
-        {
+        String label = "By " + curSong.getArtistName();
+        ;
+        if (sortedType.equals("Year")) {
             label = "year: " + curSong.getDate();
         }
-        else if (sortedType.equals("Genre"))
-        {
+        else if (sortedType.equals("Genre")) {
             label = "genre: " + curSong.getGenre();
         }
 
         TextShape labelShape = new TextShape(glyph_X - 30, glyph_Y - 10, label,
             Color.BLACK);
-        labelShape.setX(glyph_X  - labelShape.getWidth()/2);
+        labelShape.setX(glyph_X - labelShape.getWidth() / 2);
         labelShape.setBackgroundColor(Color.WHITE);
-
-
-
 
         this.window.addShape(labelShape);
     }
 
-    public void buildLegend(String representKey)
-    {
+
+    public void buildLegend(String representKey) {
         int xposition = 745;
         int yposition = 140;
         // This creates the Legend
@@ -438,15 +418,13 @@ public class GUI_MusicWindow {
         String legend3 = "Music";
         String legend4 = "Sports";
 
-        if (representKey.equals("Major"))
-        {
+        if (representKey.equals("Major")) {
             legend1 = "Comp Sci";
             legend2 = "Math/CMDA";
             legend3 = "Other";
             legend4 = "Other Eng";
         }
-        else if(representKey.equals("State"))
-        {
+        else if (representKey.equals("State")) {
             legend1 = "Northeast";
             legend2 = "Out of US";
             legend3 = "Southeast";
@@ -455,13 +433,17 @@ public class GUI_MusicWindow {
         TextShape majorLegend = new TextShape(xposition, yposition, title,
             Color.BLACK);
         majorLegend.setBackgroundColor(Color.WHITE);
-        TextShape major1 = new TextShape(xposition + 5, yposition + 20, legend1, new Color(60, 0, 230));
+        TextShape major1 = new TextShape(xposition + 5, yposition + 20, legend1,
+            new Color(60, 0, 230));
         major1.setBackgroundColor(Color.WHITE);
-        TextShape major2 = new TextShape(xposition+ 5, yposition + 40, legend2, new Color(60, 60, 230));
+        TextShape major2 = new TextShape(xposition + 5, yposition + 40, legend2,
+            new Color(60, 60, 230));
         major2.setBackgroundColor(Color.WHITE);
-        TextShape major3 = new TextShape(xposition+ 5, yposition + 60, legend3, new Color(60, 120, 230));
+        TextShape major3 = new TextShape(xposition + 5, yposition + 60, legend3,
+            new Color(60, 120, 230));
         major3.setBackgroundColor(Color.WHITE);
-        TextShape major4 = new TextShape(xposition+ 5, yposition + 80, legend4, new Color(60, 180, 230));
+        TextShape major4 = new TextShape(xposition + 5, yposition + 80, legend4,
+            new Color(60, 180, 230));
         major4.setBackgroundColor(Color.WHITE);
 
         TextShape songTitle = new TextShape(xposition + 15, 240, "Song Title",
@@ -469,15 +451,17 @@ public class GUI_MusicWindow {
         songTitle.setBackgroundColor(Color.WHITE);
         TextShape heard = new TextShape(xposition, 270, "Heard", Color.BLACK);
         heard.setBackgroundColor(Color.WHITE);
-        Shape verticalLegend = new Shape(xposition + 50, 260, 5, 40, Color.BLACK);
-        TextShape liked = new TextShape(xposition + 60, 270, "Likes", Color.BLACK);
+        Shape verticalLegend = new Shape(xposition + 50, 260, 5, 40,
+            Color.BLACK);
+        TextShape liked = new TextShape(xposition + 60, 270, "Likes",
+            Color.BLACK);
         liked.setBackgroundColor(Color.WHITE);
 
         // rectangle
         Shape top = new Shape(xposition - 13, 135, 130, 5, Color.BLACK);
         Shape bottom = new Shape(xposition - 13, 305, 130, 5, Color.BLACK);
         Shape left = new Shape(xposition - 13, 135, 5, 170, Color.BLACK);
-        Shape right = new Shape(xposition +110, 135, 5, 175, Color.BLACK);
+        Shape right = new Shape(xposition + 110, 135, 5, 175, Color.BLACK);
 
         this.window.addShape(top);
         this.window.addShape(bottom);
@@ -495,11 +479,10 @@ public class GUI_MusicWindow {
         this.window.addShape(verticalLegend);
         this.window.addShape(liked);
 
-
     }
-     
-    public void buildButton()
-    {
+
+
+    public void buildButton() {
         prev = new Button(" <- Prev");
         window.addButton(prev, WindowSide.NORTH);
 
