@@ -61,8 +61,8 @@ public class GUI_MusicWindow {
      */
     public GUI_MusicWindow() {
 
-        Attributes = new String[] { "reading", "art", "music", "sports",
-            "Computer Science", "Math or CMDA", "Other", "Other Engineering",
+        Attributes = new String[] { "reading", "art", "sports", "music",
+            "Computer Science", "Other Engineering","Math or CMDA", "Other", 
             "Northeast", "Outside of United States", "Southeast",
             "United States (other than Southeast or Northwest)" };
 
@@ -414,14 +414,14 @@ public class GUI_MusicWindow {
         String title = "Hobby Legend";
         String legend1 = "Read";
         String legend2 = "Art";
-        String legend3 = "Music";
-        String legend4 = "Sports";
+        String legend3 = "Sports";
+        String legend4 = "Music";
 
         if (representKey.equals("Major")) {
             legend1 = "Comp Sci";
-            legend2 = "Math/CMDA";
-            legend3 = "Other";
-            legend4 = "Other Eng";
+            legend2 = "Other Eng";
+            legend3 = "Math/CMDA";
+            legend4 = "Other";
         }
         else if (representKey.equals("State")) {
             legend1 = "Northeast";
@@ -459,7 +459,7 @@ public class GUI_MusicWindow {
         // rectangle
         Shape top = new Shape(xposition - 13, 135, 130, 5, Color.BLACK);
         Shape bottom = new Shape(xposition - 13, 305, 130, 5, Color.BLACK);
-        Shape left = new Shape(xposition - 13, 135, 5, 170, Color.BLACK);
+        Shape left = new Shape(xposition - 13, 135, 5, 175, Color.BLACK);
         Shape right = new Shape(xposition + 110, 135, 5, 175, Color.BLACK);
 
         this.window.addShape(top);
