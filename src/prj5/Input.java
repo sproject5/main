@@ -8,7 +8,7 @@ package prj5;
  * I will not lie, cheat, or steal, nor will I
  * accept the actions of those who do.
  * -- Ruba Shawkat (rubas8)
-
+ * 
  */
 
 import java.io.FileNotFoundException;
@@ -16,32 +16,39 @@ import java.text.ParseException;
 
 /**
  * @author rubas8
- *          This class is the displays the Music Window and implements the visual
- *          elements of the GUI
+ *         This class displays the Music Window and implements the visual
+ *         elements of the GUI
  *
  */
 public class Input {
 
     /**
      * This method creates the window
+     * 
      * @param args
-     * @throws ParseException 
-     * @throws FileNotFoundException 
+     * @throws ParseException
+     * @throws FileNotFoundException
      */
-    public static void main(String[] args) throws FileNotFoundException, ParseException
-    {
-        //System.out.println(args.length);
-        //SongReader reader = new SongReader("SongList2018.csv",  "MusicSurveyData2018.csv");
-        
-          try {
-          SongReader reader = new SongReader(args[1],args[0]);
-          }
-          catch (FileNotFoundException e) {
-          e.printStackTrace();
-          }
-          catch (ParseException e) {
-          e.printStackTrace();
-          }
-         
+    public static void main(String[] args)
+        throws FileNotFoundException,
+        ParseException {
+        // System.out.println(args.length);
+ 
+        if (args.length > 0) {
+            try {
+                SongReader reader = new SongReader(args[1], args[0]);
+            }
+            catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+            catch (ParseException e) {
+                e.printStackTrace();
+            }
+        }
+        else {
+            SongReader reader = new SongReader("SongList2018.csv",
+                "MusicSurveyData2018.csv");
+        }
+
     }
 }
