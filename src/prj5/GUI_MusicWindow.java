@@ -6,7 +6,7 @@
  * I will not lie, cheat, or steal, nor will I
  * accept the actions of those who do.
  * -- Drew Pompeii (drewp24)
- * 
+ *  
  */
 package prj5;
 
@@ -29,7 +29,6 @@ import CS2114.WindowSide;
  * @author Drew Pompeii (drewp24)
  * @version 2019.04.16
  */
-
 public class GUI_MusicWindow {
     private Window window;
     private Button prev;
@@ -160,7 +159,7 @@ public class GUI_MusicWindow {
         this.updateGlyph(currSortedType, representKey);
 
     }
-
+ 
 
     public void clickedSortBySongTitleTest() {
         SongList<Song> songList = initialSongList.getSortedByTitle();
