@@ -55,7 +55,7 @@ public class SongList<E> extends DLList<E> {
 
         }
         return list;
-    } 
+    }
 
 
     /**
@@ -67,34 +67,33 @@ public class SongList<E> extends DLList<E> {
     public DLList<String> sortByArtistName() {
         DLList<String> artistList = new DLList<String>();
         for (int x = 0; x < this.size(); x++) {
-            artistList.add(((Song)this.get(x)).getArtistName());
+            artistList.add(((Song)this.get(x)).getArtistName().toLowerCase());
         }
         return alphabeticalOrder(artistList);
     }
 
+
     /**
      * Get the songList that has the artist names sorted alphabetically
+     * 
      * @return the songList that has the artist names sorted alphabetically
      */
-    public SongList<E> getSortedByArtistName()
-    {
+    public SongList<E> getSortedByArtistName() {
         DLList<String> sortedList = this.sortByArtistName();
         SongList<E> newSongList = new SongList<E>();
-        for (int i = 0; i < sortedList.size(); i++) 
-        {
+        for (int i = 0; i < sortedList.size(); i++) {
             String name = sortedList.get(i);
-            for (int k = 0; k < this.size(); k++) 
-            {
-                Song tempSong = ((Song) this.get(k));
-                if (tempSong.getArtistName().equals(name)
-                    && !newSongList.contains((E)tempSong)) 
-                {
+            for (int k = 0; k < this.size(); k++) {
+                Song tempSong = ((Song)this.get(k));
+                if (tempSong.getArtistName().toLowerCase().equals(name)
+                    && !newSongList.contains((E)tempSong)) {
                     newSongList.add(this.get(k));
                 }
             }
         }
         return newSongList;
     }
+
 
     /**
      * This method will sort a list of song titles alphabetically
@@ -112,23 +111,22 @@ public class SongList<E> extends DLList<E> {
         DLList<String> newTitleList = alphabeticalOrder(titleList);
         return alphabeticalOrder(newTitleList);
     }
+
+
     /**
      * Get the songList that has the artist names sorted alphabetically
+     * 
      * @return the songList that has the artist names sorted alphabetically
      */
-    public SongList<E> getSortedByTitle()
-    {
+    public SongList<E> getSortedByTitle() {
         DLList<String> sortedList = this.sortBySongTitle();
         SongList<E> newSongList = new SongList<E>();
-        for (int i = 0; i < sortedList.size(); i++) 
-        {
+        for (int i = 0; i < sortedList.size(); i++) {
             String title = sortedList.get(i);
-            for (int k = 0; k < this.size(); k++) 
-            {
-                Song tempSong = ((Song) this.get(k));
-                if (tempSong.getSongTitle().toLowerCase().equals(title.toLowerCase())
-                    && !newSongList.contains((E)tempSong)) 
-                {
+            for (int k = 0; k < this.size(); k++) {
+                Song tempSong = ((Song)this.get(k));
+                if (tempSong.getSongTitle().toLowerCase().equals(title
+                    .toLowerCase()) && !newSongList.contains((E)tempSong)) {
                     newSongList.add(this.get(k));
                 }
             }
@@ -147,8 +145,7 @@ public class SongList<E> extends DLList<E> {
     public DLList<Integer> sortByReleaseYear() {
         DLList<Integer> yearList = new DLList<Integer>();
 
-        for (int x = 0; x < this.size(); x++) 
-        {
+        for (int x = 0; x < this.size(); x++) {
             yearList.add(((Song)this.get(x)).getDate());
         }
 
@@ -166,32 +163,32 @@ public class SongList<E> extends DLList<E> {
         }
         return yearList;
     }
+
+
     /**
      * Get the songList that has the release years sorted
-     * @return the songList of the release 
+     * 
+     * @return the songList of the release
      *         years sorted from oldest to youngest
      */
-    public SongList<E> getSortedByYear()
-    {
+    public SongList<E> getSortedByYear() {
         DLList<Integer> sortedList = this.sortByReleaseYear();
         SongList<E> newSongList = new SongList<E>();
-        for (int i = 0; i < sortedList.size(); i++) 
-        {
+        for (int i = 0; i < sortedList.size(); i++) {
 
             int year = sortedList.get(i);
-            //System.out.println(year);
-            for (int k = 0; k < this.size(); k++) 
-            {
-                Song tempSong = ((Song) this.get(k));
-                if (tempSong.getDate() == year
-                    && !newSongList.contains((E)tempSong) )
-                {
+            // System.out.println(year);
+            for (int k = 0; k < this.size(); k++) {
+                Song tempSong = ((Song)this.get(k));
+                if (tempSong.getDate() == year && !newSongList.contains(
+                    (E)tempSong)) {
                     newSongList.add(this.get(k));
                 }
             }
         }
         return newSongList;
     }
+
 
     /**
      * This method will sort a a list of genres alphabetically
@@ -220,29 +217,29 @@ public class SongList<E> extends DLList<E> {
         }
         return genreList;
     }
+
+
     /**
      * Get the songList that has the genres sorted alphabetically
+     * 
      * @return Get the songList that has the genres sorted alphabetically
      */
-    public SongList<E> getSortedByGenre()
-    {
+    public SongList<E> getSortedByGenre() {
         DLList<String> sortedList = this.sortByGenre();
         SongList<E> newSongList = new SongList<E>();
-        for (int i = 0; i < sortedList.size(); i++) 
-        {
+        for (int i = 0; i < sortedList.size(); i++) {
             String genre = sortedList.get(i);
-            for (int k = 0; k < this.size(); k++) 
-            {   
-                Song tempSong = ((Song) this.get(k));
-                if (tempSong.getGenre().equals(genre) 
-                    && !newSongList.contains((E)tempSong)) 
-                {
+            for (int k = 0; k < this.size(); k++) {
+                Song tempSong = ((Song)this.get(k));
+                if (tempSong.getGenre().equals(genre) && !newSongList.contains(
+                    (E)tempSong)) {
                     newSongList.add(this.get(k));
                 }
             }
         }
         return newSongList;
     }
+
 
     /**
      * increment Heard
