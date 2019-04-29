@@ -73,8 +73,8 @@ public class SongList<E> extends DLList<E> {
     }
 
     /**
-     * 
-     * @return
+     * Get the songList that has the artist names sorted alphabetically
+     * @return the songList that has the artist names sorted alphabetically
      */
     public SongList<E> getSortedByArtistName()
     {
@@ -113,8 +113,8 @@ public class SongList<E> extends DLList<E> {
         return alphabeticalOrder(newTitleList);
     }
     /**
-     * 
-     * @return
+     * Get the songList that has the artist names sorted alphabetically
+     * @return the songList that has the artist names sorted alphabetically
      */
     public SongList<E> getSortedByTitle()
     {
@@ -167,8 +167,9 @@ public class SongList<E> extends DLList<E> {
         return yearList;
     }
     /**
-     * 
-     * @return
+     * Get the songList that has the release years sorted
+     * @return the songList of the release 
+     *         years sorted from oldest to youngest
      */
     public SongList<E> getSortedByYear()
     {
@@ -220,8 +221,8 @@ public class SongList<E> extends DLList<E> {
         return genreList;
     }
     /**
-     * 
-     * @return
+     * Get the songList that has the genres sorted alphabetically
+     * @return Get the songList that has the genres sorted alphabetically
      */
     public SongList<E> getSortedByGenre()
     {
