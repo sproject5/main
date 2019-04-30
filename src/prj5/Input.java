@@ -32,7 +32,6 @@ public class Input {
     public static void main(String[] args)
         throws FileNotFoundException,
         ParseException {
-        // System.out.println(args.length);
  
         if (args.length > 0) {
             try {
