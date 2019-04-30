@@ -160,7 +160,9 @@ public class GUI_MusicWindow {
 
     }
  
-
+    /**
+     * Sorts the data by song title in this call.
+     */
     public void clickedSortBySongTitleTest() {
         SongList<Song> songList = initialSongList.getSortedByTitle();
         for (int i = 0; i < songList.size(); i++) {
@@ -188,7 +190,12 @@ public class GUI_MusicWindow {
         }
     }
 
-
+    /**
+     * Sorts the data by genre in this button.
+     * 
+     * @param button
+     *            the button in the window.
+     */
     public void clickedSortByGenre(Button button) {
         currentSongList = initialSongList.getSortedByGenre();
         window.removeAllShapes();
@@ -198,7 +205,14 @@ public class GUI_MusicWindow {
 
     }
 
-
+    /**
+     * Updates the glyphs in the window.
+     * 
+     * @param sortedType
+     *            the sorted data
+     * @param representKey
+     *            the attribute
+     */
     public void updateGlyph(String sortedType, String representKey) {
 
         if (currentSongList != null && pageNumber >= 0) {
@@ -216,7 +230,9 @@ public class GUI_MusicWindow {
         this.buildLegend(representKey);
     }
 
-
+    /**
+     * Sorts the data by genre in this call.
+     */
     public void clickedSortByGenreTest() {
         SongList songList = initialSongList.getSortedByGenre();
 
@@ -343,7 +359,18 @@ public class GUI_MusicWindow {
         updateGlyph(currSortedType, representKey);
     }
 
-
+    /**
+     * Builds the glyphs for the window.
+     * 
+     * @param title
+     *            the title
+     * @param attributesTypes
+     *            type of attributes
+     * @param sortedType
+     *            sorted data
+     * @param index
+     *            the position
+     */
     public void buildShape(
         String title,
         String attributesTypes,
@@ -390,7 +417,7 @@ public class GUI_MusicWindow {
         this.window.addShape(textshape);
 
         String label = "By " + curSong.getArtistName();
-        ;
+        
         if (sortedType.equals("Year")) {
             label = "year: " + curSong.getDate();
         }
@@ -406,7 +433,12 @@ public class GUI_MusicWindow {
         this.window.addShape(labelShape);
     }
 
-
+    /**
+     * Builds the legend for the window.
+     * 
+     * @param representKey
+     *            the attribute
+     */
     public void buildLegend(String representKey) {
         int xposition = 745;
         int yposition = 140;
@@ -480,7 +512,9 @@ public class GUI_MusicWindow {
 
     }
 
-
+    /**
+     * Adds the buttons to the window and names them.
+     */
     public void buildButton() {
         prev = new Button(" <- Prev");
         window.addButton(prev, WindowSide.NORTH);
