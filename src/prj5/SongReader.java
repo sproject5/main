@@ -14,7 +14,8 @@ import java.util.Scanner;
 import CS2114.Button;
 
 /**
- * 
+ * This class reads the song list and survey files and
+ * into song and person objects
  *
  * @author drewp24
  * @version 2019.04.14
