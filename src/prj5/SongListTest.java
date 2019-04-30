@@ -46,7 +46,6 @@ public class SongListTest extends student.TestCase
      */
     public void testSortByArtistName()
     {
-        //System.out.println(songList.sortByArtistName());
         DLList<String> artistList = songList.sortByArtistName();
         assertEquals(artistList.get(0), conner.getArtistName());
         assertEquals(artistList.get(0), conner.getArtistName());
