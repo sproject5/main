@@ -47,7 +47,6 @@ public class Person {
         {
 
         songList = thisSongList;
-        // determines the hobby
 
         attributes = new Attribute(thisHobby, thisState, thisMajor);
         
