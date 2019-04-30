@@ -6,7 +6,7 @@
  * I will not lie, cheat, or steal, nor will I
  * accept the actions of those who do.
  * -- Drew Pompeii (drewp24)
- *  
+ * 
  */
 package prj5;
 
@@ -29,6 +29,7 @@ import CS2114.WindowSide;
  * @author Drew Pompeii (drewp24)
  * @version 2019.04.16
  */
+
 public class GUI_MusicWindow {
     private Window window;
     private Button prev;
@@ -47,6 +48,7 @@ public class GUI_MusicWindow {
     private SurveySorter survey;
 
     private final String[] Attributes;
+    private final Color[] Colors;
 
     private SongList<Song> initialSongList;
     private SongList<Song> currentSongList;
@@ -65,6 +67,7 @@ public class GUI_MusicWindow {
             "Computer Science", "Other Engineering","Math or CMDA", "Other", 
             "Northeast", "Outside of United States", "Southeast",
             "United States (other than Southeast or Northwest)" };
+        Colors = new Color[] {Color.PINK, Color.BLUE, Color.YELLOW, Color.GREEN};
 
         window = new Window("Project 5");
         orderInit = false;
@@ -159,10 +162,8 @@ public class GUI_MusicWindow {
         this.updateGlyph(currSortedType, representKey);
 
     }
- 
-    /**
-     * Sorts the data by song title in this call.
-     */
+
+
     public void clickedSortBySongTitleTest() {
         SongList<Song> songList = initialSongList.getSortedByTitle();
         for (int i = 0; i < songList.size(); i++) {
@@ -190,12 +191,7 @@ public class GUI_MusicWindow {
         }
     }
 
-    /**
-     * Sorts the data by genre in this button.
-     * 
-     * @param button
-     *            the button in the window.
-     */
+
     public void clickedSortByGenre(Button button) {
         currentSongList = initialSongList.getSortedByGenre();
         window.removeAllShapes();
@@ -205,14 +201,7 @@ public class GUI_MusicWindow {
 
     }
 
-    /**
-     * Updates the glyphs in the window.
-     * 
-     * @param sortedType
-     *            the sorted data
-     * @param representKey
-     *            the attribute
-     */
+
     public void updateGlyph(String sortedType, String representKey) {
 
         if (currentSongList != null && pageNumber >= 0) {
@@ -230,9 +219,7 @@ public class GUI_MusicWindow {
         this.buildLegend(representKey);
     }
 
-    /**
-     * Sorts the data by genre in this call.
-     */
+
     public void clickedSortByGenreTest() {
         SongList songList = initialSongList.getSortedByGenre();
 
@@ -359,18 +346,7 @@ public class GUI_MusicWindow {
         updateGlyph(currSortedType, representKey);
     }
 
-    /**
-     * Builds the glyphs for the window.
-     * 
-     * @param title
-     *            the title
-     * @param attributesTypes
-     *            type of attributes
-     * @param sortedType
-     *            sorted data
-     * @param index
-     *            the position
-     */
+
     public void buildShape(
         String title,
         String attributesTypes,
@@ -398,7 +374,7 @@ public class GUI_MusicWindow {
             int width = (int)(survey.dataOf(title, Attributes[i + stringIndex],
                 true) * 0.7);
             Shape horizontal = new Shape(glyph_X - width, glyph_Y + 10 * (i
-                + 1), width, 10, new Color(60, 60 * i, 230));
+                + 1), width, 10, Colors[i]);
             this.window.addShape(horizontal);
         }
 
@@ -406,7 +382,7 @@ public class GUI_MusicWindow {
             int width = (int)(survey.dataOf(title, Attributes[i + stringIndex],
                 false) * 0.7);
             Shape horizontal = new Shape(glyph_X, glyph_Y + 10 * (i + 1), width,
-                10, new Color(60, 60 * i, 230));
+                10, Colors[i]);
             this.window.addShape(horizontal);
         }
 
@@ -417,7 +393,7 @@ public class GUI_MusicWindow {
         this.window.addShape(textshape);
 
         String label = "By " + curSong.getArtistName();
-        
+        ;
         if (sortedType.equals("Year")) {
             label = "year: " + curSong.getDate();
         }
@@ -433,12 +409,7 @@ public class GUI_MusicWindow {
         this.window.addShape(labelShape);
     }
 
-    /**
-     * Builds the legend for the window.
-     * 
-     * @param representKey
-     *            the attribute
-     */
+
     public void buildLegend(String representKey) {
         int xposition = 745;
         int yposition = 140;
@@ -465,16 +436,16 @@ public class GUI_MusicWindow {
             Color.BLACK);
         majorLegend.setBackgroundColor(Color.WHITE);
         TextShape major1 = new TextShape(xposition + 5, yposition + 20, legend1,
-            new Color(60, 0, 230));
+            Color.PINK);
         major1.setBackgroundColor(Color.WHITE);
         TextShape major2 = new TextShape(xposition + 5, yposition + 40, legend2,
-            new Color(60, 60, 230));
+            Color.BLUE);
         major2.setBackgroundColor(Color.WHITE);
         TextShape major3 = new TextShape(xposition + 5, yposition + 60, legend3,
-            new Color(60, 120, 230));
+            Color.YELLOW);
         major3.setBackgroundColor(Color.WHITE);
         TextShape major4 = new TextShape(xposition + 5, yposition + 80, legend4,
-            new Color(60, 180, 230));
+            Color.GREEN);
         major4.setBackgroundColor(Color.WHITE);
 
         TextShape songTitle = new TextShape(xposition + 15, 240, "Song Title",
@@ -512,9 +483,7 @@ public class GUI_MusicWindow {
 
     }
 
-    /**
-     * Adds the buttons to the window and names them.
-     */
+
     public void buildButton() {
         prev = new Button(" <- Prev");
         window.addButton(prev, WindowSide.NORTH);
