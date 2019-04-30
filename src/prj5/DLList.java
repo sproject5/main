@@ -12,7 +12,8 @@ import java.util.NoSuchElementException;
 
 /**
  * This provides implementation for some of the LList methods.
- *
+ * NOTE: This code is from the Lab10.
+ * 
  * @author Mark Wiggans (mmw125)
  * @version 3/29/15
  * @author Eric Williamson
@@ -390,16 +391,6 @@ public class DLList<E> implements Iterable {
 
         }
 
- 
-        /**
-         * Checks if there are more elements in the list
-         * 
-         * @return true if there are more elements in the list
-         */
-//        public boolean hasPrevious() {
-//            return node.previous() != head;
-//        }
- 
 
         /**
          * Checks if there are more elements in the list
@@ -410,7 +401,7 @@ public class DLList<E> implements Iterable {
         public boolean hasNext() {
             return node.next() != tail;
         }
- 
+
 
         /**
          * Gets the next value in the list
@@ -431,26 +422,6 @@ public class DLList<E> implements Iterable {
             }
 
         }
-
-
-        /**
-         * Gets the next value in the list
-         *
-         * @return the next value
-         * @throws NoSuchElementException
-         *             if there are no nodes left in the list
-         */
-//        public E previous() {
-//            if (!this.hasPrevious()) {
-//                throw new NoSuchElementException();
-//            }
-//            else {
-//                bool = true;
-//                node = node.previous;
-//                return node.getData();
-//            }
-//
-//        }
 
 
         /**
@@ -478,7 +449,7 @@ public class DLList<E> implements Iterable {
         }
     }
 
- 
+
     /**
      * Iterator creates iterator object.
      * 
@@ -502,7 +473,7 @@ public class DLList<E> implements Iterable {
         private Node<E> node;
         private Boolean bool;
 
- 
+
         /**
          * Creates a new DLListIterator
          * 
@@ -523,7 +494,7 @@ public class DLList<E> implements Iterable {
         public boolean hasNext() {
             return node.previous() != head;
         }
- 
+
 
         /**
          * Gets the next value in the list
