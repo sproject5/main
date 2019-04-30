@@ -48,6 +48,7 @@ public class GUI_MusicWindow {
 
     private final String[] Attributes;
     private final Color[] Colors;
+
     private SongList<Song> initialSongList;
     private SongList<Song> currentSongList;
     private String representKey;
@@ -67,6 +68,7 @@ public class GUI_MusicWindow {
             "United States (other than Southeast or Northwest)" };
         Colors = new Color[] { Color.PINK, Color.BLUE, Color.YELLOW,
             Color.GREEN };
+
         window = new Window("Project 5");
         orderInit = false;
     }
@@ -163,7 +165,9 @@ public class GUI_MusicWindow {
 
 
     /**
-     * Sorts the data by song title in this call.
+     * This method tests the function of our button
+     * When we click, the button it will sort by the song title
+     * in alphabetical order
      */
     public void clickedSortBySongTitleTest() {
         SongList<Song> songList = initialSongList.getSortedByTitle();
@@ -194,10 +198,12 @@ public class GUI_MusicWindow {
 
 
     /**
-     * Sorts the data by genre in this button.
+     * When clicked it will sort all the songs by it's genre
+     * sorting in alphabetical order
      * 
      * @param button
-     *            the button in the window.
+     *            the button to be clicked to
+     *            sort the songs by genre
      */
     public void clickedSortByGenre(Button button) {
         currentSongList = initialSongList.getSortedByGenre();
@@ -210,12 +216,12 @@ public class GUI_MusicWindow {
 
 
     /**
-     * Updates the glyphs in the window.
+     * This method updates the glyph
      * 
      * @param sortedType
-     *            the sorted data
+     *            the type of sort
      * @param representKey
-     *            the attribute
+     *            the representation in the key
      */
     public void updateGlyph(String sortedType, String representKey) {
 
@@ -236,7 +242,7 @@ public class GUI_MusicWindow {
 
 
     /**
-     * Sorts the data by genre in this call.
+     * This method tests the functionality of the sortByGenre
      */
     public void clickedSortByGenreTest() {
         SongList songList = initialSongList.getSortedByGenre();
@@ -366,16 +372,16 @@ public class GUI_MusicWindow {
 
 
     /**
-     * Builds the glyphs for the window.
+     * builds the glyph
      * 
      * @param title
-     *            the title
+     *            the title of the song
      * @param attributesTypes
-     *            type of attributes
+     *            the types of hobby, major, and state enumerations
      * @param sortedType
-     *            sorted data
+     *            the sort type
      * @param index
-     *            the position
+     *            the current index
      */
     public void buildShape(
         String title,
@@ -423,7 +429,7 @@ public class GUI_MusicWindow {
         this.window.addShape(textshape);
 
         String label = "By " + curSong.getArtistName();
-
+        ;
         if (sortedType.equals("Year")) {
             label = "year: " + curSong.getDate();
         }
@@ -441,10 +447,10 @@ public class GUI_MusicWindow {
 
 
     /**
-     * Builds the legend for the window.
+     * builds the legend
      * 
      * @param representKey
-     *            the attribute
+     *            what should be on the legend
      */
     public void buildLegend(String representKey) {
         int xposition = 745;
@@ -521,7 +527,7 @@ public class GUI_MusicWindow {
 
 
     /**
-     * Adds the buttons to the window and names them.
+     * builds the button
      */
     public void buildButton() {
         prev = new Button(" <- Prev");
