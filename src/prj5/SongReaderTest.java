@@ -63,13 +63,9 @@ public class SongReaderTest extends TestCase {
         
         assertEquals(0, persons[0].getSongList().get(4).getHeard());
         assertEquals(0, persons[0].getSongList().get(4).getLiked());
-
-        //assertEquals(1, persons[0].getSongList().get(5).getHeard());
+        
         assertEquals(1, persons[0].getSongList().get(5).getHeard());
         assertEquals(1, persons[0].getSongList().get(5).getLiked());
-
-        //assertEquals(1, persons[0].getSongList().get(7).getHeard());
-        
     }
    
  
