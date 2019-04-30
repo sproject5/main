@@ -85,16 +85,16 @@ public class SongList<E> extends DLList<E> {
             String name = sortedList.get(i);
             for (int k = 0; k < this.size(); k++) {
                 Song tempSong = ((Song)this.get(k));
-                if (tempSong.getArtistName().toLowerCase().equals(name)
-                    && !newSongList.contains((E)tempSong)) {
+                if (tempSong.getArtistName().toLowerCase().equals(name)) {
+// && !newSongList.contains((E)tempSong)
                     newSongList.add(this.get(k));
                 }
             }
         }
-        return newSongList;
+        return newSongList; 
     }
 
-
+ 
     /**
      * This method will sort a list of song titles alphabetically
      * 
@@ -126,7 +126,8 @@ public class SongList<E> extends DLList<E> {
             for (int k = 0; k < this.size(); k++) {
                 Song tempSong = ((Song)this.get(k));
                 if (tempSong.getSongTitle().toLowerCase().equals(title
-                    .toLowerCase()) && !newSongList.contains((E)tempSong)) {
+                    .toLowerCase())) {
+                    // && !newSongList.contains((E)tempSong)
                     newSongList.add(this.get(k));
                 }
             }
@@ -183,7 +184,7 @@ public class SongList<E> extends DLList<E> {
                 if (tempSong.getDate() == year && !newSongList.contains(
                     (E)tempSong)) {
                     newSongList.add(this.get(k));
-                }
+                } 
             }
         }
         return newSongList;
