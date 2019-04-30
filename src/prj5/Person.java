@@ -17,9 +17,6 @@ package prj5;
 public class Person {
 
     private SongList<Song> songList;
-    private HobbyEnum hobby;
-    private MajorEnum major;
-    private StateEnum state;
     private int index;
 
     private Attribute attributes;
