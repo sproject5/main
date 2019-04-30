@@ -180,4 +180,12 @@ public class SongListTest extends student.TestCase
             "Title: goodBye2; Artist: jack2; Genre: jazz2; Date: 1999; "
             + "Liked: -1; Heard: -1\n", list.toString());
     }
+    public void testGetSongInLowerCase() {
+        SongList<Song> list = new SongList<Song>();
+        Song song = new Song("jack", "CIZZA PIZZA", "jazz", 2006);
+        list.add(song);
+        
+        assertEquals(list.getSongInLowerCase("cizza pizza"), song);
+
+    }
 }
